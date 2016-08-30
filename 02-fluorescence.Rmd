@@ -1,0 +1,14 @@
+# Fluorescence {#fluorescence}
+
+```{r setup, include=FALSE}
+library(ggplot2)
+library(dplyr)
+
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Introduction
+
+- What is a EEM
+- Principal metrics (BIX, HIX, FI, etc.)
+- PARAFAC

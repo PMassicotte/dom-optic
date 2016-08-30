@@ -5,10 +5,11 @@ date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 output: bookdown::gitbook
 documentclass: book
+bibliography: biblio.bib
 biblio-style: apalike
 link-citations: yes
 github-repo: PMassicotte/dom-optic
-description: "This is a practical guide on dissolved organic matter."
+description: "A practical guide on dissolved organic matter optic."
 ---
 
 ```{r setup}

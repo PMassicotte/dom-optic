@@ -7,14 +7,18 @@ library(dplyr)
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+## Spectral slopes {#sl}
+
 ```{r}
-mtcars %>% 
-  ggplot(aes(x = cyl, y = hp)) +
-  geom_point()
+library(cdom)
+data(spectra)
+
+ggplot(spectra, aes(x = wavelength, y = spc1)) +
+  geom_line()
+
 ```
 
 
-## Spectral slopes {#sl}
-
 - Cite the 3 references and why.
-- Test
+
+[@Stedmon2001; @Jerlov1968; @Bricaud1981]
