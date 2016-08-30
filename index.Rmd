@@ -1,0 +1,29 @@
+--- 
+title: "Practical guide on dissolved organic matter"
+author: "Philippe Massicotte"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+output: bookdown::gitbook
+documentclass: book
+biblio-style: apalike
+link-citations: yes
+github-repo: PMassicotte/dom-optic
+description: "This is a practical guide on dissolved organic matter."
+---
+
+```{r setup}
+library(ggplot2)
+library(dplyr)
+```
+
+
+# Introduction and motivations
+
+- Need for unified way to present stuff with correct citation.
+
+```{r include=FALSE}
+# automatically create a bib database for R packages
+knitr::write_bib(c(
+  .packages(), 'bookdown', 'knitr', 'rmarkdown'
+), 'packages.bib')
+```

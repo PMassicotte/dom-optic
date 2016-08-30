@@ -1,0 +1,19 @@
+# Absorbance {#absorbance}
+
+```{r setup, include=FALSE}
+library(ggplot2)
+library(dplyr)
+
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+mtcars %>% 
+  ggplot(aes(x = cyl, y = hp)) +
+  geom_point()
+```
+
+
+## Spectral slopes {#sl}
+
+- Cite the 3 references and why.
