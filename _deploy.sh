@@ -2,7 +2,7 @@
 
 # clone the repository to the book-output directory
 git clone -b gh-pages \
-  https://${GITHUB_PAT}@github.com/${TRAVIS_REPO_SLUG}.git \
+  # https://${GITHUB_PAT}@github.com/${TRAVIS_REPO_SLUG}.git \
   book-output
 
 cd book-output
