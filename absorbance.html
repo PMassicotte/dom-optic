@@ -7,20 +7,20 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Practical guide on dissolved organic matter</title>
   <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
-  <meta name="description" content="This is a practical guide on dissolved organic matter.">
+  <meta name="description" content="A practical guide on dissolved organic matter optic.">
   <meta name="generator" content="bookdown 0.1.5 and GitBook 2.6.7">
 
   <meta property="og:title" content="Practical guide on dissolved organic matter" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="This is a practical guide on dissolved organic matter." />
+  <meta property="og:description" content="A practical guide on dissolved organic matter optic." />
   <meta name="github-repo" content="PMassicotte/dom-optic" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:title" content="Practical guide on dissolved organic matter" />
   
-  <meta name="twitter:description" content="This is a practical guide on dissolved organic matter." />
+  <meta name="twitter:description" content="A practical guide on dissolved organic matter optic." />
   
 
 <meta name="author" content="Philippe Massicotte">
@@ -34,7 +34,7 @@
   
   
 <link rel="prev" href="index.html">
-
+<link rel="next" href="fluorescence.html">
 
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -108,6 +108,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="2" data-path="absorbance.html"><a href="absorbance.html"><i class="fa fa-check"></i><b>2</b> Absorbance</a><ul>
 <li class="chapter" data-level="2.1" data-path="absorbance.html"><a href="absorbance.html#sl"><i class="fa fa-check"></i><b>2.1</b> Spectral slopes</a></li>
 </ul></li>
+<li class="chapter" data-level="3" data-path="fluorescence.html"><a href="fluorescence.html"><i class="fa fa-check"></i><b>3</b> Fluorescence</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/PMassicotte/dom-optic" target="blank">Published with bookdown</a></li>
 
@@ -130,17 +131,31 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="absorbance" class="section level1">
 <h1><span class="header-section-number">Chapter 2</span> Absorbance</h1>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mtcars %&gt;%<span class="st"> </span>
-<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> cyl, <span class="dt">y =</span> hp)) +
-<span class="st">  </span><span class="kw">geom_point</span>()</code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
 <div id="sl" class="section level2">
 <h2><span class="header-section-number">2.1</span> Spectral slopes</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(cdom)
+<span class="kw">data</span>(spectra)
+
+<span class="kw">ggplot</span>(spectra, <span class="kw">aes</span>(<span class="dt">x =</span> wavelength, <span class="dt">y =</span> spc1)) +
+<span class="st">  </span><span class="kw">geom_line</span>()</code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
 <ul>
 <li>Cite the 3 references and why.</li>
-<li>Test</li>
 </ul>
+<p><span class="citation">(Stedmon and Markager <a href="#ref-Stedmon2001">2001</a>; Jerlov <a href="#ref-Jerlov1968">1968</a>; Bricaud, Morel, and Prieur <a href="#ref-Bricaud1981">1981</a>)</span></p>
 
+</div>
+</div>
+<h3> Fluorescence</h3>
+<div id="refs" class="references">
+<div id="ref-Stedmon2001">
+<p>Stedmon, C A, and S Markager. 2001. “The optics of chromophoric dissolved organic matter (CDOM) in the Greenland Sea: An algorithm for differentiation between marine and terrestrially derived organic matter.” <em>Limnology and Oceanography</em> 46 (8): 2087–93. doi:<a href="https://doi.org/10.4319/lo.2001.46.8.2087">10.4319/lo.2001.46.8.2087</a>.</p>
+</div>
+<div id="ref-Jerlov1968">
+<p>Jerlov, N.G. 1968. <em>Optical oceanography</em>. New York: Elsevier Publishing Company.</p>
+</div>
+<div id="ref-Bricaud1981">
+<p>Bricaud, Annick, André Morel, and Louis Prieur. 1981. “Absorption by dissolved organic matter of the sea (yellow substance) in the UV and visible domains.” <em>Limnology and Oceanography</em> 26 (1): 43–53. doi:<a href="https://doi.org/10.4319/lo.1981.26.1.0043">10.4319/lo.1981.26.1.0043</a>.</p>
 </div>
 </div>
             </section>
@@ -148,8 +163,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="fluorescence.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
 
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
