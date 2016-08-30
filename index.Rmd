@@ -1,5 +1,5 @@
 --- 
-title: "Practical guide on dissolved organic matter"
+title: "Practical guide on dissolved organic matter (DOM) optic"
 author: "Philippe Massicotte"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
@@ -20,7 +20,9 @@ library(dplyr)
 
 # Introduction and motivations
 
+- Why? Already few good books [@Lakowicz2006]
 - Need for unified way to present stuff with correct citation.
+
 
 ```{r include=FALSE}
 # automatically create a bib database for R packages
@@ -28,3 +30,5 @@ knitr::write_bib(c(
   .packages(), 'bookdown', 'knitr', 'rmarkdown'
 ), 'packages.bib')
 ```
+
+## References

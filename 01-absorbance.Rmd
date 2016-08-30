@@ -9,6 +9,17 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## Spectral slopes {#sl}
 
+- Exponential shape.
+- Cite the 3 references and why [@Stedmon2001; @Jerlov1968; @Bricaud1981].
+
+$$ 
+a(\lambda) = a(\lambda0)e^{-S(\lambda - \lambda0)} + K
+$$
+Where...
+
+- Nonlinear fit
+
+
 ```{r}
 library(cdom)
 data(spectra)
@@ -19,6 +30,10 @@ ggplot(spectra, aes(x = wavelength, y = spc1)) +
 ```
 
 
-- Cite the 3 references and why.
+## Metrics
 
-[@Stedmon2001; @Jerlov1968; @Bricaud1981]
+- $S_{300-600}$ linked to DOM molecular weight [@Stedmon2015].
+
+> This is my neat citation.
+
+## References

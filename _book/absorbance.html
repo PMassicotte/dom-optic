@@ -5,12 +5,12 @@
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Practical guide on dissolved organic matter</title>
+  <title>Practical guide on dissolved organic matter (DOM) optic</title>
   <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
   <meta name="description" content="A practical guide on dissolved organic matter optic.">
   <meta name="generator" content="bookdown 0.1.5 and GitBook 2.6.7">
 
-  <meta property="og:title" content="Practical guide on dissolved organic matter" />
+  <meta property="og:title" content="Practical guide on dissolved organic matter (DOM) optic" />
   <meta property="og:type" content="book" />
   
   
@@ -18,7 +18,7 @@
   <meta name="github-repo" content="PMassicotte/dom-optic" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Practical guide on dissolved organic matter" />
+  <meta name="twitter:title" content="Practical guide on dissolved organic matter (DOM) optic" />
   
   <meta name="twitter:description" content="A practical guide on dissolved organic matter optic." />
   
@@ -27,6 +27,11 @@
 
 <meta name="date" content="2016-08-30">
 
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -101,12 +106,14 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">A Minimal Book Example</a></li>
+<li><a href="./">Practical guide on dissolved organic matter (DOM) optic</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction and motivations</a></li>
 <li class="chapter" data-level="2" data-path="absorbance.html"><a href="absorbance.html"><i class="fa fa-check"></i><b>2</b> Absorbance</a><ul>
 <li class="chapter" data-level="2.1" data-path="absorbance.html"><a href="absorbance.html#sl"><i class="fa fa-check"></i><b>2.1</b> Spectral slopes</a></li>
+<li class="chapter" data-level="2.2" data-path="absorbance.html"><a href="absorbance.html#metrics"><i class="fa fa-check"></i><b>2.2</b> Metrics</a></li>
+<li class="chapter" data-level="2.3" data-path="absorbance.html"><a href="absorbance.html#references"><i class="fa fa-check"></i><b>2.3</b> References</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="fluorescence.html"><a href="fluorescence.html"><i class="fa fa-check"></i><b>3</b> Fluorescence</a></li>
 <li class="divider"></li>
@@ -121,7 +128,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Practical guide on dissolved organic matter</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Practical guide on dissolved organic matter (DOM) optic</a>
           </h1>
         </div>
 
@@ -133,16 +140,31 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <h1><span class="header-section-number">Chapter 2</span> Absorbance</h1>
 <div id="sl" class="section level2">
 <h2><span class="header-section-number">2.1</span> Spectral slopes</h2>
+<ul>
+<li>Exponential shape.</li>
+<li>Cite the 3 references and why <span class="citation">(Stedmon and Markager <a href="#ref-Stedmon2001">2001</a>; Jerlov <a href="#ref-Jerlov1968">1968</a>; Bricaud, Morel, and Prieur <a href="#ref-Bricaud1981">1981</a>)</span>.</li>
+</ul>
+<p><span class="math display">\[ 
+a(\lambda) = a(\lambda0)e^{-S(\lambda - \lambda0)} + K
+\]</span></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(cdom)
 <span class="kw">data</span>(spectra)
 
 <span class="kw">ggplot</span>(spectra, <span class="kw">aes</span>(<span class="dt">x =</span> wavelength, <span class="dt">y =</span> spc1)) +
 <span class="st">  </span><span class="kw">geom_line</span>()</code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<p><img src="dom-optic_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+</div>
+<div id="metrics" class="section level2">
+<h2><span class="header-section-number">2.2</span> Metrics</h2>
 <ul>
-<li>Cite the 3 references and why.</li>
+<li><span class="math inline">\(S_{300-600}\)</span> linked to DOM molecular weight <span class="citation">(<span class="citeproc-not-found" data-reference-id="Stedmon2015"><strong>???</strong></span>)</span>.</li>
 </ul>
-<p><span class="citation">(Stedmon and Markager <a href="#ref-Stedmon2001">2001</a>; Jerlov <a href="#ref-Jerlov1968">1968</a>; Bricaud, Morel, and Prieur <a href="#ref-Bricaud1981">1981</a>)</span></p>
+<blockquote>
+<p>This is my neat citation.</p>
+</blockquote>
+</div>
+<div id="references" class="section level2">
+<h2><span class="header-section-number">2.3</span> References</h2>
 
 </div>
 </div>
@@ -202,6 +224,17 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    if (location.protocol !== "file:" && /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, '');
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>

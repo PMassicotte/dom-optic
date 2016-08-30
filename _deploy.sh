@@ -8,5 +8,5 @@ git clone -b gh-pages \
 cd book-output
 cp -r ../_book/* ./
 git add --all *
-git commit -m"Update the book"
+git commit -m "Update the book"
 git push origin gh-pages
