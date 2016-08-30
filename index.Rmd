@@ -1,4 +1,4 @@
---- 
+---
 title: "Practical guide on dissolved organic matter (DOM) optic"
 author: "Philippe Massicotte"
 date: "`r Sys.Date()`"
@@ -12,15 +12,14 @@ github-repo: PMassicotte/dom-optic
 description: "A practical guide on dissolved organic matter optic."
 ---
 
-```{r setup}
-library(ggplot2)
-library(dplyr)
-```
-
-
 # Introduction and motivations
 
-- Why? Already few good books [@Lakowicz2006]
+Dissolved organic matter (DOM) plays fundamental roles in the ecology of aquatic ecosystems. Physical and chemical characteristics of the DOM transiting in aquatic ecosystems are important parameters that drive their functioning at different levels. For example, dissolved organic carbon (DOC) is the major fraction of the DOM pool and represents the main source of metabolic substrates for heterotrophic bacteria and influences the composition of aquatic microbial communities (Findlay2003). Additionally, the chromophoric fraction of the DOM pool (CDOM) is a major driver of underwater light characteristics (Kirk1994) which modulate many bio-optical processes such as primary production (Thrane2014, Seekell2015) and also constitute a natural screen protecting aquatic organisms against harmful ultraviolet (UV) radiations (Boily2012).
+
+- DOM is a complex mixture containing thousands of different chemical compounds (ref).
+- Traditional chemical analysis used to characterize DOM are expensive.
+- Optical methods have been developed.
+- Why this project? Already few good books [@Lakowicz2006]
 - Need for unified way to present stuff with correct citation.
 
 
