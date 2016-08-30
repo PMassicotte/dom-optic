@@ -2,7 +2,7 @@
 
 # clone the repository to the book-output directory
 git clone -b gh-pages \
-  https://PMassicotte@github.com/${TRAVIS_REPO_SLUG}.git \
+  git@github.com:PMassicotte/dom-optic.git \
   book-output
 
 cd book-output
