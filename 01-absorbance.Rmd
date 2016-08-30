@@ -5,7 +5,31 @@ library(ggplot2)
 library(dplyr)
 
 knitr::opts_chunk$set(echo = TRUE)
+
+theme_set(theme_bw(base_size = 12, base_family = "Open Sans"))
 ```
+
+
+
+```{r}
+library(cdom)
+data(spectra)
+
+spectra <- spectra %>% filter(wavelength <= 500)
+
+p <- ggplot(spectra, aes(x = wavelength, y = spc1)) +
+  geom_line() +
+  xlab("Wavelength (nm.)") +
+  ylab(bquote(Absorption~(nm^{-1})))
+
+p
+```
+
+## Absorbance vs absorption
+
+$$
+a_{\text{CDOM}}(\lambda) = \frac{A(\lambda)\times2.303}{L}
+$$
 
 ## Spectral slopes {#sl}
 
@@ -13,27 +37,57 @@ knitr::opts_chunk$set(echo = TRUE)
 - Cite the 3 references and why [@Stedmon2001; @Jerlov1968; @Bricaud1981].
 
 $$ 
-a(\lambda) = a(\lambda0)e^{-S(\lambda - \lambda0)} + K
+a_{\text{CDOM}}(\lambda) = a_{\text{CDOM}}(\lambda0)e^{-S(\lambda - \lambda0)} + K
 $$
-Where...
+Where $a_{\text{CDOM}}(\lambda)$ is the absorption coefficient (m$^{-1}$), $\lambda$ is the wavelength (nm), $\lambda0$ is a reference wavelength (nm), $K$ is a background constant (m$^{-1}$) accounting for scatter in the cuvette and drift of the instrument and $S$ is the spectral slope (nm$^{-1}$) that describes the approximate exponential rate of decrease of absorption with increasing wavelength. Higher slopes indicate a more rapid decrease in absorption with increasing wavelength. The $S$ parameter is frequently used as a proxy for tracing photochemical and microbial-induced changes of CDOM [Moran2000,Twardowski2004,Helms2013] or to determine its origin [Stedmon2001].
 
 - Nonlinear fit
 
+```{r}
+mod <- nls(spc1 ~ a0 * exp(-s * (wavelength - 350)) + k, 
+           data = spectra, 
+           start = list(a0 = 5, s = 0.02, k = 0))
+
+summary(mod)
+```
+
+The value of $S$ is `r coef(mod)[2]` meaning that absorption is decreasing at a rate of `r coef(mod)[2]` $m^{-1}$ for each increase of 1 nm.
+
+- k parameter (scattering, introduced by @Stedmon2001)
+
+```{r, echo=FALSE}
+p + geom_hline(yintercept = coef(mod)[3], lty = 2)
+```
+
 
 ```{r}
-library(cdom)
-data(spectra)
-
-ggplot(spectra, aes(x = wavelength, y = spc1)) +
-  geom_line()
-
+p + geom_line(aes(y = predict(mod)), col = "red")
 ```
 
 
 ## Metrics
 
-- $S_{300-600}$ linked to DOM molecular weight [@Stedmon2015].
+- $S_{300-600}$ linked to DOM molecular weight [@Stedmon2015b].
 
-> This is my neat citation.
+### Slope ratio
+
+The slope ratio ($S_R$) is defined as the ratio between $S_{275-295}$ and $S_{350-400}$ [@Helms2008].
+
+
+```{r sr, echo=FALSE, fig.cap="Graph showing the spectral range used to calculate the slope ratio."}
+df1 <- spectra %>% 
+  filter(wavelength %in% 275:295)
+
+df2 <- spectra %>% 
+  filter(wavelength %in% 350:400)
+
+p + 
+  geom_line(data = df1, aes(x = wavelength, y = spc1), col = "red") +
+  geom_line(data = df2, aes(x = wavelength, y = spc1), col = "red")
+```
+
+According to @Helms2008:
+
+> By calculating the ratio of the slope of the shorter wavelength region (275–295 nm) to that of the longer wavelength region (350–400 nm), a dimensionless parameter called "slope ratio" or $S_R$ is defined. This approach avoids the use of spectral data near the detection limit of the instruments used, and focuses on absorbance values that shift dramatically during estuarine transit and photochemical alteration of CDOM.
 
 ## References

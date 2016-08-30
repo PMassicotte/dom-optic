@@ -111,9 +111,12 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction and motivations</a></li>
 <li class="chapter" data-level="2" data-path="absorbance.html"><a href="absorbance.html"><i class="fa fa-check"></i><b>2</b> Absorbance</a><ul>
-<li class="chapter" data-level="2.1" data-path="absorbance.html"><a href="absorbance.html#sl"><i class="fa fa-check"></i><b>2.1</b> Spectral slopes</a></li>
-<li class="chapter" data-level="2.2" data-path="absorbance.html"><a href="absorbance.html#metrics"><i class="fa fa-check"></i><b>2.2</b> Metrics</a></li>
-<li class="chapter" data-level="2.3" data-path="absorbance.html"><a href="absorbance.html#references"><i class="fa fa-check"></i><b>2.3</b> References</a></li>
+<li class="chapter" data-level="2.1" data-path="absorbance.html"><a href="absorbance.html#absorbance-vs-absorption"><i class="fa fa-check"></i><b>2.1</b> Absorbance vs absorption</a></li>
+<li class="chapter" data-level="2.2" data-path="absorbance.html"><a href="absorbance.html#sl"><i class="fa fa-check"></i><b>2.2</b> Spectral slopes</a></li>
+<li class="chapter" data-level="2.3" data-path="absorbance.html"><a href="absorbance.html#metrics"><i class="fa fa-check"></i><b>2.3</b> Metrics</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="absorbance.html"><a href="absorbance.html#slope-ratio"><i class="fa fa-check"></i><b>2.3.1</b> Slope ratio</a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="absorbance.html"><a href="absorbance.html#references"><i class="fa fa-check"></i><b>2.4</b> References</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="fluorescence.html"><a href="fluorescence.html"><i class="fa fa-check"></i><b>3</b> Fluorescence</a></li>
 <li class="divider"></li>
@@ -138,36 +141,87 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
             <section class="normal" id="section-">
 <div id="absorbance" class="section level1">
 <h1><span class="header-section-number">Chapter 2</span> Absorbance</h1>
-<div id="sl" class="section level2">
-<h2><span class="header-section-number">2.1</span> Spectral slopes</h2>
-<ul>
-<li>Exponential shape.</li>
-<li>Cite the 3 references and why <span class="citation">(Stedmon and Markager <a href="#ref-Stedmon2001">2001</a>; Jerlov <a href="#ref-Jerlov1968">1968</a>; Bricaud, Morel, and Prieur <a href="#ref-Bricaud1981">1981</a>)</span>.</li>
-</ul>
-<p><span class="math display">\[ 
-a(\lambda) = a(\lambda0)e^{-S(\lambda - \lambda0)} + K
-\]</span> Where…</p>
-<ul>
-<li>Nonlinear fit</li>
-</ul>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(cdom)
 <span class="kw">data</span>(spectra)
 
-<span class="kw">ggplot</span>(spectra, <span class="kw">aes</span>(<span class="dt">x =</span> wavelength, <span class="dt">y =</span> spc1)) +
-<span class="st">  </span><span class="kw">geom_line</span>()</code></pre></div>
+spectra &lt;-<span class="st"> </span>spectra %&gt;%<span class="st"> </span><span class="kw">filter</span>(wavelength &lt;=<span class="st"> </span><span class="dv">500</span>)
+
+p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(spectra, <span class="kw">aes</span>(<span class="dt">x =</span> wavelength, <span class="dt">y =</span> spc1)) +
+<span class="st">  </span><span class="kw">geom_line</span>() +
+<span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Wavelength (nm.)&quot;</span>) +
+<span class="st">  </span><span class="kw">ylab</span>(<span class="kw">bquote</span>(Absorption~(nm^{-<span class="dv">1</span>})))
+
+p</code></pre></div>
 <p><img src="dom-optic_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
+<div id="absorbance-vs-absorption" class="section level2">
+<h2><span class="header-section-number">2.1</span> Absorbance vs absorption</h2>
+<p><span class="math display">\[
+a_{\text{CDOM}}(\lambda) = \frac{A(\lambda)\times2.303}{L}
+\]</span></p>
+</div>
+<div id="sl" class="section level2">
+<h2><span class="header-section-number">2.2</span> Spectral slopes</h2>
+<ul>
+<li>Exponential shape.</li>
+<li>Cite the 3 references and why <span class="citation">(C A Stedmon and Markager <a href="#ref-Stedmon2001">2001</a>; Jerlov <a href="#ref-Jerlov1968">1968</a>; Bricaud, Morel, and Prieur <a href="#ref-Bricaud1981">1981</a>)</span>.</li>
+</ul>
+<p><span class="math display">\[ 
+a_{\text{CDOM}}(\lambda) = a_{\text{CDOM}}(\lambda0)e^{-S(\lambda - \lambda0)} + K
+\]</span> Where <span class="math inline">\(a_{\text{CDOM}}(\lambda)\)</span> is the absorption coefficient (m<span class="math inline">\(^{-1}\)</span>), <span class="math inline">\(\lambda\)</span> is the wavelength (nm), <span class="math inline">\(\lambda0\)</span> is a reference wavelength (nm), <span class="math inline">\(K\)</span> is a background constant (m<span class="math inline">\(^{-1}\)</span>) accounting for scatter in the cuvette and drift of the instrument and <span class="math inline">\(S\)</span> is the spectral slope (nm<span class="math inline">\(^{-1}\)</span>) that describes the approximate exponential rate of decrease of absorption with increasing wavelength. Higher slopes indicate a more rapid decrease in absorption with increasing wavelength. The <span class="math inline">\(S\)</span> parameter is frequently used as a proxy for tracing photochemical and microbial-induced changes of CDOM [Moran2000,Twardowski2004,Helms2013] or to determine its origin [Stedmon2001].</p>
+<ul>
+<li>Nonlinear fit</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mod &lt;-<span class="st"> </span><span class="kw">nls</span>(spc1 ~<span class="st"> </span>a0 *<span class="st"> </span><span class="kw">exp</span>(-s *<span class="st"> </span>(wavelength -<span class="st"> </span><span class="dv">350</span>)) +<span class="st"> </span>k, 
+                           <span class="dt">data =</span> spectra, 
+                           <span class="dt">start =</span> <span class="kw">list</span>(<span class="dt">a0 =</span> <span class="dv">5</span>, <span class="dt">s =</span> <span class="fl">0.02</span>, <span class="dt">k =</span> <span class="dv">0</span>))
+
+<span class="kw">summary</span>(mod)</code></pre></div>
+<pre><code>## 
+## Formula: spc1 ~ a0 * exp(-s * (wavelength - 350)) + k
+## 
+## Parameters:
+##     Estimate Std. Error t value Pr(&gt;|t|)    
+## a0 0.2624416  0.0237320   11.06   &lt;2e-16 ***
+## s  0.0406974  0.0005989   67.96   &lt;2e-16 ***
+## k  4.1539547  0.2871120   14.47   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 4.187 on 308 degrees of freedom
+## 
+## Number of iterations to convergence: 16 
+## Achieved convergence tolerance: 7.177e-06</code></pre>
+<p>The value of <span class="math inline">\(S\)</span> is 0.0406974 meaning that absorption is decreasing at a rate of 0.0406974 <span class="math inline">\(m^{-1}\)</span> for each increase of 1 nm.</p>
+<ul>
+<li>k parameter (scattering, introduced by <span class="citation">C A Stedmon and Markager (<a href="#ref-Stedmon2001">2001</a>)</span>)</li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">p +<span class="st"> </span><span class="kw">geom_hline</span>(<span class="dt">yintercept =</span> <span class="kw">coef</span>(mod)[<span class="dv">3</span>], <span class="dt">lty =</span> <span class="dv">2</span>)</code></pre></div>
+<p><img src="dom-optic_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">p +<span class="st"> </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">y =</span> <span class="kw">predict</span>(mod)), <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>)</code></pre></div>
+<p><img src="dom-optic_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
 </div>
 <div id="metrics" class="section level2">
-<h2><span class="header-section-number">2.2</span> Metrics</h2>
+<h2><span class="header-section-number">2.3</span> Metrics</h2>
 <ul>
-<li><span class="math inline">\(S_{300-600}\)</span> linked to DOM molecular weight <span class="citation">(<span class="citeproc-not-found" data-reference-id="Stedmon2015"><strong>???</strong></span>)</span>.</li>
+<li><span class="math inline">\(S_{300-600}\)</span> linked to DOM molecular weight <span class="citation">(Colin A. Stedmon and Nelson <a href="#ref-Stedmon2015b">2015</a>)</span>.</li>
 </ul>
+<div id="slope-ratio" class="section level3">
+<h3><span class="header-section-number">2.3.1</span> Slope ratio</h3>
+<p>The slope ratio (<span class="math inline">\(S_R\)</span>) is defined as the ratio between <span class="math inline">\(S_{275-295}\)</span> and <span class="math inline">\(S_{350-400}\)</span> <span class="citation">(Helms et al. <a href="#ref-Helms2008">2008</a>)</span>.</p>
+<div class="figure"><span id="fig:sr"></span>
+<img src="dom-optic_files/figure-html/sr-1.png" alt="Graph showing the spectral range used to calculate the slope ratio." width="672" />
+<p class="caption">
+Figure 2.1: Graph showing the spectral range used to calculate the slope ratio.
+</p>
+</div>
+<p>According to <span class="citation">Helms et al. (<a href="#ref-Helms2008">2008</a>)</span>:</p>
 <blockquote>
-<p>This is my neat citation.</p>
+<p>By calculating the ratio of the slope of the shorter wavelength region (275–295 nm) to that of the longer wavelength region (350–400 nm), a dimensionless parameter called “slope ratio” or <span class="math inline">\(S_R\)</span> is defined. This approach avoids the use of spectral data near the detection limit of the instruments used, and focuses on absorbance values that shift dramatically during estuarine transit and photochemical alteration of CDOM. We</p>
 </blockquote>
 </div>
+</div>
 <div id="references" class="section level2">
-<h2><span class="header-section-number">2.3</span> References</h2>
+<h2><span class="header-section-number">2.4</span> References</h2>
 
 </div>
 </div>
@@ -181,6 +235,12 @@ a(\lambda) = a(\lambda0)e^{-S(\lambda - \lambda0)} + K
 </div>
 <div id="ref-Bricaud1981">
 <p>Bricaud, Annick, André Morel, and Louis Prieur. 1981. “Absorption by dissolved organic matter of the sea (yellow substance) in the UV and visible domains.” <em>Limnology and Oceanography</em> 26 (1): 43–53. doi:<a href="https://doi.org/10.4319/lo.1981.26.1.0043">10.4319/lo.1981.26.1.0043</a>.</p>
+</div>
+<div id="ref-Stedmon2015b">
+<p>Stedmon, Colin A., and Norman B. Nelson. 2015. “The Optical Properties of DOM in the Ocean.” In <em>Biogeochemistry of Marine Dissolved Organic Matter</em>, edited by Dennis A. Hansell and Craig A. Carlson, Academic P, 481–508. Burlington: Elsevier. doi:<a href="https://doi.org/10.1016/B978-0-12-405940-5.00010-8">10.1016/B978-0-12-405940-5.00010-8</a>.</p>
+</div>
+<div id="ref-Helms2008">
+<p>Helms, John R., Aron Stubbins, Jason D. Ritchie, Elizabeth C. Minor, David J. Kieber, and Kenneth Mopper. 2008. “Absorption spectral slopes and slope ratios as indicators of molecular weight, source, and photobleaching of chromophoric dissolved organic matter.” <em>Limnology and Oceanography</em> 53 (3): 955–69. doi:<a href="https://doi.org/10.4319/lo.2008.53.3.0955">10.4319/lo.2008.53.3.0955</a>.</p>
 </div>
 </div>
             </section>
