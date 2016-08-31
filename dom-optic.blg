@@ -1,0 +1,48 @@
+This is BibTeX, Version 0.99d (TeX Live 2015/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: dom-optic.aux
+The style file: apalike.bst
+Database file #1: /home/persican/Documents/library.bib.bib
+Warning--can't use both author and editor fields in Lakowicz2006
+You've used 36 entries,
+            1935 wiz_defined-function locations,
+            747 strings with 11494 characters,
+and the built_in function-call counts, 15657 in all, are:
+= -- 1551
+> -- 669
+< -- 24
++ -- 225
+- -- 225
+* -- 1416
+:= -- 2690
+add.period$ -- 111
+call.type$ -- 36
+change.case$ -- 289
+chr.to.int$ -- 36
+cite$ -- 37
+duplicate$ -- 552
+empty$ -- 1089
+format.name$ -- 279
+if$ -- 3053
+int.to.chr$ -- 1
+int.to.str$ -- 0
+missing$ -- 38
+newline$ -- 182
+num.names$ -- 114
+pop$ -- 227
+preamble$ -- 1
+purify$ -- 290
+quote$ -- 0
+skip$ -- 417
+stack$ -- 0
+substring$ -- 1199
+swap$ -- 72
+text.length$ -- 6
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 210
+warning$ -- 1
+while$ -- 141
+width$ -- 0
+write$ -- 476
+(There was 1 warning)
