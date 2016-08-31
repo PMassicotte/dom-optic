@@ -25,7 +25,7 @@
 
 <meta name="author" content="Philippe Massicotte">
 
-<meta name="date" content="2016-08-30">
+<meta name="date" content="2016-08-31">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -38,7 +38,7 @@ MathJax.Hub.Config({
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="index.html">
+<link rel="prev" href="measurements.html">
 <link rel="next" href="fluorescence.html">
 
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
@@ -110,15 +110,16 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction and motivations</a></li>
-<li class="chapter" data-level="2" data-path="absorbance.html"><a href="absorbance.html"><i class="fa fa-check"></i><b>2</b> Absorbance</a><ul>
-<li class="chapter" data-level="2.1" data-path="absorbance.html"><a href="absorbance.html#absorbance-vs-absorption"><i class="fa fa-check"></i><b>2.1</b> Absorbance vs absorption</a></li>
-<li class="chapter" data-level="2.2" data-path="absorbance.html"><a href="absorbance.html#sl"><i class="fa fa-check"></i><b>2.2</b> Spectral slopes</a></li>
-<li class="chapter" data-level="2.3" data-path="absorbance.html"><a href="absorbance.html#metrics"><i class="fa fa-check"></i><b>2.3</b> Metrics</a><ul>
-<li class="chapter" data-level="2.3.1" data-path="absorbance.html"><a href="absorbance.html#slope-ratio"><i class="fa fa-check"></i><b>2.3.1</b> Slope ratio</a></li>
+<li class="chapter" data-level="2" data-path="measurements.html"><a href="measurements.html"><i class="fa fa-check"></i><b>2</b> Measurements</a></li>
+<li class="chapter" data-level="3" data-path="absorbance.html"><a href="absorbance.html"><i class="fa fa-check"></i><b>3</b> Absorbance</a><ul>
+<li class="chapter" data-level="3.1" data-path="absorbance.html"><a href="absorbance.html#how-to-write-stuff"><i class="fa fa-check"></i><b>3.1</b> How to write stuff</a></li>
+<li class="chapter" data-level="3.2" data-path="absorbance.html"><a href="absorbance.html#sl"><i class="fa fa-check"></i><b>3.2</b> Spectral slopes</a></li>
+<li class="chapter" data-level="3.3" data-path="absorbance.html"><a href="absorbance.html#nonlinear-fitting"><i class="fa fa-check"></i><b>3.3</b> Nonlinear fitting</a></li>
+<li class="chapter" data-level="3.4" data-path="absorbance.html"><a href="absorbance.html#metrics"><i class="fa fa-check"></i><b>3.4</b> Metrics</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="absorbance.html"><a href="absorbance.html#slope-ratio"><i class="fa fa-check"></i><b>3.4.1</b> Slope ratio</a></li>
 </ul></li>
-<li class="chapter" data-level="2.4" data-path="absorbance.html"><a href="absorbance.html#references"><i class="fa fa-check"></i><b>2.4</b> References</a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="fluorescence.html"><a href="fluorescence.html"><i class="fa fa-check"></i><b>3</b> Fluorescence</a></li>
+<li class="chapter" data-level="4" data-path="fluorescence.html"><a href="fluorescence.html"><i class="fa fa-check"></i><b>4</b> Fluorescence</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/PMassicotte/dom-optic" target="blank">Published with bookdown</a></li>
 
@@ -140,7 +141,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
             <section class="normal" id="section-">
 <div id="absorbance" class="section level1">
-<h1><span class="header-section-number">Chapter 2</span> Absorbance</h1>
+<h1><span class="header-section-number">Chapter 3</span> Absorbance</h1>
+<p>Chromophoric fraction of the DOM pool (CDOM) is a major driver of underwater light characteristics (Kirk1994) which modulate many bio-optical processes such as primary production (Thrane2014, Seekell2015) and also constitute a natural screen protecting aquatic organisms against harmful ultraviolet (UV) radiations (Boily2012). Because of its colored nature, CDOM is known to strongly absorbs UV light. As wavelength increase, light absorbed by CDOM decrease exponentially <a href="absorbance.html#fig:absorbance">3.1</a>.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(cdom)
 <span class="kw">data</span>(spectra)
 
@@ -152,29 +154,53 @@ p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(spectra, <span cl
 <span class="st">  </span><span class="kw">ylab</span>(<span class="kw">bquote</span>(Absorption~(nm^{-<span class="dv">1</span>})))
 
 p</code></pre></div>
-<p><img src="dom-optic_files/figure-html/unnamed-chunk-1-1.png" width="672" /></p>
-<div id="absorbance-vs-absorption" class="section level2">
-<h2><span class="header-section-number">2.1</span> Absorbance vs absorption</h2>
-<p><span class="math display">\[
-a_{\text{CDOM}}(\lambda) = \frac{A(\lambda)\times2.303}{L}
-\]</span></p>
+<div class="figure"><span id="fig:absorbance"></span>
+<img src="dom-optic_files/figure-html/absorbance-1.png" alt="Example of an absorption spectrum of CDOM." width="672" />
+<p class="caption">
+Figure 3.1: Example of an absorption spectrum of CDOM.
+</p>
+</div>
+<div id="how-to-write-stuff" class="section level2">
+<h2><span class="header-section-number">3.1</span> How to write stuff</h2>
+<p>People have been using different terminology:</p>
+<ul>
+<li>ag(<span class="math inline">\(\lambda\)</span>)</li>
+<li>a(<span class="math inline">\(\lambda\)</span>)</li>
+<li>A(<span class="math inline">\(\lambda\)</span>)</li>
+<li>CDOM(<span class="math inline">\(\lambda\)</span>)</li>
+<li>Gelbstoff, yellow substance, gilvin, and humic substances) has more recently been provided the name chromophoric dissolved organic matter (CDOM).</li>
+</ul>
+<span class="math display">\[\begin{equation}
+a_{\text{CDOM}}(\lambda) = \frac{A(\lambda) \times 2.303}{L}
+\label{eq:absorption}
+\end{equation}\]</span>
 </div>
 <div id="sl" class="section level2">
-<h2><span class="header-section-number">2.2</span> Spectral slopes</h2>
+<h2><span class="header-section-number">3.2</span> Spectral slopes</h2>
 <ul>
 <li>Exponential shape.</li>
-<li>Cite the 3 references and why <span class="citation">(C A Stedmon and Markager <a href="#ref-Stedmon2001">2001</a>; Jerlov <a href="#ref-Jerlov1968">1968</a>; Bricaud, Morel, and Prieur <a href="#ref-Bricaud1981">1981</a>)</span>.</li>
 </ul>
-<p><span class="math display">\[ 
-a_{\text{CDOM}}(\lambda) = a_{\text{CDOM}}(\lambda0)e^{-S(\lambda - \lambda0)} + K
-\]</span> Where <span class="math inline">\(a_{\text{CDOM}}(\lambda)\)</span> is the absorption coefficient (m<span class="math inline">\(^{-1}\)</span>), <span class="math inline">\(\lambda\)</span> is the wavelength (nm), <span class="math inline">\(\lambda0\)</span> is a reference wavelength (nm), <span class="math inline">\(K\)</span> is a background constant (m<span class="math inline">\(^{-1}\)</span>) accounting for scatter in the cuvette and drift of the instrument and <span class="math inline">\(S\)</span> is the spectral slope (nm<span class="math inline">\(^{-1}\)</span>) that describes the approximate exponential rate of decrease of absorption with increasing wavelength. Higher slopes indicate a more rapid decrease in absorption with increasing wavelength. The <span class="math inline">\(S\)</span> parameter is frequently used as a proxy for tracing photochemical and microbial-induced changes of CDOM [Moran2000,Twardowski2004,Helms2013] or to determine its origin [Stedmon2001].</p>
-<ul>
-<li>Nonlinear fit</li>
-</ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mod &lt;-<span class="st"> </span><span class="kw">nls</span>(spc1 ~<span class="st"> </span>a0 *<span class="st"> </span><span class="kw">exp</span>(-s *<span class="st"> </span>(wavelength -<span class="st"> </span><span class="dv">350</span>)) +<span class="st"> </span>k, 
-                           <span class="dt">data =</span> spectra, 
-                           <span class="dt">start =</span> <span class="kw">list</span>(<span class="dt">a0 =</span> <span class="dv">5</span>, <span class="dt">s =</span> <span class="fl">0.02</span>, <span class="dt">k =</span> <span class="dv">0</span>))
+<p>First modeled by <span class="citation">Jerlov (<a href="#ref-Jerlov1968">1968</a>)</span> and <span class="citation">Bricaud, Morel, and Prieur (<a href="#ref-Bricaud1981">1981</a>)</span> (equation \ref{eq:cdom1}).</p>
+<span class="math display">\[\begin{equation}
+a_{\text{CDOM}}(\lambda) = a_{\text{CDOM}}(\lambda0)e^{-S(\lambda - \lambda0)}
+\label{eq:cdom1}
+\end{equation}\]</span>
+<p>Where <span class="math inline">\(a_{\text{CDOM}}(\lambda)\)</span> is the absorption coefficient (m<span class="math inline">\(^{-1}\)</span>), <span class="math inline">\(\lambda\)</span> is the wavelength (nm), <span class="math inline">\(\lambda0\)</span> is a reference wavelength (nm) and <span class="math inline">\(S\)</span> is the spectral slope (nm<span class="math inline">\(^{-1}\)</span>) that describes the approximate exponential rate of decrease of absorption with increasing wavelength. Higher slopes indicate a more rapid decrease in absorption with increasing wavelength. The <span class="math inline">\(S\)</span> parameter is frequently used as a proxy for tracing photochemical and microbial-induced changes of CDOM [Moran2000,Twardowski2004,Helms2013] or to determine its origin [Stedmon2001].</p>
+<p>Later modified by which introduced <span class="math inline">\(k\)</span>, a background constant (m<span class="math inline">\(^{-1}\)</span>) accounting for scatter in the cuvette and drift of the instrument (equation \ref{eq:cdom2}).</p>
+<span class="math display">\[\begin{equation}
+a_{\text{CDOM}}(\lambda) = a_{\text{CDOM}}(\lambda0)e^{-S(\lambda - \lambda0)} + \mathbf{k}
+\label{eq:cdom2}
+\end{equation}\]</span>
+<p>There are other mathematical formulations that can be used to model CDOM spectra. These are reviewed in <span class="citation">Twardowski et al. (<a href="#ref-Twardowski2004">2004</a>)</span>.</p>
+</div>
+<div id="nonlinear-fitting" class="section level2">
+<h2><span class="header-section-number">3.3</span> Nonlinear fitting</h2>
+<p>Because of it inverse exponential shape, absorption spectra are best modeled using non-linear fittings. In R this is done easy using the <code>nls()</code> function. As we can see from equation \ref{eq:cdom2}, the most commonly equation used to model CDOM spectra contains three parameters: <code>a0, s, k</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mod &lt;-<span class="st"> </span><span class="kw">nls</span>(spc1 ~<span class="st"> </span>a0 *<span class="st"> </span><span class="kw">exp</span>(-s *<span class="st"> </span>(wavelength -<span class="st"> </span><span class="dv">350</span>)) +<span class="st"> </span>k, <span class="co"># define the formula</span>
+           <span class="dt">data =</span> spectra, <span class="co"># where the data comes from</span>
+           <span class="dt">start =</span> <span class="kw">list</span>(<span class="dt">a0 =</span> <span class="dv">5</span>, <span class="dt">s =</span> <span class="fl">0.02</span>, <span class="dt">k =</span> <span class="dv">0</span>)) <span class="co"># initial guesses.</span>
 
+<span class="co"># show the summary information</span>
 <span class="kw">summary</span>(mod)</code></pre></div>
 <pre><code>## 
 ## Formula: spc1 ~ a0 * exp(-s * (wavelength - 350)) + k
@@ -195,46 +221,45 @@ a_{\text{CDOM}}(\lambda) = a_{\text{CDOM}}(\lambda0)e^{-S(\lambda - \lambda0)} +
 <ul>
 <li>k parameter (scattering, introduced by <span class="citation">C A Stedmon and Markager (<a href="#ref-Stedmon2001">2001</a>)</span>)</li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">p +<span class="st"> </span><span class="kw">geom_hline</span>(<span class="dt">yintercept =</span> <span class="kw">coef</span>(mod)[<span class="dv">3</span>], <span class="dt">lty =</span> <span class="dv">2</span>)</code></pre></div>
-<p><img src="dom-optic_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p><img src="dom-optic_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">p +<span class="st"> </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">y =</span> <span class="kw">predict</span>(mod)), <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>)</code></pre></div>
-<p><img src="dom-optic_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p><img src="dom-optic_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
 </div>
 <div id="metrics" class="section level2">
-<h2><span class="header-section-number">2.3</span> Metrics</h2>
+<h2><span class="header-section-number">3.4</span> Metrics</h2>
 <ul>
 <li><span class="math inline">\(S_{300-600}\)</span> linked to DOM molecular weight <span class="citation">(Colin A. Stedmon and Nelson <a href="#ref-Stedmon2015b">2015</a>)</span>.</li>
 </ul>
 <div id="slope-ratio" class="section level3">
-<h3><span class="header-section-number">2.3.1</span> Slope ratio</h3>
+<h3><span class="header-section-number">3.4.1</span> Slope ratio</h3>
 <p>The slope ratio (<span class="math inline">\(S_R\)</span>) is defined as the ratio between <span class="math inline">\(S_{275-295}\)</span> and <span class="math inline">\(S_{350-400}\)</span> <span class="citation">(Helms et al. <a href="#ref-Helms2008">2008</a>)</span>.</p>
+<blockquote>
+<p>By calculating the ratio of the slope of the shorter wavelength region (275–295 nm) to that of the longer wavelength region (350–400 nm), a dimensionless parameter called “slope ratio” or <span class="math inline">\(S_R\)</span> is defined. This approach avoids the use of spectral data near the detection limit of the instruments used, and focuses on absorbance values that shift dramatically during estuarine transit and photochemical alteration of CDOM <span class="citation">(Helms et al. <a href="#ref-Helms2008">2008</a>)</span>.</p>
+</blockquote>
+<p>Figure <a href="absorbance.html#fig:sr">3.2</a> shows in red the 275-295 and 350-400 nm spectral range.</p>
 <div class="figure"><span id="fig:sr"></span>
-<img src="dom-optic_files/figure-html/sr-1.png" alt="Graph showing the spectral range used to calculate the slope ratio." width="672" />
+<img src="dom-optic_files/figure-html/sr-1.png" alt="Spectral range used to calculate the slope ratio." width="672" />
 <p class="caption">
-Figure 2.1: Graph showing the spectral range used to calculate the slope ratio.
+Figure 3.2: Spectral range used to calculate the slope ratio.
 </p>
 </div>
-<p>According to <span class="citation">Helms et al. (<a href="#ref-Helms2008">2008</a>)</span>:</p>
-<blockquote>
-<p>By calculating the ratio of the slope of the shorter wavelength region (275–295 nm) to that of the longer wavelength region (350–400 nm), a dimensionless parameter called “slope ratio” or <span class="math inline">\(S_R\)</span> is defined. This approach avoids the use of spectral data near the detection limit of the instruments used, and focuses on absorbance values that shift dramatically during estuarine transit and photochemical alteration of CDOM. We</p>
-</blockquote>
-</div>
-</div>
-<div id="references" class="section level2">
-<h2><span class="header-section-number">2.4</span> References</h2>
 
+</div>
 </div>
 </div>
 <h3> Fluorescence</h3>
 <div id="refs" class="references">
-<div id="ref-Stedmon2001">
-<p>Stedmon, C A, and S Markager. 2001. “The optics of chromophoric dissolved organic matter (CDOM) in the Greenland Sea: An algorithm for differentiation between marine and terrestrially derived organic matter.” <em>Limnology and Oceanography</em> 46 (8): 2087–93. doi:<a href="https://doi.org/10.4319/lo.2001.46.8.2087">10.4319/lo.2001.46.8.2087</a>.</p>
-</div>
 <div id="ref-Jerlov1968">
 <p>Jerlov, N.G. 1968. <em>Optical oceanography</em>. New York: Elsevier Publishing Company.</p>
 </div>
 <div id="ref-Bricaud1981">
 <p>Bricaud, Annick, André Morel, and Louis Prieur. 1981. “Absorption by dissolved organic matter of the sea (yellow substance) in the UV and visible domains.” <em>Limnology and Oceanography</em> 26 (1): 43–53. doi:<a href="https://doi.org/10.4319/lo.1981.26.1.0043">10.4319/lo.1981.26.1.0043</a>.</p>
+</div>
+<div id="ref-Twardowski2004">
+<p>Twardowski, Michael S., Emmanuel Boss, James M. Sullivan, and Percy L. Donaghay. 2004. “Modeling the spectral shape of absorption by chromophoric dissolved organic matter.” <em>Marine Chemistry</em> 89 (1-4): 69–88. doi:<a href="https://doi.org/10.1016/j.marchem.2004.02.008">10.1016/j.marchem.2004.02.008</a>.</p>
+</div>
+<div id="ref-Stedmon2001">
+<p>Stedmon, C A, and S Markager. 2001. “The optics of chromophoric dissolved organic matter (CDOM) in the Greenland Sea: An algorithm for differentiation between marine and terrestrially derived organic matter.” <em>Limnology and Oceanography</em> 46 (8): 2087–93. doi:<a href="https://doi.org/10.4319/lo.2001.46.8.2087">10.4319/lo.2001.46.8.2087</a>.</p>
 </div>
 <div id="ref-Stedmon2015b">
 <p>Stedmon, Colin A., and Norman B. Nelson. 2015. “The Optical Properties of DOM in the Ocean.” In <em>Biogeochemistry of Marine Dissolved Organic Matter</em>, edited by Dennis A. Hansell and Craig A. Carlson, Academic P, 481–508. Burlington: Elsevier. doi:<a href="https://doi.org/10.1016/B978-0-12-405940-5.00010-8">10.1016/B978-0-12-405940-5.00010-8</a>.</p>
@@ -248,7 +273,7 @@ Figure 2.1: Graph showing the spectral range used to calculate the slope ratio.
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="measurements.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="fluorescence.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
 
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -276,10 +301,10 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/PMassicotte/dom-optic/edit/master/01-absorbance.Rmd",
+"link": "https://github.com/PMassicotte/dom-optic/edit/master/02-absorbance.Rmd",
 "text": null
 },
-"download": null,
+"download": ["dom-optic.pdf"],
 "toc": {
 "collapse": "subsection"
 }

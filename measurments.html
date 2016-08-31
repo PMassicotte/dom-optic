@@ -33,8 +33,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-
-<link rel="next" href="measurements.html">
+<link rel="prev" href="index.html">
+<link rel="next" href="absorbance.html">
 
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -68,7 +68,9 @@
 
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction and motivations</a></li>
-<li class="chapter" data-level="2" data-path="measurements.html"><a href="measurements.html"><i class="fa fa-check"></i><b>2</b> Measurements</a></li>
+<li class="chapter" data-level="2" data-path="measurments.html"><a href="measurments.html"><i class="fa fa-check"></i><b>2</b> Measurements</a><ul>
+<li class="chapter" data-level="2.1" data-path="measurments.html"><a href="measurments.html#practical-guide-on-dom-measurements"><i class="fa fa-check"></i><b>2.1</b> Practical guide on DOM measurements</a></li>
+</ul></li>
 <li class="chapter" data-level="3" data-path="absorbance.html"><a href="absorbance.html"><i class="fa fa-check"></i><b>3</b> Absorbance</a></li>
 <li class="chapter" data-level="4" data-path="fluorescence.html"><a href="fluorescence.html"><i class="fa fa-check"></i><b>4</b> Fluorescence</a></li>
 <li class="divider"></li>
@@ -91,31 +93,15 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">Practical guide on dissolved organic matter (DOM) optic</h1>
-<h4 class="author"><em>Philippe Massicotte</em></h4>
-<h4 class="date"><em>2016-08-31</em></h4>
-</div>
-<div id="introduction-and-motivations" class="section level1">
-<h1><span class="header-section-number">Chapter 1</span> Introduction and motivations</h1>
-<p>Dissolved organic matter (DOM) plays fundamental roles in the ecology of aquatic ecosystems. Physical and chemical characteristics of the DOM transiting in aquatic ecosystems are important parameters that drive their functioning at different levels. For example, dissolved organic carbon (DOC) is the major fraction of the DOM pool and represents the main source of metabolic substrates for heterotrophic bacteria and influences the composition of aquatic microbial communities (Findlay2003). Additionally, the chromophoric fraction of the DOM pool (CDOM) is a major driver of underwater light characteristics <span class="citation">(Kirk <a href="#ref-Kirk1994">1994</a>)</span> which modulate many bio-optical processes such as primary production (Thrane2014, Seekell2015) and also constitute a natural screen protecting aquatic organisms against harmful ultraviolet (UV) radiations (Boily2012).</p>
-<p>DOM is a complex mixture containing thousands of different chemical compounds (ref). For this reasons, traditional chemical analysis used to characterize DOM are both expensive and time consuming.</p>
+<div id="measurments" class="section level1">
+<h1><span class="header-section-number">Chapter 2</span> Measurements</h1>
+<div id="practical-guide-on-dom-measurements" class="section level2">
+<h2><span class="header-section-number">2.1</span> Practical guide on DOM measurements</h2>
 <ul>
-<li>Optical methods have been developed.</li>
-<li>Why this project? Already few good books <span class="citation">(Lakowicz <a href="#ref-Lakowicz2006">2006</a>)</span></li>
-<li>Need for unified way to present stuff with correct citation.</li>
-<li>R code examples are also provided.</li>
-<li>Wiki-like document that can serve as a starter for students.</li>
+<li>How DOM is measured (different filter sizes, paper in L&amp;O).</li>
+<li>Pump pression</li>
 </ul>
 
-</div>
-<h3> Fluorescence</h3>
-<div id="refs" class="references">
-<div id="ref-Kirk1994">
-<p>Kirk, John T O. 1994. <em>Light and photosynthesis in aquatic ecosystems</em>. 2nd ed. Cambridge [England] ; New York: Cambridge University Press.</p>
-</div>
-<div id="ref-Lakowicz2006">
-<p>Lakowicz, Joseph R. 2006. <em>Principles of Fluorescence Spectroscopy</em>. Edited by Joseph R. Lakowicz. Boston, MA: Springer-Verlag. doi:<a href="https://doi.org/10.1007/978-0-387-46312-4">10.1007/978-0-387-46312-4</a>.</p>
 </div>
 </div>
             </section>
@@ -123,8 +109,8 @@
           </div>
         </div>
       </div>
-
-<a href="measurements.html" class="navigation navigation-next navigation-unique" aria-label="Next page""><i class="fa fa-angle-right"></i></a>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="absorbance.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
 
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
@@ -151,7 +137,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/PMassicotte/dom-optic/edit/master/index.Rmd",
+"link": "https://github.com/PMassicotte/dom-optic/edit/master/01-measurments.Rmd",
 "text": null
 },
 "download": ["dom-optic.pdf"],
