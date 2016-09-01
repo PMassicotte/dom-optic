@@ -1,0 +1,17 @@
+# Definitions {#definitions}
+
+| Acronym         | Definition                                | Reference     |
+|:----------------|:------------------------------------------|:--------------|
+| DOM             | Dissolved organic matter                  |               |
+| DOC             | Dissolved organic carbon                  |               |
+| CDOM            | Chromophoric dissolved organic matter     |               |
+| SUVA$_{254}$    | Specific UV absorbance at 254 nm          | @Weishaar2003 |
+| S$_\text{R}$    | Slope ratio                               | @Helms2008    |
+| $a_\text{CDOM}$ | Absorption coefficient of CDOM (m$^{-1}$) |               |
+| $S_\lambda$     | Spectral slope curve                      | @Loiselle2009 |
+| FMAX            |                                           |               |
+| FDOM            | Fluorescent dissolved organic matter      |               |
+| S               | Spectral slope (nm$^{-1}$)                |               |
+| $\lambda$       | Greek symbol referring to wavelength (nm) |               |
+|                 |                                           |               |
+|                 |                                           |               |

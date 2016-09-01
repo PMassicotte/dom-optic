@@ -110,7 +110,9 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction and motivations</a></li>
-<li class="chapter" data-level="2" data-path="measurements.html"><a href="measurements.html"><i class="fa fa-check"></i><b>2</b> Measurements</a></li>
+<li class="chapter" data-level="2" data-path="measurements.html"><a href="measurements.html"><i class="fa fa-check"></i><b>2</b> Measurements</a><ul>
+<li class="chapter" data-level="2.1" data-path="measurements.html"><a href="measurements.html#dom-measurements"><i class="fa fa-check"></i><b>2.1</b> DOM measurements</a></li>
+</ul></li>
 <li class="chapter" data-level="3" data-path="absorbance.html"><a href="absorbance.html"><i class="fa fa-check"></i><b>3</b> Absorbance</a><ul>
 <li class="chapter" data-level="3.1" data-path="absorbance.html"><a href="absorbance.html#what-is-cdom"><i class="fa fa-check"></i><b>3.1</b> What is CDOM?</a></li>
 <li class="chapter" data-level="3.2" data-path="absorbance.html"><a href="absorbance.html#writing-and-notation"><i class="fa fa-check"></i><b>3.2</b> Writing and notation</a></li>
@@ -123,7 +125,27 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="3.6.1" data-path="absorbance.html"><a href="absorbance.html#slope-ratio"><i class="fa fa-check"></i><b>3.6.1</b> Slope ratio</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="fluorescence.html"><a href="fluorescence.html"><i class="fa fa-check"></i><b>4</b> Fluorescence</a></li>
+<li class="chapter" data-level="4" data-path="fluorescence.html"><a href="fluorescence.html"><i class="fa fa-check"></i><b>4</b> Fluorescence</a><ul>
+<li class="chapter" data-level="4.1" data-path="fluorescence.html"><a href="fluorescence.html#what-is-a-eem"><i class="fa fa-check"></i><b>4.1</b> What is a EEM</a></li>
+<li class="chapter" data-level="4.2" data-path="fluorescence.html"><a href="fluorescence.html#parafac"><i class="fa fa-check"></i><b>4.2</b> PARAFAC</a></li>
+<li class="chapter" data-level="4.3" data-path="fluorescence.html"><a href="fluorescence.html#fluorescence-of-dom-theoretical-and-mathematical-background"><i class="fa fa-check"></i><b>4.3</b> Fluorescence of DOM: theoretical and mathematical background</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="fluorescence.html"><a href="fluorescence.html#scattering-correction"><i class="fa fa-check"></i><b>4.3.1</b> Scattering correction</a></li>
+<li class="chapter" data-level="4.3.2" data-path="fluorescence.html"><a href="fluorescence.html#inner-filter-effect-correction"><i class="fa fa-check"></i><b>4.3.2</b> Inner-filter effect correction</a></li>
+<li class="chapter" data-level="4.3.3" data-path="fluorescence.html"><a href="fluorescence.html#raman-calibration"><i class="fa fa-check"></i><b>4.3.3</b> Raman calibration</a></li>
+<li class="chapter" data-level="4.3.4" data-path="fluorescence.html"><a href="fluorescence.html#metrics-1"><i class="fa fa-check"></i><b>4.3.4</b> Metrics</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="fluorescence.html"><a href="fluorescence.html#r-code-and-study-case"><i class="fa fa-check"></i><b>4.4</b> R code and study case</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="fluorescence.html"><a href="fluorescence.html#data-importation-and-plotting"><i class="fa fa-check"></i><b>4.4.1</b> Data importation and plotting</a></li>
+<li class="chapter" data-level="4.4.2" data-path="fluorescence.html"><a href="fluorescence.html#blank-subtraction"><i class="fa fa-check"></i><b>4.4.2</b> Blank subtraction</a></li>
+<li class="chapter" data-level="4.4.3" data-path="fluorescence.html"><a href="fluorescence.html#raman-and-rayleigh-scattering-removal"><i class="fa fa-check"></i><b>4.4.3</b> Raman and Rayleigh scattering removal</a></li>
+<li class="chapter" data-level="4.4.4" data-path="fluorescence.html"><a href="fluorescence.html#inner-filter-effect-correction-1"><i class="fa fa-check"></i><b>4.4.4</b> Inner-filter effect correction</a></li>
+<li class="chapter" data-level="4.4.5" data-path="fluorescence.html"><a href="fluorescence.html#raman-normalization"><i class="fa fa-check"></i><b>4.4.5</b> Raman normalization</a></li>
+<li class="chapter" data-level="4.4.6" data-path="fluorescence.html"><a href="fluorescence.html#exporting-to-matlab"><i class="fa fa-check"></i><b>4.4.6</b> Exporting to MATLAB</a></li>
+<li class="chapter" data-level="4.4.7" data-path="fluorescence.html"><a href="fluorescence.html#metric-extraction"><i class="fa fa-check"></i><b>4.4.7</b> Metric extraction</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="fluorescence.html"><a href="fluorescence.html#using-r-pipeline"><i class="fa fa-check"></i><b>4.5</b> Using R pipeline</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="definitions.html"><a href="definitions.html"><i class="fa fa-check"></i><b>5</b> Definitions</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/PMassicotte/dom-optic" target="blank">Published with bookdown</a></li>
 
@@ -299,7 +321,7 @@ Figure 3.4: Spectral range used to calculate the slope ratio.
 </div>
 </div>
 </div>
-<h3> Fluorescence</h3>
+<h3>References</h3>
 <div id="refs" class="references">
 <div id="ref-Blough2002">
 <p>Blough, Neil V, and Rossana Del Vecchio. 2002. “Chapter 10 - Chromophoric {DOM} in the Coastal Environment.” In <em>Biogeochemistry of Marine Dissolved Organic Matter</em>, edited by Dennis A HansellCraig A Carlson, 509–46. San Diego: Academic Press. doi:<a href="https://doi.org/http://dx.doi.org/10.1016/B978-012323841-2/50012-9">http://dx.doi.org/10.1016/B978-012323841-2/50012-9</a>.</p>
