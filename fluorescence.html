@@ -39,7 +39,7 @@ MathJax.Hub.Config({
   
   
 <link rel="prev" href="absorbance.html">
-
+<link rel="next" href="definitions.html">
 
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -110,8 +110,21 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction and motivations</a></li>
-<li class="chapter" data-level="2" data-path="measurements.html"><a href="measurements.html"><i class="fa fa-check"></i><b>2</b> Measurements</a></li>
-<li class="chapter" data-level="3" data-path="absorbance.html"><a href="absorbance.html"><i class="fa fa-check"></i><b>3</b> Absorbance</a></li>
+<li class="chapter" data-level="2" data-path="measurements.html"><a href="measurements.html"><i class="fa fa-check"></i><b>2</b> Measurements</a><ul>
+<li class="chapter" data-level="2.1" data-path="measurements.html"><a href="measurements.html#dom-measurements"><i class="fa fa-check"></i><b>2.1</b> DOM measurements</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="absorbance.html"><a href="absorbance.html"><i class="fa fa-check"></i><b>3</b> Absorbance</a><ul>
+<li class="chapter" data-level="3.1" data-path="absorbance.html"><a href="absorbance.html#what-is-cdom"><i class="fa fa-check"></i><b>3.1</b> What is CDOM?</a></li>
+<li class="chapter" data-level="3.2" data-path="absorbance.html"><a href="absorbance.html#writing-and-notation"><i class="fa fa-check"></i><b>3.2</b> Writing and notation</a></li>
+<li class="chapter" data-level="3.3" data-path="absorbance.html"><a href="absorbance.html#absorption-vs-absorbance"><i class="fa fa-check"></i><b>3.3</b> Absorption vs absorbance</a></li>
+<li class="chapter" data-level="3.4" data-path="absorbance.html"><a href="absorbance.html#mathematical-formulation-of-absorption-spectra"><i class="fa fa-check"></i><b>3.4</b> Mathematical formulation of absorption spectra</a></li>
+<li class="chapter" data-level="3.5" data-path="absorbance.html"><a href="absorbance.html#sl"><i class="fa fa-check"></i><b>3.5</b> Modeling CDOM absorption spectra in R</a><ul>
+<li class="chapter" data-level="3.5.1" data-path="absorbance.html"><a href="absorbance.html#potential-drawbacks"><i class="fa fa-check"></i><b>3.5.1</b> Potential drawbacks</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="absorbance.html"><a href="absorbance.html#metrics"><i class="fa fa-check"></i><b>3.6</b> Metrics</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="absorbance.html"><a href="absorbance.html#slope-ratio"><i class="fa fa-check"></i><b>3.6.1</b> Slope ratio</a></li>
+</ul></li>
+</ul></li>
 <li class="chapter" data-level="4" data-path="fluorescence.html"><a href="fluorescence.html"><i class="fa fa-check"></i><b>4</b> Fluorescence</a><ul>
 <li class="chapter" data-level="4.1" data-path="fluorescence.html"><a href="fluorescence.html#what-is-a-eem"><i class="fa fa-check"></i><b>4.1</b> What is a EEM</a></li>
 <li class="chapter" data-level="4.2" data-path="fluorescence.html"><a href="fluorescence.html#parafac"><i class="fa fa-check"></i><b>4.2</b> PARAFAC</a></li>
@@ -119,7 +132,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="4.3.1" data-path="fluorescence.html"><a href="fluorescence.html#scattering-correction"><i class="fa fa-check"></i><b>4.3.1</b> Scattering correction</a></li>
 <li class="chapter" data-level="4.3.2" data-path="fluorescence.html"><a href="fluorescence.html#inner-filter-effect-correction"><i class="fa fa-check"></i><b>4.3.2</b> Inner-filter effect correction</a></li>
 <li class="chapter" data-level="4.3.3" data-path="fluorescence.html"><a href="fluorescence.html#raman-calibration"><i class="fa fa-check"></i><b>4.3.3</b> Raman calibration</a></li>
-<li class="chapter" data-level="4.3.4" data-path="fluorescence.html"><a href="fluorescence.html#metrics"><i class="fa fa-check"></i><b>4.3.4</b> Metrics</a></li>
+<li class="chapter" data-level="4.3.4" data-path="fluorescence.html"><a href="fluorescence.html#metrics-1"><i class="fa fa-check"></i><b>4.3.4</b> Metrics</a></li>
 </ul></li>
 <li class="chapter" data-level="4.4" data-path="fluorescence.html"><a href="fluorescence.html#r-code-and-study-case"><i class="fa fa-check"></i><b>4.4</b> R code and study case</a><ul>
 <li class="chapter" data-level="4.4.1" data-path="fluorescence.html"><a href="fluorescence.html#data-importation-and-plotting"><i class="fa fa-check"></i><b>4.4.1</b> Data importation and plotting</a></li>
@@ -131,8 +144,8 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li class="chapter" data-level="4.4.7" data-path="fluorescence.html"><a href="fluorescence.html#metric-extraction"><i class="fa fa-check"></i><b>4.4.7</b> Metric extraction</a></li>
 </ul></li>
 <li class="chapter" data-level="4.5" data-path="fluorescence.html"><a href="fluorescence.html#using-r-pipeline"><i class="fa fa-check"></i><b>4.5</b> Using R pipeline</a></li>
-<li class="chapter" data-level="4.6" data-path="fluorescence.html"><a href="fluorescence.html#conclusion"><i class="fa fa-check"></i><b>4.6</b> Conclusion</a></li>
 </ul></li>
+<li class="chapter" data-level="5" data-path="definitions.html"><a href="definitions.html"><i class="fa fa-check"></i><b>5</b> Definitions</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/PMassicotte/dom-optic" target="blank">Published with bookdown</a></li>
 
@@ -255,7 +268,7 @@ X_0 = \frac{X}{A_{\text{rp}}}
 \end{equation}\]</span>
 <p>where <span class="math inline">\(X_0\)</span> is the normalized EEM with fluorescence intensities now expressed as Raman Units (R.U.), <span class="math inline">\(X\)</span> are the unnormalized measured fluorescence intensities and <span class="math inline">\(A_{\text{rp}}\)</span> is the Raman peak area.</p>
 </div>
-<div id="metrics" class="section level3">
+<div id="metrics-1" class="section level3">
 <h3><span class="header-section-number">4.3.4</span> Metrics</h3>
 <p>A wide range of different metrics obtained from EEMs have been proposed to characterize the DOM pool in aquatic ecosystems. These metrics extract quantitative information in specific regions (wavelengths) in EEMs. The following sections present an overview of the principal metrics supported by the package.</p>
 <div id="cobles-peaks" class="section level4">
@@ -479,76 +492,7 @@ file %&gt;%
 <span class="st">  </span><span class="kw">eem_remove_scattering</span>(<span class="dt">type =</span> <span class="st">&quot;raman&quot;</span>, <span class="dt">order =</span> <span class="dv">1</span>, <span class="dt">width =</span> <span class="dv">10</span>) %&gt;%
 <span class="st">  </span><span class="kw">eem_remove_scattering</span>(<span class="dt">type =</span> <span class="st">&quot;rayleigh&quot;</span>, <span class="dt">order =</span> <span class="dv">1</span>, <span class="dt">width =</span> <span class="dv">10</span>) %&gt;%
 <span class="st">  </span><span class="kw">plot</span>(<span class="dv">2</span>)</code></pre></div>
-</div>
-<div id="conclusion" class="section level2">
-<h2><span class="header-section-number">4.6</span> Conclusion</h2>
-<p><code>eemR</code> provides a flexible interface for manipulating and preprocessing fluorescence matrices based on theoretical and mathematical foundations of fluorescence spectroscopy <span class="citation">(Lakowicz <a href="#ref-Lakowicz2006">2006</a>)</span>. Furthermore, this R package removes the drawbacks associated with EEM manipulation (dependent on spectrofluorometer manufacturer) and unifies the most important steps involved in EEM preparation in order to correct and remove systematic bias in fluorescence measurements. This will likely contribute to promote the use of fluorescence spectroscopy in various fields.</p>
 
-<div id="refs" class="references">
-<div>
-<p>Bahram, Morteza, Rasmus Bro, Colin Stedmon, and Abbas Afkhami. 2006. “Handling of Rayleigh and Raman scatter for PARAFAC modeling of fluorescence data using interpolation.” <em>Journal of Chemometrics</em> 20 (3-4): 99–105. doi:<a href="https://doi.org/10.1002/cem.978">10.1002/cem.978</a>.</p>
-</div>
-<div>
-<p>Borchers, Hans Werner. 2015. “pracma: Practical Numerical Math Functions.” <a href="https://cran.r-project.org/package=pracma" class="uri">https://cran.r-project.org/package=pracma</a>.</p>
-</div>
-<div>
-<p>Bro, Rasmus. 1997. “PARAFAC. Tutorial and applications.” <em>Chemometrics and Intelligent Laboratory Systems</em> 38 (2): 149–71. doi:<a href="https://doi.org/10.1016/S0169-7439(97)00032-4">10.1016/S0169-7439(97)00032-4</a>.</p>
-</div>
-<div>
-<p>Coble, Paula G. 1996. “Characterization of marine and terrestrial DOM in seawater using excitation-emission matrix spectroscopy.” <em>Marine Chemistry</em> 51 (4): 325–46. doi:<a href="https://doi.org/10.1016/0304-4203(95)00062-3">10.1016/0304-4203(95)00062-3</a>.</p>
-</div>
-<div>
-<p>Coble, Paula G., Christopher a. Schultz, and Kenneth Mopper. 1993. “Fluorescence contouring analysis of DOC intercalibration experiment samples: a comparison of techniques.” <em>Marine Chemistry</em> 41 (1-3): 173–78. doi:<a href="https://doi.org/10.1016/0304-4203(93)90116-6">10.1016/0304-4203(93)90116-6</a>.</p>
-</div>
-<div>
-<p>Fellman, Jason B, Eran Hood, and Robert G M Spencer. 2010. “Fluorescence spectroscopy opens new windows into dissolved organic matter dynamics in freshwater ecosystems: A review.” <em>Limnology and Oceanography</em> 55 (6): 2452–62. doi:<a href="https://doi.org/10.4319/lo.2010.55.6.2452">10.4319/lo.2010.55.6.2452</a>.</p>
-</div>
-<div>
-<p>Harshman, Richard a. 1970. “Foundations of the PARAFAC procedure: Models and conditions for an ‘explanatory’ multimodal factor analysis.” <em>UCLA Working Papers in Phonetics</em> 16 (10): 1–84.</p>
-</div>
-<div>
-<p>Hiriart-Baer, Véronique P., Ngan Diep, and Ralph E. H. Smith. 2008. “Dissolved Organic Matter in the Great Lakes: Role and Nature of Allochthonous Material.” <em>Journal of Great Lakes Research</em> 34 (3): 383–94. doi:<a href="https://doi.org/10.3394/0380-1330(2008)34[383:DOMITG]2.0.CO;2">10.3394/0380-1330(2008)34[383:DOMITG]2.0.CO;2</a>.</p>
-</div>
-<div>
-<p>Huguet, A., L. Vacher, S. Relexans, S. Saubusse, J.M. M Froidefond, and E. Parlanti. 2009. “Properties of fluorescent dissolved organic matter in the Gironde Estuary.” <em>Organic Geochemistry</em> 40 (6). Elsevier Ltd: 706–19. doi:<a href="https://doi.org/10.1016/j.orggeochem.2009.03.002">10.1016/j.orggeochem.2009.03.002</a>.</p>
-</div>
-<div>
-<p>Kothawala, Dolly N., Kathleen R. Murphy, Colin A. Stedmon, Gesa A. Weyhenmeyer, and Lars J. Tranvik. 2013. “Inner filter correction of dissolved organic matter fluorescence.” <em>Limnology and Oceanography: Methods</em> 11 (12): 616–30. doi:<a href="https://doi.org/10.4319/lom.2013.11.616">10.4319/lom.2013.11.616</a>.</p>
-</div>
-<div>
-<p>Lakowicz, Joseph R. 2006. <em>Principles of Fluorescence Spectroscopy</em>. Edited by Joseph R. Lakowicz. Boston, MA: Springer-Verlag. doi:<a href="https://doi.org/10.1007/978-0-387-46312-4">10.1007/978-0-387-46312-4</a>.</p>
-</div>
-<div>
-<p>Lawaetz, A J, and C A Stedmon. 2009. “Fluorescence Intensity Calibration Using the Raman Scatter Peak of Water.” <em>Applied Spectroscopy</em> 63 (8): 936–40. doi:<a href="https://doi.org/10.1366/000370209788964548">10.1366/000370209788964548</a>.</p>
-</div>
-<div>
-<p>Massicotte, Philippe, and Jean-Jacques Frenette. 2011. “Spatial connectivity in a large river system: resolving the sources and fate of dissolved organic matter.” <em>Ecological Applications</em> 21 (7): 2600–2617. doi:<a href="https://doi.org/10.1890/10-1475.1">10.1890/10-1475.1</a>.</p>
-</div>
-<div>
-<p>McKnight, Diane M., Elizabeth W. Boyer, Paul K. Westerhoff, Peter T. Doran, Thomas Kulbe, and Dale T. Andersen. 2001. “Spectrofluorometric characterization of dissolved organic matter for indication of precursor organic material and aromaticity.” <em>Limnology and Oceanography</em> 46 (1). American Society of Limnology; Oceanography: 38–48. doi:<a href="https://doi.org/10.4319/lo.2001.46.1.0038">10.4319/lo.2001.46.1.0038</a>.</p>
-</div>
-<div>
-<p>Mobed, Jarafshan J, Sherry L Hemmingsen, Jennifer L Autry, and Linda B McGown. 1996. “Fluorescence Characterization of IHSS Humic Substances: Total Luminescence Spectra with Absorbance Correction.” <em>Environmental Science &amp; Technology</em> 30 (10): 3061–5. doi:<a href="https://doi.org/10.1021/es960132l">10.1021/es960132l</a>.</p>
-</div>
-<div>
-<p>Murphy, Kathleen R., Colin a. Stedmon, Daniel Graeber, and Rasmus Bro. 2013. “Fluorescence spectroscopy and multi-way techniques. PARAFAC.” <em>Analytical Methods</em> 5 (23): 6557. doi:<a href="https://doi.org/10.1039/c3ay41160e">10.1039/c3ay41160e</a>.</p>
-</div>
-<div>
-<p>Ohno, Tsutomu. 2002. “Fluorescence Inner-Filtering Correction for Determining the Humification Index of Dissolved Organic Matter.” <em>Environmental Science &amp; Technology</em> 36 (4): 742–46. doi:<a href="https://doi.org/10.1021/es0155276">10.1021/es0155276</a>.</p>
-</div>
-<div>
-<p>Parker, C. a., and W. J. Barnes. 1957. “Some experiments with spectrofluorimeters and filter fluorimeters.” <em>The Analyst</em> 82 (978): 606. doi:<a href="https://doi.org/10.1039/an9578200606">10.1039/an9578200606</a>.</p>
-</div>
-<div>
-<p>Stedmon, Colin A, and Rasmus Bro. 2008. “Characterizing dissolved organic matter fluorescence with parallel factor analysis: a tutorial.” <em>Limnology and Oceanography: Methods</em> 6 (11): 572–79. doi:<a href="https://doi.org/10.4319/lom.2008.6.572">10.4319/lom.2008.6.572</a>.</p>
-</div>
-<div>
-<p>Stedmon, Colin A., Stiig Markager, and Rasmus Bro. 2003. “Tracing dissolved organic matter in aquatic environments using a new approach to fluorescence spectroscopy.” <em>Marine Chemistry</em> 82 (3-4): 239–54. doi:<a href="https://doi.org/10.1016/S0304-4203(03)00072-0">10.1016/S0304-4203(03)00072-0</a>.</p>
-</div>
-<div>
-<p>Zepp, Richard G, Wade M Sheldon, and Mary Ann Moran. 2004. “Dissolved organic fluorophores in southeastern US coastal waters: correction method for eliminating Rayleigh and Raman scattering peaks in excitation–emission matrices.” <em>Marine Chemistry</em> 89 (1-4): 15–36. doi:<a href="https://doi.org/10.1016/j.marchem.2004.02.006">10.1016/j.marchem.2004.02.006</a>.</p>
-</div>
-</div>
 </div>
 </div>
 <h3>References</h3>
@@ -622,8 +566,8 @@ file %&gt;%
           </div>
         </div>
       </div>
-<a href="absorbance.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="absorbance.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="definitions.html" class="navigation navigation-next " aria-label="Next page""><i class="fa fa-angle-right"></i></a>
 
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
