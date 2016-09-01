@@ -25,8 +25,13 @@
 
 <meta name="author" content="Philippe Massicotte">
 
-<meta name="date" content="2016-08-31">
+<meta name="date" content="2016-09-01">
 
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  TeX: { equationNumbers: { autoNumber: "AMS" } }
+});
+</script>
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
@@ -51,6 +56,43 @@
 
 
 
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -68,9 +110,40 @@
 
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction and motivations</a></li>
-<li class="chapter" data-level="2" data-path="measurements.html"><a href="measurements.html"><i class="fa fa-check"></i><b>2</b> Measurements</a></li>
-<li class="chapter" data-level="3" data-path="absorbance.html"><a href="absorbance.html"><i class="fa fa-check"></i><b>3</b> Absorbance</a></li>
-<li class="chapter" data-level="4" data-path="fluorescence.html"><a href="fluorescence.html"><i class="fa fa-check"></i><b>4</b> Fluorescence</a></li>
+<li class="chapter" data-level="2" data-path="measurements.html"><a href="measurements.html"><i class="fa fa-check"></i><b>2</b> Measurements</a><ul>
+<li class="chapter" data-level="2.1" data-path="measurements.html"><a href="measurements.html#dom-measurements"><i class="fa fa-check"></i><b>2.1</b> DOM measurements</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="absorbance.html"><a href="absorbance.html"><i class="fa fa-check"></i><b>3</b> Absorbance</a><ul>
+<li class="chapter" data-level="3.1" data-path="absorbance.html"><a href="absorbance.html#what-is-cdom"><i class="fa fa-check"></i><b>3.1</b> What is CDOM?</a></li>
+<li class="chapter" data-level="3.2" data-path="absorbance.html"><a href="absorbance.html#writing-and-notation"><i class="fa fa-check"></i><b>3.2</b> Writing and notation</a></li>
+<li class="chapter" data-level="3.3" data-path="absorbance.html"><a href="absorbance.html#absorption-vs-absorbance"><i class="fa fa-check"></i><b>3.3</b> Absorption vs absorbance</a></li>
+<li class="chapter" data-level="3.4" data-path="absorbance.html"><a href="absorbance.html#mathematical-formulation-of-absorption-spectra"><i class="fa fa-check"></i><b>3.4</b> Mathematical formulation of absorption spectra</a></li>
+<li class="chapter" data-level="3.5" data-path="absorbance.html"><a href="absorbance.html#sl"><i class="fa fa-check"></i><b>3.5</b> Modeling CDOM absorption spectra in R</a><ul>
+<li class="chapter" data-level="3.5.1" data-path="absorbance.html"><a href="absorbance.html#potential-drawbacks"><i class="fa fa-check"></i><b>3.5.1</b> Potential drawbacks</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="absorbance.html"><a href="absorbance.html#metrics"><i class="fa fa-check"></i><b>3.6</b> Metrics</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="absorbance.html"><a href="absorbance.html#slope-ratio"><i class="fa fa-check"></i><b>3.6.1</b> Slope ratio</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="fluorescence.html"><a href="fluorescence.html"><i class="fa fa-check"></i><b>4</b> Fluorescence</a><ul>
+<li class="chapter" data-level="4.1" data-path="fluorescence.html"><a href="fluorescence.html#fluorescence-of-dom-theoretical-and-mathematical-background"><i class="fa fa-check"></i><b>4.1</b> Fluorescence of DOM: theoretical and mathematical background</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="fluorescence.html"><a href="fluorescence.html#scattering-correction"><i class="fa fa-check"></i><b>4.1.1</b> Scattering correction</a></li>
+<li class="chapter" data-level="4.1.2" data-path="fluorescence.html"><a href="fluorescence.html#inner-filter-effect-correction"><i class="fa fa-check"></i><b>4.1.2</b> Inner-filter effect correction</a></li>
+<li class="chapter" data-level="4.1.3" data-path="fluorescence.html"><a href="fluorescence.html#raman-calibration"><i class="fa fa-check"></i><b>4.1.3</b> Raman calibration</a></li>
+<li class="chapter" data-level="4.1.4" data-path="fluorescence.html"><a href="fluorescence.html#metrics-1"><i class="fa fa-check"></i><b>4.1.4</b> Metrics</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="fluorescence.html"><a href="fluorescence.html#r-code-and-study-case"><i class="fa fa-check"></i><b>4.2</b> R code and study case</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="fluorescence.html"><a href="fluorescence.html#data-importation-and-plotting"><i class="fa fa-check"></i><b>4.2.1</b> Data importation and plotting</a></li>
+<li class="chapter" data-level="4.2.2" data-path="fluorescence.html"><a href="fluorescence.html#blank-subtraction"><i class="fa fa-check"></i><b>4.2.2</b> Blank subtraction</a></li>
+<li class="chapter" data-level="4.2.3" data-path="fluorescence.html"><a href="fluorescence.html#raman-and-rayleigh-scattering-removal"><i class="fa fa-check"></i><b>4.2.3</b> Raman and Rayleigh scattering removal</a></li>
+<li class="chapter" data-level="4.2.4" data-path="fluorescence.html"><a href="fluorescence.html#inner-filter-effect-correction-1"><i class="fa fa-check"></i><b>4.2.4</b> Inner-filter effect correction</a></li>
+<li class="chapter" data-level="4.2.5" data-path="fluorescence.html"><a href="fluorescence.html#raman-normalization"><i class="fa fa-check"></i><b>4.2.5</b> Raman normalization</a></li>
+<li class="chapter" data-level="4.2.6" data-path="fluorescence.html"><a href="fluorescence.html#exporting-to-matlab"><i class="fa fa-check"></i><b>4.2.6</b> Exporting to MATLAB</a></li>
+<li class="chapter" data-level="4.2.7" data-path="fluorescence.html"><a href="fluorescence.html#metric-extraction"><i class="fa fa-check"></i><b>4.2.7</b> Metric extraction</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="fluorescence.html"><a href="fluorescence.html#using-r-pipeline"><i class="fa fa-check"></i><b>4.3</b> Using R pipeline</a></li>
+<li class="chapter" data-level="4.4" data-path="fluorescence.html"><a href="fluorescence.html#conclusion"><i class="fa fa-check"></i><b>4.4</b> Conclusion</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/PMassicotte/dom-optic" target="blank">Published with bookdown</a></li>
 
@@ -94,11 +167,11 @@
 <div id="header">
 <h1 class="title">Practical guide on dissolved organic matter (DOM) optic</h1>
 <h4 class="author"><em>Philippe Massicotte</em></h4>
-<h4 class="date"><em>2016-08-31</em></h4>
+<h4 class="date"><em>2016-09-01</em></h4>
 </div>
 <div id="introduction-and-motivations" class="section level1">
 <h1><span class="header-section-number">Chapter 1</span> Introduction and motivations</h1>
-<p>Dissolved organic matter (DOM) plays fundamental roles in the ecology of aquatic ecosystems. Physical and chemical characteristics of the DOM transiting in aquatic ecosystems are important parameters that drive their functioning at different levels. For example, dissolved organic carbon (DOC) is the major fraction of the DOM pool and represents the main source of metabolic substrates for heterotrophic bacteria and influences the composition of aquatic microbial communities (Findlay2003). Additionally, the chromophoric fraction of the DOM pool (CDOM) is a major driver of underwater light characteristics <span class="citation">(Kirk <a href="#ref-Kirk1994">1994</a>)</span> which modulate many bio-optical processes such as primary production (Thrane2014, Seekell2015) and also constitute a natural screen protecting aquatic organisms against harmful ultraviolet (UV) radiations (Boily2012).</p>
+<p>Dissolved organic matter (DOM) plays a central role in the functioning of aquatic ecosystems. For example, characteristics of the DOM pool (quantity and quality) determine underwater light climate <span class="citation">(Kirk <a href="#ref-Kirk1994">1994</a>)</span>, the composition of aquatic microbial communities <span class="citation">(Foreman and Covert <a href="#ref-Foreman2003">2003</a>; Kritzberg et al. <a href="#ref-Kritzberg2006a">2006</a>)</span> and the carbon cycling on local to global scales <span class="citation">(J. J. Cole et al. <a href="#ref-Cole2007">2007</a>)</span>. Chemically, the DOM pool is complex (&gt; 1500 compounds) and analytical methods used to characterize it are relatively complex, time-consuming and costly <span class="citation">(Benner <a href="#ref-Benner2002">2002</a>; Seitzinger et al. <a href="#ref-Seitzinger2005">2005</a>; Fellman, Hood, and Spencer <a href="#ref-Fellman2010">2010</a>)</span>. This situation called for the development of rapid and cost effective characterization techniques. Because optical properties of DOM can be related to its chemical properties, optical techniques such as fluorescence spectroscopy have been developed and rapidly adopted by the community to characterize the DOM pool in aquatic ecosystems <span class="citation">(Paula G Coble et al. <a href="#ref-Coble1990">1990</a>; Paula G Coble <a href="#ref-Coble1996">1996</a>; McKnight et al. <a href="#ref-McKnight2001">2001</a>)</span>.</p>
 <p>DOM is a complex mixture containing thousands of different chemical compounds (ref). For this reasons, traditional chemical analysis used to characterize DOM are both expensive and time consuming.</p>
 <ul>
 <li>Optical methods have been developed.</li>
@@ -109,10 +182,37 @@
 </ul>
 
 </div>
-<h3> Fluorescence</h3>
+<h3>References</h3>
 <div id="refs" class="references">
 <div id="ref-Kirk1994">
 <p>Kirk, John T O. 1994. <em>Light and photosynthesis in aquatic ecosystems</em>. 2nd ed. Cambridge [England] ; New York: Cambridge University Press.</p>
+</div>
+<div id="ref-Foreman2003">
+<p>Foreman, C.M., and J.S. Covert. 2003. “Linkages between Dissolved Organic Matter Composition and Bacterial Community Structure.” In <em>Aquatic Ecosystems : Interactivity of Dissolved Organic Matter</em>, 343–62. Elsevier. doi:<a href="https://doi.org/10.1016/B978-012256371-3/50015-9">10.1016/B978-012256371-3/50015-9</a>.</p>
+</div>
+<div id="ref-Kritzberg2006a">
+<p>Kritzberg, Emma S, Jonathan J Cole, Michael M Pace, and Wilhelm Granéli. 2006. “Bacterial Growth on Allochthonous Carbon in Humic and Nutrient-enriched Lakes: Results from Whole-Lake 13C Addition Experiments.” <em>Ecosystems</em> 9 (3): 489–99. doi:<a href="https://doi.org/10.1007/s10021-005-0115-5">10.1007/s10021-005-0115-5</a>.</p>
+</div>
+<div id="ref-Cole2007">
+<p>Cole, J J, Y T Prairie, N F Caraco, W H McDowell, L J Tranvik, R G Striegl, C M Duarte, et al. 2007. “Plumbing the Global Carbon Cycle: Integrating Inland Waters into the Terrestrial Carbon Budget.” <em>Ecosystems</em> 10 (1): 172–85. doi:<a href="https://doi.org/10.1007/s10021-006-9013-8">10.1007/s10021-006-9013-8</a>.</p>
+</div>
+<div id="ref-Benner2002">
+<p>Benner, R. 2002. “Chemical composition and reactivity.” In <em>Biogeochemistry of Marine Dissolved Organic Matter</em>, edited by Dennis A Hansell and Craig A Carlson, 59–90. San Diego, CA: Academic Press.</p>
+</div>
+<div id="ref-Seitzinger2005">
+<p>Seitzinger, S P, H Hartnett, R Lauck, M Mazurek, T Minegishi, G Spyres, and R Styles. 2005. “Molecular-level chemical characterization and bioavailability of dissolved organic matter in stream water using electrospray-ionization mass spectrometry.” <em>Limnology and Oceanography</em> 50 (1). Seitzinger, SP Rutgers State Univ, Inst Marine &amp; Coastal Sci, 71 Dudley Rd, New Brunswick, NJ 08901 USA Rutgers State Univ, Inst Marine &amp; Coastal Sci, New Brunswick, NJ 08901 USA: 1–12. doi:<a href="https://doi.org/10.4319/lo.2005.50.1.0001">10.4319/lo.2005.50.1.0001</a>.</p>
+</div>
+<div id="ref-Fellman2010">
+<p>Fellman, Jason B, Eran Hood, and Robert G M Spencer. 2010. “Fluorescence spectroscopy opens new windows into dissolved organic matter dynamics in freshwater ecosystems: A review.” <em>Limnology and Oceanography</em> 55 (6): 2452–62. doi:<a href="https://doi.org/10.4319/lo.2010.55.6.2452">10.4319/lo.2010.55.6.2452</a>.</p>
+</div>
+<div id="ref-Coble1990">
+<p>Coble, Paula G, Sarah A Green, Neil V Blough, and Robert B Gagosian. 1990. “Characterization of dissolved organic matter in the Black Sea by fluorescence spectroscopy.” <em>Nature</em> 348 (6300). Coble, Pg Univ Washington,Sch Oceanog,Seattle,Wa 98195, USA Univ Washington,Sch Oceanog,Seattle,Wa 98195, USA Woods Hole Oceanog Inst,Woods Hole,Ma 02543: 432–35. doi:<a href="https://doi.org/10.1038/348432a0">10.1038/348432a0</a>.</p>
+</div>
+<div id="ref-Coble1996">
+<p>Coble, Paula G. 1996. “Characterization of marine and terrestrial DOM in seawater using excitation-emission matrix spectroscopy.” <em>Marine Chemistry</em> 51 (4): 325–46. doi:<a href="https://doi.org/10.1016/0304-4203(95)00062-3">10.1016/0304-4203(95)00062-3</a>.</p>
+</div>
+<div id="ref-McKnight2001">
+<p>McKnight, Diane M., Elizabeth W. Boyer, Paul K. Westerhoff, Peter T. Doran, Thomas Kulbe, and Dale T. Andersen. 2001. “Spectrofluorometric characterization of dissolved organic matter for indication of precursor organic material and aromaticity.” <em>Limnology and Oceanography</em> 46 (1). American Society of Limnology; Oceanography: 38–48. doi:<a href="https://doi.org/10.4319/lo.2001.46.1.0038">10.4319/lo.2001.46.1.0038</a>.</p>
 </div>
 <div id="ref-Lakowicz2006">
 <p>Lakowicz, Joseph R. 2006. <em>Principles of Fluorescence Spectroscopy</em>. Edited by Joseph R. Lakowicz. Boston, MA: Springer-Verlag. doi:<a href="https://doi.org/10.1007/978-0-387-46312-4">10.1007/978-0-387-46312-4</a>.</p>
@@ -154,7 +254,7 @@ gitbook.start({
 "link": "https://github.com/PMassicotte/dom-optic/edit/master/index.Rmd",
 "text": null
 },
-"download": ["dom-optic.pdf"],
+"download": ["dom-optic.pdf", "dom-optic.epub"],
 "toc": {
 "collapse": "subsection"
 }
@@ -162,6 +262,17 @@ gitbook.start({
 });
 </script>
 
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    if (location.protocol !== "file:" && /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, '');
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
 </body>
 
 </html>
