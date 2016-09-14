@@ -25,7 +25,7 @@
 
 <meta name="author" content="Philippe Massicotte">
 
-<meta name="date" content="2016-09-01">
+<meta name="date" content="2016-09-14">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -169,18 +169,18 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="header">
 <h1 class="title">Practical guide on dissolved organic matter (DOM) optic</h1>
 <h4 class="author"><em>Philippe Massicotte</em></h4>
-<h4 class="date"><em>2016-09-01</em></h4>
+<h4 class="date"><em>2016-09-14</em></h4>
 </div>
 <div id="introduction-and-motivations" class="section level1">
 <h1><span class="header-section-number">Chapter 1</span> Introduction and motivations</h1>
-<p>Dissolved organic matter (DOM) plays a central role in the functioning of aquatic ecosystems. For example, characteristics of the DOM pool (quantity and quality) determine underwater light climate <span class="citation">(Kirk <a href="#ref-Kirk1994">1994</a>)</span>, the composition of aquatic microbial communities <span class="citation">(Foreman and Covert <a href="#ref-Foreman2003">2003</a>; Kritzberg et al. <a href="#ref-Kritzberg2006a">2006</a>)</span> and the carbon cycling on local to global scales <span class="citation">(J. J. Cole et al. <a href="#ref-Cole2007">2007</a>)</span>. Chemically, the DOM pool is complex (&gt; 1500 compounds) and analytical methods used to characterize it are relatively complex, time-consuming and costly <span class="citation">(Benner <a href="#ref-Benner2002">2002</a>; Seitzinger et al. <a href="#ref-Seitzinger2005">2005</a>; Fellman, Hood, and Spencer <a href="#ref-Fellman2010">2010</a>)</span>. This situation called for the development of rapid and cost effective characterization techniques. Because optical properties of DOM can be related to its chemical properties, optical techniques such as fluorescence spectroscopy have been developed and rapidly adopted by the community to characterize the DOM pool in aquatic ecosystems <span class="citation">(Paula G Coble et al. <a href="#ref-Coble1990">1990</a>; Paula G Coble <a href="#ref-Coble1996">1996</a>; McKnight et al. <a href="#ref-McKnight2001">2001</a>)</span>.</p>
-<p>DOM is a complex mixture containing thousands of different chemical compounds (ref). For this reasons, traditional chemical analysis used to characterize DOM are both expensive and time consuming.</p>
+<p>Dissolved organic matter (DOM) plays a central role in the functioning of aquatic ecosystems. For example, characteristics of the DOM pool (quantity and quality) determine underwater light climate <span class="citation">(Kirk <a href="#ref-Kirk1994">1994</a>)</span>, the composition of aquatic microbial communities <span class="citation">(Foreman and Covert <a href="#ref-Foreman2003">2003</a>; Kritzberg et al. <a href="#ref-Kritzberg2006a">2006</a>)</span> and the carbon cycling on local to global scales <span class="citation">(J. J. Cole et al. <a href="#ref-Cole2007">2007</a>)</span>. Chemically, the DOM pool is complex (&gt; 1500 compounds) and analytical methods used to characterize it are relatively complex, time-consuming and costly <span class="citation">(Benner <a href="#ref-Benner2002">2002</a>; Seitzinger et al. <a href="#ref-Seitzinger2005">2005</a>; Jason B Fellman, Hood, and Spencer <a href="#ref-Fellman2010">2010</a>)</span>. This situation called for the development of rapid and cost effective characterization techniques. Because optical properties of DOM can be related to its chemical properties, optical techniques such as fluorescence spectroscopy have been developed and rapidly adopted by the community to characterize the DOM pool in aquatic ecosystems <span class="citation">(Paula G Coble et al. <a href="#ref-Coble1990">1990</a>; Paula G Coble <a href="#ref-Coble1996">1996</a>; McKnight et al. <a href="#ref-McKnight2001">2001</a>; J B Fellman et al. <a href="#ref-Fellman2008">2008</a>)</span>.</p>
+<p><strong>This document aims at providing practical tools</strong> that can serve as a starter to those who desire to start working with DOM. R code examples are also provided.</p>
+<p>For those that are interested to learn in depth DOM biogeochemistry, there are excellent sources of fundamental information in the following books:</p>
 <ul>
-<li>Optical methods have been developed.</li>
-<li>Why this project? Already few good books <span class="citation">(Lakowicz <a href="#ref-Lakowicz2006">2006</a>)</span></li>
-<li>Need for unified way to present stuff with correct citation.</li>
-<li>R code examples are also provided.</li>
-<li>Wiki-like document that can serve as a starter for students.</li>
+<li><span class="citation">Lakowicz (<a href="#ref-Lakowicz2006">2006</a>)</span></li>
+<li><span class="citation">Hansell and Carlson (<a href="#ref-Hansell2014">2014</a>)</span></li>
+<li><span class="citation">Findlay and Sinsabaugh (<a href="#ref-Findlay2003">2003</a>)</span></li>
+<li><span class="citation">P. Coble et al. (<a href="#ref-Coble2014">2014</a>)</span></li>
 </ul>
 
 </div>
@@ -216,8 +216,20 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <div id="ref-McKnight2001">
 <p>McKnight, Diane M., Elizabeth W. Boyer, Paul K. Westerhoff, Peter T. Doran, Thomas Kulbe, and Dale T. Andersen. 2001. “Spectrofluorometric characterization of dissolved organic matter for indication of precursor organic material and aromaticity.” <em>Limnology and Oceanography</em> 46 (1). American Society of Limnology; Oceanography: 38–48. doi:<a href="https://doi.org/10.4319/lo.2001.46.1.0038">10.4319/lo.2001.46.1.0038</a>.</p>
 </div>
+<div id="ref-Fellman2008">
+<p>Fellman, J B, D V D’Amore, E Hood, and R D Boone. 2008. “Fluorescence characteristics and biodegradability of dissolved organic matter in forest and wetland soils from coastal temperate watersheds in southeast Alaska.” <em>Biogeochemistry</em> 88 (2): 169–84.</p>
+</div>
 <div id="ref-Lakowicz2006">
 <p>Lakowicz, Joseph R. 2006. <em>Principles of Fluorescence Spectroscopy</em>. Edited by Joseph R. Lakowicz. Boston, MA: Springer-Verlag. doi:<a href="https://doi.org/10.1007/978-0-387-46312-4">10.1007/978-0-387-46312-4</a>.</p>
+</div>
+<div id="ref-Hansell2014">
+<p>Hansell, Dennis A., and Craig A. Carlson. 2014. <em>Biogeochemistry of Marine Dissolved Organic Matter</em>. Edited by Dennis A Hansell and Craig A Carlson. 2nd ed. Academic Press.</p>
+</div>
+<div id="ref-Findlay2003">
+<p>Findlay, Stuart., and Robert L. Sinsabaugh. 2003. <em>Aquatic ecosystems : interactivity of dissolved organic matter</em>. Academic Press.</p>
+</div>
+<div id="ref-Coble2014">
+<p>Coble, P.G., R.G.M. Spencer, A. Baker, and D.M. Reynolds. 2014. <em>Aquatic Organic Matter Fluorescence</em>. Edited by Paula Coble, Jaimie Lead, Andy Baker, Darren M. Reynolds, and Robert G.M. Spencer. 1st ed. Cambridge: Cambridge University Press. <a href="http://ebooks.cambridge.org/ref/id/CBO9781139045452A011 http://amazon.com/o/ASIN/0521764610/" class="uri">http://ebooks.cambridge.org/ref/id/CBO9781139045452A011 http://amazon.com/o/ASIN/0521764610/</a>.</p>
 </div>
 </div>
             </section>
@@ -256,7 +268,7 @@ gitbook.start({
 "link": "https://github.com/PMassicotte/dom-optic/edit/master/index.Rmd",
 "text": null
 },
-"download": ["dom-optic.pdf", "dom-optic.epub"],
+"download": null,
 "toc": {
 "collapse": "subsection"
 }
