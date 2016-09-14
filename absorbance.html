@@ -192,7 +192,7 @@ Figure 3.1: Example of an absorption spectrum of CDOM.
 <p>It is of interest to review the <a href="http://www.chemguide.co.uk/analysis/uvvisible/beerlambert.html">Beer-Lambert law</a> to understand the difference between absrobance and absorption.</p>
 <span class="math display">\[\begin{alignat}{2}
 \label{eq:abs1}
-    I_n &amp;= I_0 \times e^{\epsilon \times c \times L}\\
+    I_n &amp;= I_0 \times e^{(\epsilon \times c \times L)}\\
 \end{alignat}\]</span>
 <p>where:</p>
 <ul>
@@ -204,12 +204,13 @@ Figure 3.1: Example of an absorption spectrum of CDOM.
 </ul>
 <span class="math display">\[\begin{alignat}{2}
 \label{eq:abs2}
-    I_n &amp;= I_0 \times e^{a \times L}\\
+    I_n &amp;= I_0 \times e^{-(a \times L)}\\
 \end{alignat}\]</span>
 <p>where <span class="math inline">\(a = \epsilon \times c\)</span> is the absorption coefficient (<span class="math inline">\(m^{-1}\)</span>).</p>
 <span class="math display">\[\begin{alignat}{2}
 \label{eq:abs3}
-    \frac{I_n}{I_0}       &amp;= e^{a \times L}\\[10pt]
+    \frac{I_n}{I_0}       &amp;= e^{-(a \times L)}\\[10pt]
+    \frac{I_0}{I_n}       &amp;= e^{(a \times L)}\\[10pt]
     log(\frac{I_0}{I_n})  &amp;= a \times L\\[10pt]
     a                     &amp;= \frac{log(\frac{I_0}{I_n})}{L}\\
 \end{alignat}\]</span>
