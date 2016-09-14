@@ -11,27 +11,6 @@ github-repo: PMassicotte/dom-optic
 description: "A practical guide on dissolved organic matter optic."
 ---
 
-# Introduction and motivations
-
-
-Dissolved organic matter (DOM) plays a central role in the functioning of aquatic ecosystems. For example, characteristics of the DOM pool (quantity and quality) determine underwater light climate [@Kirk1994], the composition of aquatic microbial communities [@Foreman2003;@Kritzberg2006a] and the carbon cycling on local to global scales [@Cole2007]. Chemically, the DOM pool is complex (> 1500 compounds) and analytical methods used to characterize it are relatively complex, time-consuming and costly [@Benner2002;@Seitzinger2005;@Fellman2010]. This situation called for the development of rapid and cost effective characterization techniques. Because optical properties of DOM can be related to its chemical properties, optical techniques such as fluorescence spectroscopy have been developed and rapidly adopted by the community to characterize the DOM pool in aquatic ecosystems [@Coble1990;@Coble1996;@McKnight2001].
-
-
-DOM is a complex mixture containing thousands of different chemical compounds (ref). For this reasons, traditional chemical analysis used to characterize DOM are both expensive and time consuming.
-
-- Optical methods have been developed.
-- Why this project? Already few good books [@Lakowicz2006]
-- Need for unified way to present stuff with correct citation.
-- R code examples are also provided.
-- Wiki-like document that can serve as a starter for students.
-
-```{r include=FALSE}
-# automatically create a bib database for R packages
-knitr::write_bib(c(
-  .packages(), 'bookdown', 'knitr', 'rmarkdown'
-), 'packages.bib')
-```
-
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 
@@ -45,3 +24,23 @@ library(plot3D)
 loadfonts(quiet = TRUE)
 theme_set(theme_bw(base_size = 12, base_family = "Open Sans"))
 ```
+
+```{r include=FALSE}
+# automatically create a bib database for R packages
+knitr::write_bib(c(
+  .packages(), 'bookdown', 'knitr', 'rmarkdown'
+), 'packages.bib')
+```
+
+# Introduction and motivations
+
+Dissolved organic matter (DOM) plays a central role in the functioning of aquatic ecosystems. For example, characteristics of the DOM pool (quantity and quality) determine underwater light climate [@Kirk1994], the composition of aquatic microbial communities [@Foreman2003; @Kritzberg2006a] and the carbon cycling on local to global scales [@Cole2007]. Chemically, the DOM pool is complex (> 1500 compounds) and analytical methods used to characterize it are relatively complex, time-consuming and costly [@Benner2002; @Seitzinger2005; @Fellman2010]. This situation called for the development of rapid and cost effective characterization techniques. Because optical properties of DOM can be related to its chemical properties, optical techniques such as fluorescence spectroscopy have been developed and rapidly adopted by the community to characterize the DOM pool in aquatic ecosystems [@Coble1990; @Coble1996; @McKnight2001; @Fellman2008].
+
+**This document aims at providing practical tools** that can serve as a starter to those who desire to start working with DOM. R code examples are also provided.
+
+For those that are interested to learn in depth DOM biogeochemistry, there are excellent sources of fundamental information in the following books:
+
+- @Lakowicz2006
+- @Hansell2014
+- @Findlay2003
+- @Coble2014

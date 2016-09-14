@@ -25,7 +25,7 @@
 
 <meta name="author" content="Philippe Massicotte">
 
-<meta name="date" content="2016-09-01">
+<meta name="date" content="2016-09-14">
 
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
@@ -179,14 +179,14 @@ Figure 4.1: Example of an excitation-emission fluorescence matrix (EEM). The dia
 </div>
 <div id="parafac" class="section level2">
 <h2><span class="header-section-number">4.2</span> PARAFAC</h2>
-<p>The seminal paper of <span class="citation">(Colin A. Stedmon, Markager, and Bro <a href="#ref-Stedmon2003a">2003</a>)</span> put at the forefront the use of parallel factor analysis (PARAFAC) to aid the characterization of fluorescent DOM. Briefly, this three-way technique allows the decomposition of complex DOM fluorescence signals contained in the excitation-emission matrix (EEM, Fig. 1) into a set of individual chemical components and provides estimations of their relative contribution to the total fluorescence <span class="citation">(Bro <a href="#ref-Bro1997">1997</a>; Fellman, Hood, and Spencer <a href="#ref-Fellman2010">2010</a>; Colin A. Stedmon, Markager, and Bro <a href="#ref-Stedmon2003a">2003</a>)</span>.</p>
+<p>The seminal paper of <span class="citation">(Colin A. Stedmon, Markager, and Bro <a href="#ref-Stedmon2003a">2003</a>)</span> put at the forefront the use of parallel factor analysis (PARAFAC) to aid the characterization of fluorescent DOM. Briefly, this three-way technique allows the decomposition of complex DOM fluorescence signals contained in the excitation-emission matrix (EEM, Fig. 1) into a set of individual chemical components and provides estimations of their relative contribution to the total fluorescence <span class="citation">(Bro <a href="#ref-Bro1997">1997</a>; Jason B Fellman, Hood, and Spencer <a href="#ref-Fellman2010">2010</a>; Colin A. Stedmon, Markager, and Bro <a href="#ref-Stedmon2003a">2003</a>)</span>.</p>
 <p>The PARAFAC model is described as <span class="citation">(Bro <a href="#ref-Bro1997">1997</a>; Harshman <a href="#ref-Harshman1970">1970</a>)</span>:</p>
 <span class="math display">\[\begin{equation}
 x_{ijk} = \sum_{f=1}^{F} a_{ij}b_{jf}c_{kf} + e_{ijk}
 \end{equation}\]</span>
 <p>where <span class="math inline">\(i = 1, ..., I\)</span>; <span class="math inline">\(j = 1, ..., J\)</span>; <span class="math inline">\(k = 1, ..., K\)</span>, <span class="math inline">\(x_{ijk}\)</span> is the intensity of fluorescence of the the <span class="math inline">\(i^{th}\)</span> sample at the <span class="math inline">\(j^{th}\)</span> emission wavelength at the <span class="math inline">\(k^{th}\)</span> excitation wavelength. <span class="math inline">\(a_{ij}\)</span> is directly proportional to the concentration of the <span class="math inline">\(f^{th}\)</span> component in the sample <span class="math inline">\(i\)</span>. Although PARAFAC gained a lot of attention in environmental sciences, it is also widely used in other research fields such as medical, pharmaceutical, food, social and information sciences <span class="citation">(Murphy et al. <a href="#ref-Murphy2013">2013</a>)</span>. Until today, more than 1850 published scientific papers relying on PARAFAC have been identified on Web of Science.</p>
 <p>Although PARAFAC was made easier using the <code>drEEM</code> MATLAB toolbox <span class="citation">(Murphy et al. <a href="#ref-Murphy2013">2013</a>)</span>, preprocessing of EEMs prior to the analysis is still not straightforward. EEM preprocessing is an important part of PARAFAC since it aims to correct any systematic bias in the measurements and to remove signal unrelated to DOM fluorescence <span class="citation">(Murphy et al. <a href="#ref-Murphy2013">2013</a>)</span>. Biased models can be produced if these steps are not conducted carefully (see <span class="citation">Hiriart-Baer, Diep, and Smith (<a href="#ref-Hiriart-Baer2008">2008</a>)</span> where scattering fluorescence signals have been modeled and wrongly interpreted). Such data processing is cumbersome as it involves many steps <span class="citation">(Colin A Stedmon and Bro <a href="#ref-Stedmon2008">2008</a>; Murphy et al. <a href="#ref-Murphy2013">2013</a>)</span> which are usually executed by hand or within in-house scripting and therefore prone to introduce errors. Another important drawback limiting effective preprocessing of EEMs arise from the wide variety of file formats provided by the different manufacturers of spectrofluorometers that makes data importation difficult to generalize.</p>
-<p>Possibly reflecting these difficulties, it was recently pointed out that characterization of DOM using fluorescence spectroscopy is still not routinely included in ecological studies <span class="citation">(Fellman, Hood, and Spencer <a href="#ref-Fellman2010">2010</a>)</span>. Given the increasing interest for fluorescence spectroscopy in ecology, tools are needed to unify the main preprocessing steps needed for further analyzes such as PARAFAC or metric calculations. The purpose of the <code>eemR</code> R package is to provide a rapid and an elegant interface to perform preprocessing of EEMs as well as to extract common fluorescence-based metrics proposed in the literature to obtain quantitative information about the DOM pool. This paper presents theoretical and mathematical background of the main PARAFAC preprocessing steps and metric calculations with concrete code examples.</p>
+<p>Possibly reflecting these difficulties, it was recently pointed out that characterization of DOM using fluorescence spectroscopy is still not routinely included in ecological studies <span class="citation">(Jason B Fellman, Hood, and Spencer <a href="#ref-Fellman2010">2010</a>)</span>. Given the increasing interest for fluorescence spectroscopy in ecology, tools are needed to unify the main preprocessing steps needed for further analyzes such as PARAFAC or metric calculations. The purpose of the <code>eemR</code> R package is to provide a rapid and an elegant interface to perform preprocessing of EEMs as well as to extract common fluorescence-based metrics proposed in the literature to obtain quantitative information about the DOM pool. This paper presents theoretical and mathematical background of the main PARAFAC preprocessing steps and metric calculations with concrete code examples.</p>
 </div>
 <div id="fluorescence-of-dom-theoretical-and-mathematical-background" class="section level2">
 <h2><span class="header-section-number">4.3</span> Fluorescence of DOM: theoretical and mathematical background</h2>
@@ -597,7 +597,7 @@ gitbook.start({
 "link": "https://github.com/PMassicotte/dom-optic/edit/master/03-fluorescence.Rmd",
 "text": null
 },
-"download": ["dom-optic.pdf", "dom-optic.epub"],
+"download": null,
 "toc": {
 "collapse": "subsection"
 }

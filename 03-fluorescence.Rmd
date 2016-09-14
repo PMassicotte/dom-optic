@@ -8,18 +8,20 @@ file <- system.file("extdata/cary/scans_day_1", "sample3.csv", package = "eemR")
 
 eem <- eem_read(file)
 
-persp3D(x = eem[[1]]$ex,
-        y = eem[[1]]$em,
-        z = t(eem[[1]]$x),
-        theta = -37.5,
-        phi = 20,
-        facets = TRUE,
-        xlab = "Excitation (nm)",
-        ylab = "Emisison (nm)",
-        zlab = "Fluorescence (A.U.)",
-        ticktype = "detailed",
-        box = TRUE,
-        expand = 0.5)
+persp3D(
+  x = eem[[1]]$ex,
+  y = eem[[1]]$em,
+  z = t(eem[[1]]$x),
+  theta = -37.5,
+  phi = 20,
+  facets = TRUE,
+  xlab = "Excitation (nm)",
+  ylab = "Emisison (nm)",
+  zlab = "Fluorescence (A.U.)",
+  ticktype = "detailed",
+  box = TRUE,
+  expand = 0.5
+)
 ```
 
 ## PARAFAC

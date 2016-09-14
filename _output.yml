@@ -10,6 +10,6 @@ bookdown::gitbook:
     edit:
       link: https://github.com/PMassicotte/dom-optic/edit/master/%s
 bookdown::pdf_book:
-  latex_engine: pdflatex
+  latex_engine: xelatex
   citation_package: natbib
 bookdown::epub_book: default

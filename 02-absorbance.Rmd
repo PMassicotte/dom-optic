@@ -35,17 +35,69 @@ In reference to this fraction of the DOM pool, people have been using interchang
 To unify the terminology, we propose that absorption of CDOM should be written as $\mathbf{a_{\text{CDOM}}(\lambda)}$ using the followings *rules*:
 
 1. *a* in *italic* to reference to absorption (vs absorbance).
-2. CDOM subscripted and in capital letters.
+2. CDOM subscript and in capital letters.
 3. $\lambda$ sign to refer to the wavelength where the measurement is done.
 
 For example, $a_{\text{CDOM}}(350)$ refers to absorption coefficient measured at 350 nm.
 
 ## Absorption vs absorbance
 
+It is of interest to review the [Beer-Lambert law](http://www.chemguide.co.uk/analysis/uvvisible/beerlambert.html) to understand the difference between absrobance and absorption.
+
+\begin{alignat}{2}
+\label{eq:abs1}
+    I_n &= I_0 \times e^{\epsilon \times c \times L}\\
+\end{alignat}
+
+where:
+
+- $I_0$ the intensity of *emitted* light (before it passes through the sample).
+- $I_n$ the intensity of *received* light (after it passes through the sample).
+- $\epsilon$: the molar absorption coefficient ($m^2 \times \text{mole}^{-1}$).
+- $c$: the concentration of the colored material in the solution ($\text{mole} \times m^{-3}$).
+- $L$: the pathlenght traveled by the light throught the solution. It is of a common usage to express it per meter ($m^{-1}$).
+
+\begin{alignat}{2}
+\label{eq:abs2}
+    I_n &= I_0 \times e^{a \times L}\\
+\end{alignat}
+
+where $a = \epsilon \times c$ is the absorption coefficient ($m^{-1}$).
+
+\begin{alignat}{2}
+\label{eq:abs3}
+    \frac{I_n}{I_0}       &= e^{a \times L}\\[10pt]
+    log(\frac{I_0}{I_n})  &= a \times L\\[10pt]
+    a                     &= \frac{log(\frac{I_0}{I_n})}{L}\\
+\end{alignat}
+
+We notice here that the Beer-Lambert law is written in log base $e$. However, for historical reasons (basically because it was esier to calculate in the *old* days), spectrophotometer use log base 10 than rather than $e$. To convert from base 10 logarithm to a natural logarithm (i.e. base $e$), one need to use the conversion factor calculated as $log(10)$ which is equato to `r log(10)`.  Then, the equation becomes:
+
+\begin{alignat}{2}
+\label{eq:abs4}
+    a &= \frac{log(\frac{I_0}{I_n}) \times 2.303}{L}\\
+\end{alignat}
+
+Note that *absorbance* measured by spectrophotometers is noted $A$. Finally, 
+
 \begin{equation}
-a_{\text{CDOM}}(\lambda) = \frac{A(\lambda) \times 2.303}{L}
-\label{eq:absorption}
+
+a = \frac{A \times 2.303}{L}
+\label{eq:absorption1}
+
 \end{equation}
+
+Because we are specifially measuring absorption of CDOM, often at a specific wavelenght $\lambda$, the recommended writing is as follow:
+
+\begin{equation}
+
+a_{\text{CDOM}}(\lambda) = \frac{A(\lambda) \times 2.303}{L}
+\label{eq:absorption2}
+
+\end{equation}
+
+
+Where $A(\lambda)$ is the measured **absorbance** and $L$ the measurement cuvette thickness (or pathlenght) expressed per meter ($m^{-1}$).
 
 ## Mathematical formulation of absorption spectra
 
@@ -98,7 +150,7 @@ When modeling CDOM spectra, there are few things to keep in minds that can have 
 
 #### Choice of the reference wavelength
 
-In equation \@ref(eq:cdom2), the reference wavelenght was set at 350 nm. One question can potentially come to your mind. What is the effect of choosing a different reference wavelengths? What will append to $S$ if we change the reference wavelength to let's say 250? 
+In equation \@ref(eq:cdom2), the reference wavelength was set at 350 nm. One question can potentially come to your mind. What is the effect of choosing a different reference wavelengths? What will append to $S$ if we change the reference wavelength to let's say 250? 
 
 Fig. \@ref(fig:refwl) shows that:
 
