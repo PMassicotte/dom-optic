@@ -46,7 +46,7 @@ It is of interest to review the [Beer-Lambert law](http://www.chemguide.co.uk/an
 
 \begin{alignat}{2}
 \label{eq:abs1}
-    I_n &= I_0 \times e^{\epsilon \times c \times L}\\
+    I_n &= I_0 \times e^{(\epsilon \times c \times L)}\\
 \end{alignat}
 
 where:
@@ -59,14 +59,15 @@ where:
 
 \begin{alignat}{2}
 \label{eq:abs2}
-    I_n &= I_0 \times e^{a \times L}\\
+    I_n &= I_0 \times e^{-(a \times L)}\\
 \end{alignat}
 
 where $a = \epsilon \times c$ is the absorption coefficient ($m^{-1}$).
 
 \begin{alignat}{2}
 \label{eq:abs3}
-    \frac{I_n}{I_0}       &= e^{a \times L}\\[10pt]
+    \frac{I_n}{I_0}       &= e^{-(a \times L)}\\[10pt]
+    \frac{I_0}{I_n}       &= e^{(a \times L)}\\[10pt]
     log(\frac{I_0}{I_n})  &= a \times L\\[10pt]
     a                     &= \frac{log(\frac{I_0}{I_n})}{L}\\
 \end{alignat}
