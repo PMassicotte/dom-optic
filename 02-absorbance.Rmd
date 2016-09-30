@@ -10,24 +10,6 @@ Chromophoric fraction of the DOM pool (CDOM) is a major driver of underwater lig
 
 - Measured in quartz cuvette (1, 5, 10+ cm)
 
-
-As wavelengths increase, light absorbed by CDOM decrease exponentially \@ref(fig:absorbance).
-
-```{r absorbance, fig.cap = "Example of an absorption spectrum of CDOM."}
-
-library(cdom)
-data(spectra)
-
-spectra <- spectra %>% filter(wavelength <= 500)
-
-p <- ggplot(spectra, aes(x = wavelength, y = spc1)) +
-  geom_line() +
-  xlab("Wavelength (nm.)") +
-  ylab(bquote(Absorption~(nm^{-1})))
-
-p
-```
-
 ## Writing and notation
 
 In reference to this fraction of the DOM pool, people have been using interchangeably different terminology. For example, a_g($\lambda$), a($\lambda$), CDOM($\lambda$), aCDOM($\lambda$) and $a_{CDOM}(\lambda)$ are all referring to the absorption coefficient measured at wavelength $\lambda$ (nm).
@@ -79,7 +61,7 @@ We notice here that the Beer-Lambert law is written in log base $e$. However, fo
     a &= \frac{log(\frac{I_0}{I_n}) \times 2.303}{L}\\
 \end{alignat}
 
-Note that *absorbance* measured by spectrophotometers is noted $A$. Finally, 
+Note that *absorbance* measured by spectrophotometers is noted $A$. Finally,
 
 \begin{equation}
 
@@ -88,7 +70,7 @@ a = \frac{A \times 2.303}{L}
 
 \end{equation}
 
-Because we are specifially measuring absorption of CDOM, often at a specific wavelenght $\lambda$, the recommended writing is as follow:
+Because we are specifically measuring absorption of CDOM, often at a specific wavelength $\lambda$, the recommended writing is as follow:
 
 \begin{equation}
 
@@ -97,19 +79,35 @@ a_{\text{CDOM}}(\lambda) = \frac{A(\lambda) \times 2.303}{L}
 
 \end{equation}
 
-
 Where $A(\lambda)$ is the measured **absorbance** and $L$ the measurement cuvette thickness (or pathlenght) expressed per meter ($m^{-1}$).
 
 ## Mathematical formulation of absorption spectra
 
-As observed in figure \@ref(fig:absorbance), absorption decrease exponentially with increasing wavelengths. @Jerlov1968 and @Bricaud1981 first proposed to use a simple exponential formulation to model absorption (equation \@ref(eq:cdom1)).
+As observed in figure \@ref(fig:absorbance), absorption decrease exponentially with increasing wavelengths. As wavelengths increase, light absorbed by CDOM decrease exponentially \@ref(fig:absorbance).
+
+```{r absorbance, fig.cap = "Example of an absorption spectrum of CDOM."}
+
+library(cdom)
+data(spectra)
+
+spectra <- spectra %>% filter(wavelength <= 500)
+
+p <- ggplot(spectra, aes(x = wavelength, y = spc1)) +
+  geom_line() +
+  xlab("Wavelength (nm.)") +
+  ylab(bquote(Absorption~(nm^{-1})))
+
+p
+```
+
+@Jerlov1968 and @Bricaud1981 first proposed to use a simple exponential formulation to model absorption (equation \@ref(eq:cdom1)).
 
 \begin{equation}
 a_{\text{CDOM}}(\lambda) = a_{\text{CDOM}}(\lambda0)e^{-S(\lambda - \lambda0)}
 \label{eq:cdom1}
 \end{equation}
 
-Where $a_{\text{CDOM}}(\lambda)$ is the absorption coefficient (m$^{-1}$), $\lambda$ is the wavelength (nm), $\lambda0$ is a reference wavelength (nm) and $S$ is the spectral slope (nm$^{-1}$) that describes the approximate exponential rate of decrease of absorption with increasing wavelength. Higher slopes indicate a more rapid decrease in absorption with increasing wavelength. The $S$ parameter is frequently used as a proxy for tracing photochemical and microbial-induced changes of CDOM [Moran2000,Twardowski2004,Helms2013] or to determine its origin [Stedmon2001].
+Where $a_{\text{CDOM}}(\lambda)$ is the absorption coefficient (m$^{-1}$), $\lambda$ is the wavelength (nm), $\lambda0$ is a reference wavelength (nm) and $S$ is the spectral slope (nm$^{-1}$) that describes the approximate exponential rate of decrease of absorption with increasing wavelength. Higher slopes indicate a more rapid decrease in absorption with increasing wavelength. The $S$ parameter is frequently used as a proxy for tracing photochemical and microbial-induced changes of CDOM [@Moran2000;@Twardowski2004;@Helms2013] or to determine its origin [@Stedmon2001].
 
 In 2001, equation \@ref(eq:cdom1) was modified by @Stedmon2001 which introduced $k$, a background constant (m$^{-1}$) accounting for scatter in the cuvette and drift of the instrument (equation \@ref(eq:cdom2)).
 
@@ -117,6 +115,9 @@ In 2001, equation \@ref(eq:cdom1) was modified by @Stedmon2001 which introduced 
 a_{\text{CDOM}}(\lambda) = a_{\text{CDOM}}(\lambda0)e^{-S(\lambda - \lambda0)} + \mathbf{k}
 \label{eq:cdom2}
 \end{equation}
+
+- The $K$ parameter...
+- Graph showing $K$
 
 There are other mathematical formulations that can be used to model CDOM spectra. These are reviewed in @Twardowski2004.
 
@@ -136,13 +137,14 @@ summary(mod)
 
 The value of $a0$ is `r round(coef(mod)[1], digits = 2)` represent the absorption coefficient at the reference wavelength of 250 nm (Fig. \@ref(fig:model)). The value of $S$ is `r round(coef(mod)[2], digits = 2)` means that absorption is decreasing at a rate of `r round(coef(mod)[2], digits = 2)` $m^{-1}$ for each increase of 1 nm.
 
+- cdom package example
+
 - k parameter (scattering, introduced by @Stedmon2001)
 
 ```{r model, fig.cap="Predicted values of the exponential model."}
 p + geom_line(aes(y = predict(mod)), col = "red") +
   geom_hline(yintercept = coef(mod)[1] + coef(mod)[3], lty = 2) +
   geom_vline(xintercept = 250, lty = 2)
-
 ```
 
 ### Potential drawbacks
@@ -151,7 +153,7 @@ When modeling CDOM spectra, there are few things to keep in minds that can have 
 
 #### Choice of the reference wavelength
 
-In equation \@ref(eq:cdom2), the reference wavelength was set at 350 nm. One question can potentially come to your mind. What is the effect of choosing a different reference wavelengths? What will append to $S$ if we change the reference wavelength to let's say 250? 
+In equation \@ref(eq:cdom2), the reference wavelength was set at 350 nm. One question can potentially come to your mind. What is the effect of choosing a different reference wavelengths? What will append to $S$ if we change the reference wavelength to let's say 250?
 
 Fig. \@ref(fig:refwl) shows that:
 
@@ -163,16 +165,16 @@ ref_wl <- seq(250, 400, by = 5)
 
 mods <- lapply(ref_wl, function(x) {
   f <- substitute(spc1 ~ a0 * exp(-s * (wavelength - x)) + k, list(x = x))
-  
+
   nls(f, data = spectra, start = list(a0 = 5, s = 0.02, k = 0))
-  
+
 })
 
-coefs <- lapply(mods, coef) 
-coefs <- as.data.frame(do.call(rbind, coefs)) %>% 
-  mutate(wavelength = ref_wl) 
+coefs <- lapply(mods, coef)
+coefs <- as.data.frame(do.call(rbind, coefs)) %>%
+  mutate(wavelength = ref_wl)
 
-p <- coefs %>% 
+p <- coefs %>%
   ggplot(aes(x = wavelength, y = s)) +
   geom_line() +
   geom_point() +
@@ -186,7 +188,81 @@ p
 
 #### Choice of the spectral range
 
-- @Massicotte2016MC
+The choice of the spectral range used to model absorption spectra is known to have important consequences on estimated parameters [@Massicotte2016MC; @Twardowski2004]. I will use the spectrum provided in Fig. \@ref(fig:absorbance) where absorption has been measured between 190 and 900 nm. For this exercise, I will use four different spectral ranges to show how this is affecting the calculation of $S$.
+
+1. 275-295 nm
+2. 350-450 nm
+3. 220-600 nm
+4. 250-500 nm
+
+```{r effectwl, echo = FALSE, fig.cap = "Effect of wavelength range on modeled absorption."}
+
+library(cdom)
+
+df <- spectra %>% select(wavelength, spc1)
+
+m1 <-
+cdom_exponential(
+df$wavelength,
+df$spc1,
+wl0 = 350,
+startwl = 275,
+endwl = 295
+)
+
+m2 <-
+cdom_exponential(
+df$wavelength,
+df$spc1,
+wl0 = 350,
+startwl = 350,
+endwl = 450
+)
+
+m3 <-
+cdom_exponential(
+df$wavelength,
+df$spc1,
+wl0 = 350,
+startwl = 220,
+endwl = 600
+)
+
+m4 <-
+cdom_exponential(
+df$wavelength,
+df$spc1,
+wl0 = 350,
+startwl = 250,
+endwl = 500
+)
+
+df <- df %>% 
+  mutate(predicted_275_295 = predict(m1$model, newdata = list(x = .$wavelength))) %>% 
+  mutate(predicted_350_450 = predict(m2$model, newdata = list(x = .$wavelength))) %>% 
+  mutate(predicted_220_600 = predict(m3$model, newdata = list(x = .$wavelength))) %>% 
+  mutate(predicted_250_500 = predict(m4$model, newdata = list(x = .$wavelength)))
+
+df <- df %>% 
+  gather(range, predicted, starts_with("predicted"))
+
+df %>% 
+  ggplot(aes(x = wavelength, y = spc1)) +
+  geom_line(aes(color = "Original spectra")) +
+  geom_line(aes(y = predicted, color = "Modeled spectra")) +
+  facet_wrap(~range) +
+  xlab("Wavelength (nm)") +
+  ylab(bquote(Absorption~(m^{-1}))) +
+  theme(legend.justification = c(1, 1), legend.position = c(1, 1)) +
+  theme(legend.title = element_blank())
+
+```
+
+- Can have important effect on the value of $S$.
+
+```{r, echo = FALSE}
+knitr::kable(rbind(coef(m1), coef(m2), coef(m3), coef(m4)))
+```
 
 ## Metrics
 
@@ -212,7 +288,10 @@ df1 <- spectra %>%
 df2 <- spectra %>%
   filter(wavelength %in% 350:400)
 
-p +
+ggplot(spectra, aes(x = wavelength, y = spc1)) +
+  geom_line() +
+  xlab("Wavelength (nm.)") +
+  ylab(bquote(Absorption~(nm^{-1}))) +
   geom_line(data = df1, aes(x = wavelength, y = spc1), col = "red") +
   geom_line(data = df2, aes(x = wavelength, y = spc1), col = "red")
 ```
