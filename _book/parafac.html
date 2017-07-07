@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Practical guide on dissolved organic matter (DOM) optic</title>
+  <meta name="description" content="A practical guide on dissolved organic matter optic.">
+  <meta name="generator" content="bookdown 0.4 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Practical guide on dissolved organic matter (DOM) optic" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="A practical guide on dissolved organic matter optic." />
+  <meta name="github-repo" content="PMassicotte/dom-optic" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Practical guide on dissolved organic matter (DOM) optic" />
+  
+  <meta name="twitter:description" content="A practical guide on dissolved organic matter optic." />
+  
+
+<meta name="author" content="Philippe Massicotte">
+
+
+<meta name="date" content="2017-07-07">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="what-is-a-eem.html">
+<link rel="next" href="fluorescence-of-dom-theoretical-and-mathematical-background.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Practical guide on dissolved organic matter (DOM) optic</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction and motivations</a></li>
+<li class="chapter" data-level="2" data-path="measurements.html"><a href="measurements.html"><i class="fa fa-check"></i><b>2</b> Measurements</a><ul>
+<li class="chapter" data-level="2.1" data-path="dom-measurements.html"><a href="dom-measurements.html"><i class="fa fa-check"></i><b>2.1</b> DOM measurements</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="absorbance.html"><a href="absorbance.html"><i class="fa fa-check"></i><b>3</b> Absorbance</a><ul>
+<li class="chapter" data-level="3.1" data-path="what-is-cdom.html"><a href="what-is-cdom.html"><i class="fa fa-check"></i><b>3.1</b> What is CDOM?</a></li>
+<li class="chapter" data-level="3.2" data-path="writing-and-notation.html"><a href="writing-and-notation.html"><i class="fa fa-check"></i><b>3.2</b> Writing and notation</a></li>
+<li class="chapter" data-level="3.3" data-path="absorption-vs-absorbance.html"><a href="absorption-vs-absorbance.html"><i class="fa fa-check"></i><b>3.3</b> Absorption vs absorbance</a></li>
+<li class="chapter" data-level="3.4" data-path="mathematical-formulation-of-absorption-spectra.html"><a href="mathematical-formulation-of-absorption-spectra.html"><i class="fa fa-check"></i><b>3.4</b> Mathematical formulation of absorption spectra</a></li>
+<li class="chapter" data-level="3.5" data-path="sl.html"><a href="sl.html"><i class="fa fa-check"></i><b>3.5</b> Modeling CDOM absorption spectra in R</a><ul>
+<li class="chapter" data-level="3.5.1" data-path="sl.html"><a href="sl.html#potential-drawbacks"><i class="fa fa-check"></i><b>3.5.1</b> Potential drawbacks</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="metrics.html"><a href="metrics.html"><i class="fa fa-check"></i><b>3.6</b> Metrics</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="metrics.html"><a href="metrics.html#slope-ratio"><i class="fa fa-check"></i><b>3.6.1</b> Slope ratio</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="fluorescence.html"><a href="fluorescence.html"><i class="fa fa-check"></i><b>4</b> Fluorescence</a><ul>
+<li class="chapter" data-level="4.1" data-path="what-is-a-eem.html"><a href="what-is-a-eem.html"><i class="fa fa-check"></i><b>4.1</b> What is a EEM</a></li>
+<li class="chapter" data-level="4.2" data-path="parafac.html"><a href="parafac.html"><i class="fa fa-check"></i><b>4.2</b> PARAFAC</a></li>
+<li class="chapter" data-level="4.3" data-path="fluorescence-of-dom-theoretical-and-mathematical-background.html"><a href="fluorescence-of-dom-theoretical-and-mathematical-background.html"><i class="fa fa-check"></i><b>4.3</b> Fluorescence of DOM: theoretical and mathematical background</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="fluorescence-of-dom-theoretical-and-mathematical-background.html"><a href="fluorescence-of-dom-theoretical-and-mathematical-background.html#scattering-correction"><i class="fa fa-check"></i><b>4.3.1</b> Scattering correction</a></li>
+<li class="chapter" data-level="4.3.2" data-path="fluorescence-of-dom-theoretical-and-mathematical-background.html"><a href="fluorescence-of-dom-theoretical-and-mathematical-background.html#inner-filter-effect-correction"><i class="fa fa-check"></i><b>4.3.2</b> Inner-filter effect correction</a></li>
+<li class="chapter" data-level="4.3.3" data-path="fluorescence-of-dom-theoretical-and-mathematical-background.html"><a href="fluorescence-of-dom-theoretical-and-mathematical-background.html#raman-calibration"><i class="fa fa-check"></i><b>4.3.3</b> Raman calibration</a></li>
+<li class="chapter" data-level="4.3.4" data-path="fluorescence-of-dom-theoretical-and-mathematical-background.html"><a href="fluorescence-of-dom-theoretical-and-mathematical-background.html#metrics-1"><i class="fa fa-check"></i><b>4.3.4</b> Metrics</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="r-code-and-study-case.html"><a href="r-code-and-study-case.html"><i class="fa fa-check"></i><b>4.4</b> R code and study case</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="r-code-and-study-case.html"><a href="r-code-and-study-case.html#data-importation-and-plotting"><i class="fa fa-check"></i><b>4.4.1</b> Data importation and plotting</a></li>
+<li class="chapter" data-level="4.4.2" data-path="r-code-and-study-case.html"><a href="r-code-and-study-case.html#blank-subtraction"><i class="fa fa-check"></i><b>4.4.2</b> Blank subtraction</a></li>
+<li class="chapter" data-level="4.4.3" data-path="r-code-and-study-case.html"><a href="r-code-and-study-case.html#raman-and-rayleigh-scattering-removal"><i class="fa fa-check"></i><b>4.4.3</b> Raman and Rayleigh scattering removal</a></li>
+<li class="chapter" data-level="4.4.4" data-path="r-code-and-study-case.html"><a href="r-code-and-study-case.html#inner-filter-effect-correction-1"><i class="fa fa-check"></i><b>4.4.4</b> Inner-filter effect correction</a></li>
+<li class="chapter" data-level="4.4.5" data-path="r-code-and-study-case.html"><a href="r-code-and-study-case.html#raman-normalization"><i class="fa fa-check"></i><b>4.4.5</b> Raman normalization</a></li>
+<li class="chapter" data-level="4.4.6" data-path="r-code-and-study-case.html"><a href="r-code-and-study-case.html#exporting-to-matlab"><i class="fa fa-check"></i><b>4.4.6</b> Exporting to MATLAB</a></li>
+<li class="chapter" data-level="4.4.7" data-path="r-code-and-study-case.html"><a href="r-code-and-study-case.html#metric-extraction"><i class="fa fa-check"></i><b>4.4.7</b> Metric extraction</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="using-r-pipeline.html"><a href="using-r-pipeline.html"><i class="fa fa-check"></i><b>4.5</b> Using R pipeline</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="definitions.html"><a href="definitions.html"><i class="fa fa-check"></i><b>5</b> Definitions</a></li>
+<li class="chapter" data-level="6" data-path="test.html"><a href="test.html"><i class="fa fa-check"></i><b>6</b> Absorbance</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/PMassicotte/dom-optic" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Practical guide on dissolved organic matter (DOM) optic</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="parafac" class="section level2">
+<h2><span class="header-section-number">4.2</span> PARAFAC</h2>
+<p>The seminal paper of <span class="citation">(Colin A. Stedmon, Markager, and Bro <a href="#ref-Stedmon2003a">2003</a>)</span> put at the forefront the use of parallel factor analysis (PARAFAC) to aid the characterization of fluorescent DOM. Briefly, this three-way technique allows the decomposition of complex DOM fluorescence signals contained in the excitation-emission matrix (EEM, Fig. 1) into a set of individual chemical components and provides estimations of their relative contribution to the total fluorescence <span class="citation">(Bro <a href="#ref-Bro1997">1997</a>; Jason B Fellman, Hood, and Spencer <a href="#ref-Fellman2010">2010</a>; Colin A. Stedmon, Markager, and Bro <a href="#ref-Stedmon2003a">2003</a>)</span>.</p>
+<p>The PARAFAC model is described as <span class="citation">(Bro <a href="#ref-Bro1997">1997</a>; Harshman <a href="#ref-Harshman1970">1970</a>)</span>:</p>
+<span class="math display">\[\begin{equation}
+x_{ijk} = \sum_{f=1}^{F} a_{ij}b_{jf}c_{kf} + e_{ijk}
+\end{equation}\]</span>
+<p>where <span class="math inline">\(i = 1, ..., I\)</span>; <span class="math inline">\(j = 1, ..., J\)</span>; <span class="math inline">\(k = 1, ..., K\)</span>, <span class="math inline">\(x_{ijk}\)</span> is the intensity of fluorescence of the the <span class="math inline">\(i^{th}\)</span> sample at the <span class="math inline">\(j^{th}\)</span> emission wavelength at the <span class="math inline">\(k^{th}\)</span> excitation wavelength. <span class="math inline">\(a_{ij}\)</span> is directly proportional to the concentration of the <span class="math inline">\(f^{th}\)</span> component in the sample <span class="math inline">\(i\)</span>. Although PARAFAC gained a lot of attention in environmental sciences, it is also widely used in other research fields such as medical, pharmaceutical, food, social and information sciences <span class="citation">(Murphy et al. <a href="#ref-Murphy2013">2013</a>)</span>. Until today, more than 1850 published scientific papers relying on PARAFAC have been identified on Web of Science.</p>
+<p>Although PARAFAC was made easier using the <code>drEEM</code> MATLAB toolbox <span class="citation">(Murphy et al. <a href="#ref-Murphy2013">2013</a>)</span>, preprocessing of EEMs prior to the analysis is still not straightforward. EEM preprocessing is an important part of PARAFAC since it aims to correct any systematic bias in the measurements and to remove signal unrelated to DOM fluorescence <span class="citation">(Murphy et al. <a href="#ref-Murphy2013">2013</a>)</span>. Biased models can be produced if these steps are not conducted carefully (see <span class="citation">Hiriart-Baer, Diep, and Smith (<a href="#ref-Hiriart-Baer2008">2008</a>)</span> where scattering fluorescence signals have been modeled and wrongly interpreted). Such data processing is cumbersome as it involves many steps <span class="citation">(Colin A Stedmon and Bro <a href="#ref-Stedmon2008">2008</a>; Murphy et al. <a href="#ref-Murphy2013">2013</a>)</span> which are usually executed by hand or within in-house scripting and therefore prone to introduce errors. Another important drawback limiting effective preprocessing of EEMs arise from the wide variety of file formats provided by the different manufacturers of spectrofluorometers that makes data importation difficult to generalize.</p>
+<p>Possibly reflecting these difficulties, it was recently pointed out that characterization of DOM using fluorescence spectroscopy is still not routinely included in ecological studies <span class="citation">(Jason B Fellman, Hood, and Spencer <a href="#ref-Fellman2010">2010</a>)</span>. Given the increasing interest for fluorescence spectroscopy in ecology, tools are needed to unify the main preprocessing steps needed for further analyzes such as PARAFAC or metric calculations. The purpose of the <code>eemR</code> R package is to provide a rapid and an elegant interface to perform preprocessing of EEMs as well as to extract common fluorescence-based metrics proposed in the literature to obtain quantitative information about the DOM pool. This paper presents theoretical and mathematical background of the main PARAFAC preprocessing steps and metric calculations with concrete code examples.</p>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-Stedmon2003a">
+<p>Stedmon, Colin A., Stiig Markager, and Rasmus Bro. 2003. “Tracing dissolved organic matter in aquatic environments using a new approach to fluorescence spectroscopy.” <em>Marine Chemistry</em> 82 (3-4): 239–54. doi:<a href="https://doi.org/10.1016/S0304-4203(03)00072-0">10.1016/S0304-4203(03)00072-0</a>.</p>
+</div>
+<div id="ref-Bro1997">
+<p>Bro, Rasmus. 1997. “PARAFAC. Tutorial and applications.” <em>Chemometrics and Intelligent Laboratory Systems</em> 38 (2): 149–71. doi:<a href="https://doi.org/10.1016/S0169-7439(97)00032-4">10.1016/S0169-7439(97)00032-4</a>.</p>
+</div>
+<div id="ref-Fellman2010">
+<p>Fellman, Jason B, Eran Hood, and Robert G M Spencer. 2010. “Fluorescence spectroscopy opens new windows into dissolved organic matter dynamics in freshwater ecosystems: A review.” <em>Limnology and Oceanography</em> 55 (6): 2452–62. doi:<a href="https://doi.org/10.4319/lo.2010.55.6.2452">10.4319/lo.2010.55.6.2452</a>.</p>
+</div>
+<div id="ref-Harshman1970">
+<p>Harshman, Richard a. 1970. “Foundations of the PARAFAC procedure: Models and conditions for an ‘explanatory’ multimodal factor analysis.” <em>UCLA Working Papers in Phonetics</em> 16 (10): 1–84.</p>
+</div>
+<div id="ref-Murphy2013">
+<p>Murphy, Kathleen R., Colin a. Stedmon, Daniel Graeber, and Rasmus Bro. 2013. “Fluorescence spectroscopy and multi-way techniques. PARAFAC.” <em>Analytical Methods</em> 5 (23): 6557. doi:<a href="https://doi.org/10.1039/c3ay41160e">10.1039/c3ay41160e</a>.</p>
+</div>
+<div id="ref-Hiriart-Baer2008">
+<p>Hiriart-Baer, Véronique P., Ngan Diep, and Ralph E. H. Smith. 2008. “Dissolved Organic Matter in the Great Lakes: Role and Nature of Allochthonous Material.” <em>Journal of Great Lakes Research</em> 34 (3): 383–94. doi:<a href="https://doi.org/10.3394/0380-1330(2008)34[383:DOMITG]2.0.CO;2">10.3394/0380-1330(2008)34[383:DOMITG]2.0.CO;2</a>.</p>
+</div>
+<div id="ref-Stedmon2008">
+<p>Stedmon, Colin A, and Rasmus Bro. 2008. “Characterizing dissolved organic matter fluorescence with parallel factor analysis: a tutorial.” <em>Limnology and Oceanography: Methods</em> 6 (11): 572–79. doi:<a href="https://doi.org/10.4319/lom.2008.6.572">10.4319/lom.2008.6.572</a>.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="what-is-a-eem.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="fluorescence-of-dom-theoretical-and-mathematical-background.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/PMassicotte/dom-optic/edit/master/03-fluorescence.Rmd",
+"text": "Edit"
+},
+"download": ["dom_optic.pdf", "dom_optic.epub", "dom_optic.mobi"],
+"toc": {
+"collapse": "none"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, '');
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

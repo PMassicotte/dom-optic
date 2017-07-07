@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Practical guide on dissolved organic matter (DOM) optic</title>
+  <meta name="description" content="A practical guide on dissolved organic matter optic.">
+  <meta name="generator" content="bookdown 0.4 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Practical guide on dissolved organic matter (DOM) optic" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="A practical guide on dissolved organic matter optic." />
+  <meta name="github-repo" content="PMassicotte/dom-optic" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Practical guide on dissolved organic matter (DOM) optic" />
+  
+  <meta name="twitter:description" content="A practical guide on dissolved organic matter optic." />
+  
+
+<meta name="author" content="Philippe Massicotte">
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="fluorescence.html">
+<link rel="next" href="definitions.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Practical guide on dissolved organic matter (DOM) optic</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction and motivations</a></li>
+<li class="chapter" data-level="2" data-path="measurements.html"><a href="measurements.html"><i class="fa fa-check"></i><b>2</b> Measurements</a><ul>
+<li class="chapter" data-level="2.1" data-path="measurements.html"><a href="measurements.html#dom-measurements"><i class="fa fa-check"></i><b>2.1</b> DOM measurements</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="absorbance.html"><a href="absorbance.html"><i class="fa fa-check"></i><b>3</b> Absorbance</a><ul>
+<li class="chapter" data-level="3.1" data-path="absorbance.html"><a href="absorbance.html#what-is-cdom"><i class="fa fa-check"></i><b>3.1</b> What is CDOM?</a></li>
+<li class="chapter" data-level="3.2" data-path="absorbance.html"><a href="absorbance.html#writing-and-notation"><i class="fa fa-check"></i><b>3.2</b> Writing and notation</a></li>
+<li class="chapter" data-level="3.3" data-path="absorbance.html"><a href="absorbance.html#absorption-vs-absorbance"><i class="fa fa-check"></i><b>3.3</b> Absorption vs absorbance</a></li>
+<li class="chapter" data-level="3.4" data-path="absorbance.html"><a href="absorbance.html#mathematical-formulation-of-absorption-spectra"><i class="fa fa-check"></i><b>3.4</b> Mathematical formulation of absorption spectra</a></li>
+<li class="chapter" data-level="3.5" data-path="absorbance.html"><a href="absorbance.html#sl"><i class="fa fa-check"></i><b>3.5</b> Modeling CDOM absorption spectra in R</a><ul>
+<li class="chapter" data-level="3.5.1" data-path="absorbance.html"><a href="absorbance.html#potential-drawbacks"><i class="fa fa-check"></i><b>3.5.1</b> Potential drawbacks</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="absorbance.html"><a href="absorbance.html#metrics"><i class="fa fa-check"></i><b>3.6</b> Metrics</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="absorbance.html"><a href="absorbance.html#slope-ratio"><i class="fa fa-check"></i><b>3.6.1</b> Slope ratio</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="fluorescence.html"><a href="fluorescence.html"><i class="fa fa-check"></i><b>4</b> Fluorescence</a><ul>
+<li class="chapter" data-level="4.1" data-path="fluorescence.html"><a href="fluorescence.html#what-is-a-eem"><i class="fa fa-check"></i><b>4.1</b> What is a EEM</a></li>
+<li class="chapter" data-level="4.2" data-path="fluorescence.html"><a href="fluorescence.html#parafac"><i class="fa fa-check"></i><b>4.2</b> PARAFAC</a></li>
+<li class="chapter" data-level="4.3" data-path="fluorescence.html"><a href="fluorescence.html#fluorescence-of-dom-theoretical-and-mathematical-background"><i class="fa fa-check"></i><b>4.3</b> Fluorescence of DOM: theoretical and mathematical background</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="fluorescence.html"><a href="fluorescence.html#scattering-correction"><i class="fa fa-check"></i><b>4.3.1</b> Scattering correction</a></li>
+<li class="chapter" data-level="4.3.2" data-path="fluorescence.html"><a href="fluorescence.html#inner-filter-effect-correction"><i class="fa fa-check"></i><b>4.3.2</b> Inner-filter effect correction</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="loadife-rda.html"><a href="loadife-rda.html"><i class="fa fa-check"></i><b>5</b> load(“ife.rda”)</a><ul>
+<li class="chapter" data-level="5.0.1" data-path="loadife-rda.html"><a href="loadife-rda.html#raman-calibration"><i class="fa fa-check"></i><b>5.0.1</b> Raman calibration</a></li>
+<li class="chapter" data-level="5.0.2" data-path="loadife-rda.html"><a href="loadife-rda.html#metrics-1"><i class="fa fa-check"></i><b>5.0.2</b> Metrics</a></li>
+<li class="chapter" data-level="5.1" data-path="loadife-rda.html"><a href="loadife-rda.html#r-code-and-study-case"><i class="fa fa-check"></i><b>5.1</b> R code and study case</a><ul>
+<li class="chapter" data-level="5.1.1" data-path="loadife-rda.html"><a href="loadife-rda.html#data-importation-and-plotting"><i class="fa fa-check"></i><b>5.1.1</b> Data importation and plotting</a></li>
+<li class="chapter" data-level="5.1.2" data-path="loadife-rda.html"><a href="loadife-rda.html#blank-subtraction"><i class="fa fa-check"></i><b>5.1.2</b> Blank subtraction</a></li>
+<li class="chapter" data-level="5.1.3" data-path="loadife-rda.html"><a href="loadife-rda.html#raman-and-rayleigh-scattering-removal"><i class="fa fa-check"></i><b>5.1.3</b> Raman and Rayleigh scattering removal</a></li>
+<li class="chapter" data-level="5.1.4" data-path="loadife-rda.html"><a href="loadife-rda.html#inner-filter-effect-correction-1"><i class="fa fa-check"></i><b>5.1.4</b> Inner-filter effect correction</a></li>
+<li class="chapter" data-level="5.1.5" data-path="loadife-rda.html"><a href="loadife-rda.html#raman-normalization"><i class="fa fa-check"></i><b>5.1.5</b> Raman normalization</a></li>
+<li class="chapter" data-level="5.1.6" data-path="loadife-rda.html"><a href="loadife-rda.html#exporting-to-matlab"><i class="fa fa-check"></i><b>5.1.6</b> Exporting to MATLAB</a></li>
+<li class="chapter" data-level="5.1.7" data-path="loadife-rda.html"><a href="loadife-rda.html#metric-extraction"><i class="fa fa-check"></i><b>5.1.7</b> Metric extraction</a></li>
+</ul></li>
+<li class="chapter" data-level="5.2" data-path="loadife-rda.html"><a href="loadife-rda.html#using-r-pipeline"><i class="fa fa-check"></i><b>5.2</b> Using R pipeline</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="definitions.html"><a href="definitions.html"><i class="fa fa-check"></i><b>6</b> Definitions</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/PMassicotte/dom-optic" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Practical guide on dissolved organic matter (DOM) optic</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="loadife.rda" class="section level1">
+<h1><span class="header-section-number">Chapter 5</span> load(“ife.rda”)</h1>
+<p>jet.colors &lt;- colorRampPalette(c(“#00007F”, “blue”, “#007FFF”, “cyan”, “#7FFF7F”, “yellow”, “#FF7F00”, “red”, “#7F0000”))</p>
+<p>par(mfrow = c(2,2), mar = c(4, 4, 1, 2) + 0.1, oma = c(0,0,0,2))</p>
+<p>plot3D::image2D(y = eem[[1]]<span class="math inline">\(em,  x = eem[[1]]\)</span>ex, z = t(eem[[1]]$x), xlab = “Excitation (nm.)”, ylab = “Emission (nm.)”, legend.lab = “IFE correction factors”, col = jet.colors(255))</p>
+<p>legend(“topleft”, expression(bold(“A”)), text.font = 1, cex = 1.5, bty = “n”, adj = c(1.5, 0.25))</p>
+<p>plot(absorbance<span class="math inline">\(wavelength,  absorbance\)</span>sample3, type = “l”, lwd = 2, col = “red”, xlab = “Wavelength (nm)”, ylab = “Absorbance”)</p>
+<p>legend(“topleft”, expression(bold(“B”)), text.font = 1, cex = 1.5, bty = “n”, adj = c(1.5, 0.25))</p>
+<p>plot3D::image2D(y = eem[[1]]<span class="math inline">\(em,  x = eem[[1]]\)</span>ex, z = t(ife), xlab = “Excitation (nm.)”, ylab = “Emission (nm.)”, legend.lab = “IFE correction factors”, col = rev(jet.colors(255)))</p>
+<p>legend(“topleft”, expression(bold(“C”)), text.font = 1, cex = 1.5, bty = “n”, adj = c(1.5, 0.25))</p>
+<p>plot3D::image2D(y = eem_scatter_removed[[1]]<span class="math inline">\(em,  x = eem_scatter_removed[[1]]\)</span>ex, z = t(eem_scatter_removed[[1]]$x), xlab = “Excitation (nm.)”, ylab = “Emission (nm.)”, legend.lab = “IFE correction factors”, col = jet.colors(255))</p>
+<p>legend(“topleft”, expression(bold(“D”)), text.font = 1, cex = 1.5, bty = “n”, adj = c(1.5, 0.25)) ```</p>
+<p>It was recently shown that IFE corrected algebraically was not appropriate when total absorbance, defined as <span class="math inline">\(A_{\text{total}} = A_{\text{ex}} + A_{\text{em}}\)</span> (see Equation <a href="#eq:ife">(<strong>??</strong>)</a>), is greater than 1.5 <span class="citation">(Kothawala et al. <a href="#ref-Kothawala2013">2013</a>)</span>. Under this circumstance, a two-fold dilution of the sample has been recommended. If this happen, a warning message will be displayed by the package during the correction process.</p>
+<div id="raman-calibration" class="section level3">
+<h3><span class="header-section-number">5.0.1</span> Raman calibration</h3>
+<p>The same DOM sample measured on different spectrofluorometers (or even the same but with different settings) can give important differences in fluorescence intensities <span class="citation">(Lawaetz and Stedmon <a href="#ref-Lawaetz2009">2009</a>; Paula G. Coble, Schultz, and Mopper <a href="#ref-Coble1993">1993</a>)</span>. The purpose of the Raman calibration is to remove the dependency of fluorescence intensities on the measuring equipment, thus allowing cross-study comparisons. Given that the Raman peak position of a water sample is located at a fixed position, <span class="citation">(Lawaetz and Stedmon <a href="#ref-Lawaetz2009">2009</a>)</span> proposed to use the Raman integral of a blank-water sample measured the same day as the EEM to perform calibration. Moreover, the area of the Raman peak (<span class="math inline">\(A_{\text{rp}}\)</span>, Fig. 5) is defined as the area of the emission profile between 371 and 428 nm at a fixed excitation of 350 nm <span class="citation">(Lawaetz and Stedmon <a href="#ref-Lawaetz2009">2009</a>)</span>.</p>
+<p>```{r fig4, echo = FALSE, warning=FALSE, fig.align=“center”, fig.cap = “IFE correction process. Panel (A) shows an uncorrected EEM (the color bar is the florescence intensity in A.U.). Panel (B) is the corresponding absorbance spectra measured on the same sample. Panel (C) shows the IFE correction factors corresponding to the values of the denominator in Equation xxx with values close to 1 indicating less pronounced correction. Panel (D) shows the corrected sample (the color bar is the fluorescence intensity in A.U.).”, eval=FALSE}</p>
+<p>load(“blank.rda”)</p>
+<p>raman &lt;- blank[[1]]<span class="math inline">\(x[, which(blank[[1]]\)</span>ex == 350)]</p>
+<p>df &lt;- data.frame(em = blank[[1]]$em, raman)</p>
+<p>shade &lt;- rbind(c(371,0), subset(df, em &gt;= 371 &amp; em &lt;= 428), c(df[nrow(df), “X”], 0))</p>
+<p>ggplot(df, aes(x = em, y = raman)) + geom_line(size = 0.2, na.rm = TRUE) + xlab(“Emission (nm)”) + ylab(“Fluorescence (A.U)”) + geom_polygon(data = shade, aes(em, raman)) + xlim(300, 450) + annotate(“text”, x = 400, y = 1, label = “A[rp]”, size = 3, parse = TRUE) + annotate(“text”, x = 390, y = 7.5, label = “First order Rayleigh scattering”, size = 3) ```</p>
+<p>Mathematically, the value of <span class="math inline">\(A_{\text{rp}}\)</span> is calculated using the following integral (Equation<a href="#eq:arp">(<strong>??</strong>)</a>):</p>
+<span class="math display">\[\begin{equation}
+A_{\text{rp}} = \int\limits_{\lambda_{\text{em}371}}^{\lambda_{\text{em}428}} W_{350, \lambda} d\lambda
+\label{eq:arp}
+\end{equation}\]</span>
+<p>where <span class="math inline">\(W_{350, \lambda}\)</span> is the fluorescence intensity of a pure water sample (preferably deionized and ultraviolet exposed, <span class="citation">Lawaetz and Stedmon (<a href="#ref-Lawaetz2009">2009</a>)</span>) at excitation <span class="math inline">\(ex = 350\)</span> nm and at emission <span class="math inline">\(em = \lambda\)</span> nm. Each values of the EEM <span class="math inline">\(X\)</span> are then normalized using the scalar value of <span class="math inline">\(A_{\text{rp}}\)</span> accordingly to Equation @ref(eq:raman_normalisation):</p>
+<span class="math display">\[\begin{equation}
+X_0 = \frac{X}{A_{\text{rp}}}
+\label{eq:raman_normalisation}
+\end{equation}\]</span>
+<p>where <span class="math inline">\(X_0\)</span> is the normalized EEM with fluorescence intensities now expressed as Raman Units (R.U.), <span class="math inline">\(X\)</span> are the unnormalized measured fluorescence intensities and <span class="math inline">\(A_{\text{rp}}\)</span> is the Raman peak area.</p>
+</div>
+<div id="metrics-1" class="section level3">
+<h3><span class="header-section-number">5.0.2</span> Metrics</h3>
+<p>A wide range of different metrics obtained from EEMs have been proposed to characterize the DOM pool in aquatic ecosystems. These metrics extract quantitative information in specific regions (wavelengths) in EEMs. The following sections present an overview of the principal metrics supported by the package.</p>
+<div id="cobles-peaks" class="section level4">
+<h4><span class="header-section-number">5.0.2.1</span> Coble’s peaks</h4>
+<p>The following table presents the five major fluorescent components identified by <span class="citation">(Paula G Coble <a href="#ref-Coble1996">1996</a>)</span> in marine EEMs. Peaks <strong>B</strong> and <strong>T</strong> represent protein-like compounds (tyrosine and tryptophane), peaks <strong>A</strong> and <strong>C</strong> are indicators of humic-like components whereas peak <strong>M</strong> was associated to marine humic-like fluorescence.</p>
+<table>
+<thead>
+<tr class="header">
+<th>Peak</th>
+<th>Ex (nm)</th>
+<th>Em (nm)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>B</td>
+<td>275</td>
+<td>310</td>
+</tr>
+<tr class="even">
+<td>T</td>
+<td>275</td>
+<td>340</td>
+</tr>
+<tr class="odd">
+<td>A</td>
+<td>260</td>
+<td>380-460</td>
+</tr>
+<tr class="even">
+<td>M</td>
+<td>312</td>
+<td>380-420</td>
+</tr>
+<tr class="odd">
+<td>C</td>
+<td>350</td>
+<td>420-480</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="fluorescence-humification-and-biological-indices" class="section level4">
+<h4><span class="header-section-number">5.0.2.2</span> Fluorescence, humification and biological indices</h4>
+<p>Three main indices have been proposed to trace the diagnostic state of the DOM pool in aquatic ecosystems. The fluorescence index (FI) was shown to be a good indicator of the general source and aromaticity of DOM in lakes, streams and rivers <span class="citation">(McKnight et al. <a href="#ref-McKnight2001">2001</a>)</span>. This index is calculated as the ratio of fluorescence at emission 450 nm and 500 nm, at fixed excitation of 370 nm (Equation <a href="#eq:fi">(<strong>??</strong>)</a>).</p>
+<span class="math display">\[\begin{equation}
+\text{FI} = \frac{X_{370, 450}}{X_{370, 500}}
+\label{eq:fi}
+\end{equation}\]</span>
+<p>The humification index (HIX) is a measure of the complexity and the aromatic nature of DOM <span class="citation">(Ohno <a href="#ref-Ohno2002">2002</a>)</span>. HIX calculated as the ratio of the sum of the fluorescence between 435 and 480 nm and between 300 and 345 nm at a fixed excitation of 254 nm (Equation <a href="#eq:hix">(<strong>??</strong>)</a>).</p>
+<span class="math display">\[\begin{equation}
+\text{HIX} = \frac{\sum\limits_{em = 435}^{480} X_{254, em}}{\sum\limits_{em = 300}^{345} X_{254, em}}
+\label{eq:hix}
+\end{equation}\]</span>
+<p>The biological index (BIX) is a measure to characterize biological production of DOM <span class="citation">(Huguet et al. <a href="#ref-Huguet2009">2009</a>)</span>. BIX is calculated at excitation 310 nm, by dividing the fluorescence intensity emitted at emission 380 nm and at 430 nm (Equation (<a href="#eq:bix">(<strong>??</strong>)</a>)).</p>
+<span class="math display">\[\begin{equation}
+\text{BIX} = \frac{X_{310, 380}}{X_{310, 430}}
+\label{eq:bix}
+\end{equation}\]</span>
+</div>
+</div>
+<div id="r-code-and-study-case" class="section level2">
+<h2><span class="header-section-number">5.1</span> R code and study case</h2>
+<p>Main preprocessing steps using the <strong>eemR</strong> package are illustrated using a subset of three EEMs from <span class="citation">(Massicotte and Frenette <a href="#ref-Massicotte2011EA">2011</a>)</span>. Briefly, these EEMs (see Fig. 1 for an example) have been sampled in the St. Lawrence River, one of the largest rivers in North America. Fluorescence matrices of DOM were measured on a Cary Eclipse spectrofluorometer (Varian, Mississauga, Ontario, Canada) over excitation wavelengths between 220 and 450 nm (5-nm increment) and emission wavelengths between 230 and 600 nm (2-nm increment). All functions from the package start with the prefix <code>'eem_'</code>.</p>
+<pre class="{r}"><code>library(eemR)
+ls(&quot;package:eemR&quot;)</code></pre>
+<div id="data-importation-and-plotting" class="section level3">
+<h3><span class="header-section-number">5.1.1</span> Data importation and plotting</h3>
+<p>Importation of EEMs into R is done using the <code>eem_read()</code> function. Given that fluorescence files are dependent on the spectrofluorometer used, <code>eemR</code> will determine automatically from which manufacturer the files are from and load them accordingly.</p>
+<pre class="{r}"><code>file &lt;- system.file(&quot;extdata/cary/scans_day_1&quot;, package = &quot;eemR&quot;)
+eems &lt;- eem_read(file)</code></pre>
+<p>The generic <code>summary()</code> function displays useful information such as: (1) the wavelength ranges used in both emission and excitation modes, (2) the manufacturer from which the file was read and (3) the state of the EEM which indicate which corrections have been applied.</p>
+<pre class="{r}"><code>summary(eems)</code></pre>
+<p>A surface plot of EEMs is made using the <code>plot(x, which = 1)</code> function where <code>which</code> is the index of the EEM to be plotted (see Fig. 3).</p>
+<p><code>{r, eval = FALSE} plot(eems, which = 3)</code></p>
+<p>Interactive plots using a simple shiny app can be lunched to interactively browse EEMs.</p>
+<p><code>{r, eval = FALSE} plot(eems, interactive = TRUE)</code></p>
+</div>
+<div id="blank-subtraction" class="section level3">
+<h3><span class="header-section-number">5.1.2</span> Blank subtraction</h3>
+<p>Subtraction of a water blank from the measured samples may help to reduce scattering <span class="citation">(Murphy et al. <a href="#ref-Murphy2013">2013</a>; Colin A Stedmon and Bro <a href="#ref-Stedmon2008">2008</a>)</span>. In <code>eemR</code>, this is done using the <code>eem_remove_blank(eem, blank)</code> function where <code>eem</code> is a list of EEMs and <code>blank</code> is a water blank.</p>
+<pre class="{r}"><code>file &lt;- system.file(&quot;extdata/cary/scans_day_1&quot;, &quot;nano.csv&quot;, package = &quot;eemR&quot;)
+blank &lt;- eem_read(file)
+
+eems &lt;- eem_remove_blank(eems, blank)</code></pre>
+</div>
+<div id="raman-and-rayleigh-scattering-removal" class="section level3">
+<h3><span class="header-section-number">5.1.3</span> Raman and Rayleigh scattering removal</h3>
+<p>Scattering removal (Equation <a href="#eq:raman1">(<strong>??</strong>)</a> and Equation <a href="#eq:raman2">(<strong>??</strong>)</a>) is performed using the <code>eem_remove_scattering(eem, type, order, width)</code> function where <code>eem</code> is a list of EEMs, <code>type</code> is the scattering type (<code>raman</code> or <code>rayleigh</code>), <code>order</code> is the order of the scattering (1 or 2) and <code>width</code> the width in nanometers of the slit windows to be removed. In the following example, only first order and Raman and Rayleigh scattering are removed using a bandwidth of 10 nm (Fig. 3).</p>
+<p>```{r fig5, tidy=FALSE, warning=FALSE, fig.align=‘center’, fig.cap = ‘Fluorescence profile of a pure water sample at excitation 350 nm between 300 and 450 nm emission. The area of the Raman peak is identified by the shaded polygon and is calculated using Equation xxx.’}</p>
+<p>eems &lt;- eem_remove_scattering(eems, “rayleigh”, 1, 10) %&gt;% eem_remove_scattering(“raman”, 1, 10)</p>
+<p>plot(eems, which = 3) ```</p>
+</div>
+<div id="inner-filter-effect-correction-1" class="section level3">
+<h3><span class="header-section-number">5.1.4</span> Inner-filter effect correction</h3>
+<p>IFE correction requires the use of absorbance data (Equation <a href="#eq:ife">(<strong>??</strong>)</a>). For each EEM, an absorbance spectra must be supplied. The easiest way to provide absorbance is to use a data frame with column names matching EEMs names. In the following data frame, the first column represents the wavelengths at which absorbance have been measured whereas the remaining columns are absorbance spectra for <code>sample1</code>, <code>sample2</code> and <code>sample3</code>.</p>
+<pre class="{r}"><code>data(&quot;absorbance&quot;)
+head(absorbance)</code></pre>
+<p>Note that EEM names can be obtained using the <code>eem_sample_names()</code> function.</p>
+<pre class="{r}"><code>eem_names(eems)</code></pre>
+<p>IFE correction is performed using the <code>eem_inner_filter_effect(eem, absorbance, pathlength)</code> function where <code>eem</code> is a list of EEMs, <code>absorbance</code> is a data frame containing absorbance spectra and <code>pathlength</code> is the absorbance cuvette pathlength expressed in <span class="math inline">\(cm\)</span> (Fig. 4B). For each EEM contained in <code>eem</code>, the ranges spanned by the IFE correction factors and total absorbance <span class="math inline">\(A_{\text{total}}\)</span> (Equation <a href="#eq:ife">(<strong>??</strong>)</a>) are displayed to the user. This can serve as diagnostic tool to determine if the mathematical correction was the appropriate method to use to handle IFE.</p>
+<p>```{r, fig.keep=“none”} eems &lt;- eem_inner_filter_effect(eem = eems, absorbance = absorbance, pathlength = 1)</p>
+<p>plot(eems, which = 3) ```</p>
+<p>Fig. 4 presents intermediate results obtained for the correction of <code>sample3</code>. Note the nonlinearity of the correction with higher effect at lower wavelengths (bottom-left corner in panel C). The corrected EEM is presented in Fig. 4D which is the result of the operation of dividing matrix in 4A by 4C.</p>
+</div>
+<div id="raman-normalization" class="section level3">
+<h3><span class="header-section-number">5.1.5</span> Raman normalization</h3>
+<p>The last step of the correction process consist to calibrate fluorescence intensities using the Raman scatter peak of water <span class="citation">(Lawaetz and Stedmon <a href="#ref-Lawaetz2009">2009</a>)</span>. This is performed using the <code>eem_raman_normalisation(eem, blank)</code> function where <code>eem</code> is a list of EEMs and <code>blank</code> is a water blank measured the same day. Here, the same water-blank is used for the three EEMs. Note that the value of the Raman area (<span class="math inline">\(A_{\text{rp}}\)</span>, Equation<a href="#eq:arp">(<strong>??</strong>)</a>) is printed.</p>
+<p>```{r, fig.keep=“none”} eems &lt;- eem_raman_normalisation(eems, blank)</p>
+<p>plot(eems, which = 3) ```</p>
+<p>At this stage, all corrections have been performed and EEMs are ready to be exported into MATLAB for PARAFAC analysis. The state of the EEMs can be verified using the <code>summary()</code> function.</p>
+<pre class="{r}"><code>summary(eems)</code></pre>
+</div>
+<div id="exporting-to-matlab" class="section level3">
+<h3><span class="header-section-number">5.1.6</span> Exporting to MATLAB</h3>
+<p>The <strong>drEEM</strong> MATLAB toolbox <span class="citation">(Murphy et al. <a href="#ref-Murphy2013">2013</a>)</span> used to perform PARAFAC analysis requires data in a specific format (structure). The <code>eem_export_matlab(file, ...)</code> function can be used to export corrected EEMs into a PARAFAC ready format. The first <code>file</code> argument is the mat file where to export the structure and the second argument <code>...</code> is one or more <code>eem</code> object.</p>
+<p><code>{r, eval=FALSE} eem_export_matlab(&quot;myfile.mat&quot;, eems)</code></p>
+<p>Once exported, one can simply import the generated mat file in MATLAB using <code>load('myfile.mat');</code>.</p>
+</div>
+<div id="metric-extraction" class="section level3">
+<h3><span class="header-section-number">5.1.7</span> Metric extraction</h3>
+<p>Coble’s peaks can be extracted using the <code>eem_coble_peaks(eem)</code> function. Note that for peaks <strong>A, M, C</strong>, the maximum fluorescence intensity in the range of emission region is returned.</p>
+<pre class="{r}"><code>file &lt;- system.file(&quot;extdata/cary/scans_day_1&quot;, package = &quot;eemR&quot;)
+eems &lt;- eem_read(file)
+
+eem_coble_peaks(eems, verbose = FALSE)</code></pre>
+<p>Fluorescence (FI), humification (HIX) and biological (BIX) indices can be extracted as follow.</p>
+<pre class="{r}"><code>eem_fluorescence_index(eems, verbose = FALSE)
+
+eem_humification_index(eems, verbose = FALSE)
+
+eem_biological_index(eems, verbose = FALSE)</code></pre>
+<p>It should be noted that different excitation and emission wavelengths are often used to measure EEMs. Hence, it is possible to have mismatch between measured wavelengths and wavelengths used to calculate specific metrics. In these circumstances, EEMs are interpolated using the the <code>pracma</code> package <span class="citation">(Borchers <a href="#ref-Borchers2015">2015</a>)</span>. A message warning the user will be displayed if data interpolation is performed. This behavior can be controlled using the <code>verbose = TRUE/FALSE</code> parameter.</p>
+</div>
+</div>
+<div id="using-r-pipeline" class="section level2">
+<h2><span class="header-section-number">5.2</span> Using R pipeline</h2>
+<p>Note that it is also possible to use the <a href="https://cran.r-project.org/web/packages/magrittr/vignettes/magrittr.html">magrittr</a> pipe line with most functions from <code>eemR</code>.</p>
+<p>```{r, eval=FALSE} library(magrittr)</p>
+<p>file &lt;- system.file(“extdata/cary/scans_day_1/”, package = “eemR”) file %&gt;% eem_read(recursive = TRUE) %&gt;% eem_raman_normalisation() %&gt;% eem_remove_scattering(type = “raman”, order = 1, width = 10) %&gt;% eem_remove_scattering(type = “rayleigh”, order = 1, width = 10) %&gt;% plot(2) ```</p>
+
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-Kothawala2013">
+<p>Kothawala, Dolly N., Kathleen R. Murphy, Colin A. Stedmon, Gesa A. Weyhenmeyer, and Lars J. Tranvik. 2013. “Inner filter correction of dissolved organic matter fluorescence.” <em>Limnology and Oceanography: Methods</em> 11 (12): 616–30. doi:<a href="https://doi.org/10.4319/lom.2013.11.616">10.4319/lom.2013.11.616</a>.</p>
+</div>
+<div id="ref-Lawaetz2009">
+<p>Lawaetz, A J, and C A Stedmon. 2009. “Fluorescence Intensity Calibration Using the Raman Scatter Peak of Water.” <em>Applied Spectroscopy</em> 63 (8): 936–40. doi:<a href="https://doi.org/10.1366/000370209788964548">10.1366/000370209788964548</a>.</p>
+</div>
+<div id="ref-Coble1993">
+<p>Coble, Paula G., Christopher a. Schultz, and Kenneth Mopper. 1993. “Fluorescence contouring analysis of DOC intercalibration experiment samples: a comparison of techniques.” <em>Marine Chemistry</em> 41 (1-3): 173–78. doi:<a href="https://doi.org/10.1016/0304-4203(93)90116-6">10.1016/0304-4203(93)90116-6</a>.</p>
+</div>
+<div id="ref-Coble1996">
+<p>Coble, Paula G. 1996. “Characterization of marine and terrestrial DOM in seawater using excitation-emission matrix spectroscopy.” <em>Marine Chemistry</em> 51 (4): 325–46. doi:<a href="https://doi.org/10.1016/0304-4203(95)00062-3">10.1016/0304-4203(95)00062-3</a>.</p>
+</div>
+<div id="ref-McKnight2001">
+<p>McKnight, Diane M., Elizabeth W. Boyer, Paul K. Westerhoff, Peter T. Doran, Thomas Kulbe, and Dale T. Andersen. 2001. “Spectrofluorometric characterization of dissolved organic matter for indication of precursor organic material and aromaticity.” <em>Limnology and Oceanography</em> 46 (1). American Society of Limnology; Oceanography: 38–48. doi:<a href="https://doi.org/10.4319/lo.2001.46.1.0038">10.4319/lo.2001.46.1.0038</a>.</p>
+</div>
+<div id="ref-Ohno2002">
+<p>Ohno, Tsutomu. 2002. “Fluorescence Inner-Filtering Correction for Determining the Humification Index of Dissolved Organic Matter.” <em>Environmental Science &amp; Technology</em> 36 (4): 742–46. doi:<a href="https://doi.org/10.1021/es0155276">10.1021/es0155276</a>.</p>
+</div>
+<div id="ref-Huguet2009">
+<p>Huguet, A., L. Vacher, S. Relexans, S. Saubusse, J.M. M Froidefond, and E. Parlanti. 2009. “Properties of fluorescent dissolved organic matter in the Gironde Estuary.” <em>Organic Geochemistry</em> 40 (6). Elsevier Ltd: 706–19. doi:<a href="https://doi.org/10.1016/j.orggeochem.2009.03.002">10.1016/j.orggeochem.2009.03.002</a>.</p>
+</div>
+<div id="ref-Massicotte2011EA">
+<p>Massicotte, Philippe, and Jean-Jacques Frenette. 2011. “Spatial connectivity in a large river system: resolving the sources and fate of dissolved organic matter.” <em>Ecological Applications</em> 21 (7): 2600–2617. doi:<a href="https://doi.org/10.1890/10-1475.1">10.1890/10-1475.1</a>.</p>
+</div>
+<div id="ref-Murphy2013">
+<p>Murphy, Kathleen R., Colin a. Stedmon, Daniel Graeber, and Rasmus Bro. 2013. “Fluorescence spectroscopy and multi-way techniques. PARAFAC.” <em>Analytical Methods</em> 5 (23): 6557. doi:<a href="https://doi.org/10.1039/c3ay41160e">10.1039/c3ay41160e</a>.</p>
+</div>
+<div id="ref-Stedmon2008">
+<p>Stedmon, Colin A, and Rasmus Bro. 2008. “Characterizing dissolved organic matter fluorescence with parallel factor analysis: a tutorial.” <em>Limnology and Oceanography: Methods</em> 6 (11): 572–79. doi:<a href="https://doi.org/10.4319/lom.2008.6.572">10.4319/lom.2008.6.572</a>.</p>
+</div>
+<div id="ref-Borchers2015">
+<p>Borchers, Hans Werner. 2015. “pracma: Practical Numerical Math Functions.” <a href="https://cran.r-project.org/package=pracma" class="uri">https://cran.r-project.org/package=pracma</a>.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="fluorescence.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="definitions.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/PMassicotte/dom-optic/edit/master/03-fluorescence.Rmd",
+"text": "Edit"
+},
+"download": null,
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, '');
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

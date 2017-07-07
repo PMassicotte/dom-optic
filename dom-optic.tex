@@ -31,46 +31,6 @@
 \urlstyle{same}  % don't use monospace font for urls
 \usepackage{natbib}
 \bibliographystyle{apalike}
-\usepackage{color}
-\usepackage{fancyvrb}
-\newcommand{\VerbBar}{|}
-\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
-\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
-% Add ',fontsize=\small' for more characters per line
-\usepackage{framed}
-\definecolor{shadecolor}{RGB}{248,248,248}
-\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
-\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{{#1}}}}
-\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{{#1}}}
-\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{{#1}}}
-\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{{#1}}}
-\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{{#1}}}
-\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{{#1}}}
-\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{{#1}}}
-\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{{#1}}}
-\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{{#1}}}
-\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{{#1}}}
-\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{{#1}}}
-\newcommand{\ImportTok}[1]{{#1}}
-\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{{#1}}}}
-\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
-\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
-\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
-\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{{#1}}}
-\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{{#1}}}
-\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{{#1}}}
-\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{{#1}}}}
-\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{{#1}}}}
-\newcommand{\BuiltInTok}[1]{{#1}}
-\newcommand{\ExtensionTok}[1]{{#1}}
-\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{{#1}}}}
-\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{{#1}}}
-\newcommand{\RegionMarkerTok}[1]{{#1}}
-\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
-\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{{#1}}}}}
-\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{{#1}}}
-\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{{#1}}}}
-\newcommand{\NormalTok}[1]{{#1}}
 \usepackage{longtable,booktabs}
 \usepackage{graphicx,grffile}
 \makeatletter
@@ -124,9 +84,20 @@
   \postauthor{\par}
   \predate{\centering\large\emph}
   \postdate{\par}
-  \date{2016-09-01}
+  \date{\texttt{r\ Sys.Date()}}
 
 
+\usepackage{amsthm}
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{lemma}{Lemma}[chapter]
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[chapter]
+\newtheorem{corollary}{Corollary}[chapter]
+\newtheorem{proposition}{Proposition}[chapter]
+\theoremstyle{definition}
+\newtheorem{example}{Example}[chapter]
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
 \begin{document}
 \maketitle
 
@@ -134,6 +105,16 @@
 \setcounter{tocdepth}{1}
 \tableofcontents
 }
+```\{r setup, include=FALSE\} knitr::opts\_chunk\$set(echo = TRUE)
+
+library(ggplot2) library(dplyr) library(extrafont) library(tidyr)
+library(eemR) library(plot3D)
+
+loadfonts(quiet = TRUE) theme\_set(theme\_bw(base\_size = 12,
+base\_family = ``Open Sans'')) ```
+
+\texttt{\{r\ include=FALSE\}\ \#\ automatically\ create\ a\ bib\ database\ for\ R\ packages\ knitr::write\_bib(c(\ \ \ .packages(),\ \textquotesingle{}bookdown\textquotesingle{},\ \textquotesingle{}knitr\textquotesingle{},\ \textquotesingle{}rmarkdown\textquotesingle{}\ ),\ \textquotesingle{}packages.bib\textquotesingle{})}
+
 \chapter{Introduction and
 motivations}\label{introduction-and-motivations}
 
@@ -151,24 +132,26 @@ techniques. Because optical properties of DOM can be related to its
 chemical properties, optical techniques such as fluorescence
 spectroscopy have been developed and rapidly adopted by the community to
 characterize the DOM pool in aquatic ecosystems
-\citep{Coble1990, Coble1996, McKnight2001}.
+\citep{Coble1990, Coble1996, McKnight2001, Fellman2008}.
 
-DOM is a complex mixture containing thousands of different chemical
-compounds (ref). For this reasons, traditional chemical analysis used to
-characterize DOM are both expensive and time consuming.
+\textbf{This document aims at providing practical tools} that can serve
+as a starter to those who desire to start working with DOM. R code
+examples are also provided.
+
+For those that are interested to learn in depth DOM biogeochemistry,
+there are excellent sources of fundamental information in the following
+books:
 
 \begin{itemize}
 \tightlist
 \item
-  Optical methods have been developed.
+  \citet{Lakowicz2006}
 \item
-  Why this project? Already few good books \citep{Lakowicz2006}
+  \citet{Hansell2014}
 \item
-  Need for unified way to present stuff with correct citation.
+  \citet{Findlay2003}
 \item
-  R code examples are also provided.
-\item
-  Wiki-like document that can serve as a starter for students.
+  \citet{Coble2014}
 \end{itemize}
 
 \chapter{Measurements}\label{measurements}
@@ -212,31 +195,6 @@ provided the name chromophoric dissolved organic matter (CDOM).
   Measured in quartz cuvette (1, 5, 10+ cm)
 \end{itemize}
 
-As wavelengths increase, light absorbed by CDOM decrease exponentially
-\ref{fig:absorbance}.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{library}\NormalTok{(cdom)}
-\KeywordTok{data}\NormalTok{(spectra)}
-
-\NormalTok{spectra <-}\StringTok{ }\NormalTok{spectra %>%}\StringTok{ }\KeywordTok{filter}\NormalTok{(wavelength <=}\StringTok{ }\DecValTok{500}\NormalTok{)}
-
-\NormalTok{p <-}\StringTok{ }\KeywordTok{ggplot}\NormalTok{(spectra, }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =} \NormalTok{wavelength, }\DataTypeTok{y =} \NormalTok{spc1)) +}
-\StringTok{  }\KeywordTok{geom_line}\NormalTok{() +}
-\StringTok{  }\KeywordTok{xlab}\NormalTok{(}\StringTok{"Wavelength (nm.)"}\NormalTok{) +}
-\StringTok{  }\KeywordTok{ylab}\NormalTok{(}\KeywordTok{bquote}\NormalTok{(Absorption~(nm^\{-}\DecValTok{1}\NormalTok{\})))}
-
-\NormalTok{p}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{figure}[htbp]
-\centering
-\includegraphics{dom-optic_files/figure-latex/absorbance-1.pdf}
-\caption{\label{fig:absorbance}Example of an absorption spectrum of CDOM.}
-\end{figure}
-
 \section{Writing and notation}\label{writing-and-notation}
 
 In reference to this fraction of the DOM pool, people have been using
@@ -255,7 +213,7 @@ written as \(\mathbf{a_{\text{CDOM}}(\lambda)}\) using the followings
 \item
   \emph{a} in \emph{italic} to reference to absorption (vs absorbance).
 \item
-  CDOM subscripted and in capital letters.
+  CDOM subscript and in capital letters.
 \item
   \(\lambda\) sign to refer to the wavelength where the measurement is
   done.
@@ -266,18 +224,113 @@ measured at 350 nm.
 
 \section{Absorption vs absorbance}\label{absorption-vs-absorbance}
 
+It is of interest to review the
+\href{http://www.chemguide.co.uk/analysis/uvvisible/beerlambert.html}{Beer-Lambert
+law} to understand the difference between absrobance and absorption.
+
+\begin{alignat}{2}
+\label{eq:abs1}
+    I_n &= I_0 \times e^{(\epsilon \times c \times L)}\\
+\end{alignat}
+
+where:
+
+\begin{itemize}
+\tightlist
+\item
+  \(I_0\) the intensity of \emph{emitted} light (before it passes
+  through the sample).
+\item
+  \(I_n\) the intensity of \emph{received} light (after it passes
+  through the sample).
+\item
+  \(\epsilon\): the molar absorption coefficient
+  (\(m^2 \times \text{mole}^{-1}\)).
+\item
+  \(c\): the concentration of the colored material in the solution
+  (\(\text{mole} \times m^{-3}\)).
+\item
+  \(L\): the pathlenght traveled by the light throught the solution. It
+  is of a common usage to express it per meter (\(m^{-1}\)).
+\end{itemize}
+
+\begin{alignat}{2}
+\label{eq:abs2}
+    I_n &= I_0 \times e^{-(a \times L)}\\
+\end{alignat}
+
+where \(a = \epsilon \times c\) is the absorption coefficient
+(\(m^{-1}\)).
+
+\begin{alignat}{2}
+\label{eq:abs3}
+    \frac{I_n}{I_0}       &= e^{-(a \times L)}\\[10pt]
+    \frac{I_0}{I_n}       &= e^{(a \times L)}\\[10pt]
+    log(\frac{I_0}{I_n})  &= a \times L\\[10pt]
+    a                     &= \frac{log(\frac{I_0}{I_n})}{L}\\
+\end{alignat}
+
+We notice here that the Beer-Lambert law is written in log base \(e\).
+However, for historical reasons (basically because it was esier to
+calculate in the \emph{old} days), spectrophotometer use log base 10
+than rather than \(e\). To convert from base 10 logarithm to a natural
+logarithm (i.e.~base \(e\)), one need to use the conversion factor
+calculated as \(log(10)\) which is equato to \texttt{r\ log(10)}. Then,
+the equation becomes:
+
+\begin{alignat}{2}
+\label{eq:abs4}
+    a &= \frac{log(\frac{I_0}{I_n}) \times 2.303}{L}\\
+\end{alignat}
+
+Note that \emph{absorbance} measured by spectrophotometers is noted
+\(A\). Finally,
+
 \begin{equation}
-a_{\text{CDOM}}(\lambda) = \frac{A(\lambda) \times 2.303}{L}
-\label{eq:absorption}
+
+a = \frac{A \times 2.303}{L}
+\label{eq:absorption1}
+
 \end{equation}
+
+Because we are specifically measuring absorption of CDOM, often at a
+specific wavelength \(\lambda\), the recommended writing is as follow:
+
+\begin{equation}
+
+a_{\text{CDOM}}(\lambda) = \frac{A(\lambda) \times 2.303}{L}
+\label{eq:absorption2}
+
+\end{equation}
+
+Where \(A(\lambda)\) is the measured \textbf{absorbance} and \(L\) the
+measurement cuvette thickness (or pathlenght) expressed per meter
+(\(m^{-1}\)).
 
 \section{Mathematical formulation of absorption
 spectra}\label{mathematical-formulation-of-absorption-spectra}
 
 As observed in figure \ref{fig:absorbance}, absorption decrease
-exponentially with increasing wavelengths. \citet{Jerlov1968} and
-\citet{Bricaud1981} first proposed to use a simple exponential
-formulation to model absorption (equation \ref{eq:cdom1}).
+exponentially with increasing wavelengths. As wavelengths increase,
+light absorbed by CDOM decrease exponentially \ref{fig:absorbance}.
+
+```\{r absorbance, fig.cap = ``Example of an absorption spectrum of
+CDOM.''\}
+
+library(cdom) data(spectra)
+
+spectra \textless{}- spectra \%\textgreater{}\% filter(wavelength
+\textless{}= 500)
+
+p \textless{}- ggplot(spectra, aes(x = wavelength, y = spc1)) +
+geom\_line() + xlab(``Wavelength (nm.)'') +
+ylab(bquote(Absorption\textasciitilde{}(nm\^{}\{-1\})))
+
+p ```
+
+\citet{Jerlov1968} and \citet{Bricaud1981} first proposed to use a
+simple exponential formulation to model absorption (equation
+\eqref{eq:cdom1}).
 
 \begin{equation}
 a_{\text{CDOM}}(\lambda) = a_{\text{CDOM}}(\lambda0)e^{-S(\lambda - \lambda0)}
@@ -292,18 +345,26 @@ absorption with increasing wavelength. Higher slopes indicate a more
 rapid decrease in absorption with increasing wavelength. The \(S\)
 parameter is frequently used as a proxy for tracing photochemical and
 microbial-induced changes of CDOM
-{[}Moran2000,Twardowski2004,Helms2013{]} or to determine its origin
-{[}Stedmon2001{]}.
+\citep{Moran2000, Twardowski2004, Helms2013} or to determine its origin
+\citep{Stedmon2001}.
 
-In 2001, equation \ref{eq:cdom1} was modified by \citet{Stedmon2001}
+In 2001, equation \eqref{eq:cdom1} was modified by \citet{Stedmon2001}
 which introduced \(k\), a background constant (m\(^{-1}\)) accounting
 for scatter in the cuvette and drift of the instrument (equation
-\ref{eq:cdom2}).
+\eqref{eq:cdom2}).
 
 \begin{equation}
 a_{\text{CDOM}}(\lambda) = a_{\text{CDOM}}(\lambda0)e^{-S(\lambda - \lambda0)} + \mathbf{k}
 \label{eq:cdom2}
 \end{equation}
+
+\begin{itemize}
+\tightlist
+\item
+  The \(K\) parameter\ldots{}
+\item
+  Graph showing \(K\)
+\end{itemize}
 
 There are other mathematical formulations that can be used to model CDOM
 spectra. These are reviewed in \citet{Twardowski2004}.
@@ -312,63 +373,36 @@ spectra. These are reviewed in \citet{Twardowski2004}.
 
 Because of it inverse exponential shape, absorption spectra are best
 modeled using non-linear fittings. In R this is done easy using the
-\texttt{nls()} function. As we can see from equation \ref{eq:cdom2}, the
+\texttt{nls()} function. As we can see from equation \eqref{eq:cdom2}, the
 most commonly equation used to model CDOM spectra contains three
 parameters: \texttt{a0,\ s,\ k}.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{mod <-}\StringTok{ }\KeywordTok{nls}\NormalTok{(spc1 ~}\StringTok{ }\NormalTok{a0 *}\StringTok{ }\KeywordTok{exp}\NormalTok{(-s *}\StringTok{ }\NormalTok{(wavelength -}\StringTok{ }\DecValTok{250}\NormalTok{)) +}\StringTok{ }\NormalTok{k, }\CommentTok{# define the formula}
-           \DataTypeTok{data =} \NormalTok{spectra, }\CommentTok{# where the data comes from}
-           \DataTypeTok{start =} \KeywordTok{list}\NormalTok{(}\DataTypeTok{a0 =} \DecValTok{5}\NormalTok{, }\DataTypeTok{s =} \FloatTok{0.02}\NormalTok{, }\DataTypeTok{k =} \DecValTok{0}\NormalTok{)) }\CommentTok{# initial guesses.}
-
-\CommentTok{# show the summary information}
-\KeywordTok{summary}\NormalTok{(mod)}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{verbatim}
-## 
-## Formula: spc1 ~ a0 * exp(-s * (wavelength - 250)) + k
-## 
-## Parameters:
-##     Estimate Std. Error t value Pr(>|t|)    
-## a0 1.536e+01  4.778e-01   32.15   <2e-16 ***
-## s  4.070e-02  5.989e-04   67.96   <2e-16 ***
-## k  4.154e+00  2.871e-01   14.47   <2e-16 ***
-## ---
-## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-## 
-## Residual standard error: 4.187 on 308 degrees of freedom
-## 
-## Number of iterations to convergence: 7 
-## Achieved convergence tolerance: 3.221e-06
+mod <- nls(spc1 ~ a0 * exp(-s * (wavelength - 250)) + k, # define the formula
+           data = spectra, # where the data comes from
+           start = list(a0 = 5, s = 0.02, k = 0)) # initial guesses.
+
+# show the summary information
+summary(mod)
 \end{verbatim}
 
-The value of \(a0\) is 15.36 represent the absorption coefficient at the
-reference wavelength of 250 nm (Fig. \ref{fig:model}). The value of
-\(S\) is 0.04 means that absorption is decreasing at a rate of 0.04
-\(m^{-1}\) for each increase of 1 nm.
+The value of \(a0\) is
+\texttt{r\ round(coef(mod){[}1{]},\ digits\ =\ 2)} represent the
+absorption coefficient at the reference wavelength of 250 nm (Fig.
+\ref{fig:model}). The value of \(S\) is
+\texttt{r\ round(coef(mod){[}2{]},\ digits\ =\ 2)} means that absorption
+is decreasing at a rate of
+\texttt{r\ round(coef(mod){[}2{]},\ digits\ =\ 2)} \(m^{-1}\) for each
+increase of 1 nm.
 
 \begin{itemize}
-\tightlist
+\item
+  cdom package example
 \item
   k parameter (scattering, introduced by \citet{Stedmon2001})
 \end{itemize}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{p +}\StringTok{ }\KeywordTok{geom_line}\NormalTok{(}\KeywordTok{aes}\NormalTok{(}\DataTypeTok{y =} \KeywordTok{predict}\NormalTok{(mod)), }\DataTypeTok{col =} \StringTok{"red"}\NormalTok{) +}
-\StringTok{  }\KeywordTok{geom_hline}\NormalTok{(}\DataTypeTok{yintercept =} \KeywordTok{coef}\NormalTok{(mod)[}\DecValTok{1}\NormalTok{] +}\StringTok{ }\KeywordTok{coef}\NormalTok{(mod)[}\DecValTok{3}\NormalTok{], }\DataTypeTok{lty =} \DecValTok{2}\NormalTok{) +}
-\StringTok{  }\KeywordTok{geom_vline}\NormalTok{(}\DataTypeTok{xintercept =} \DecValTok{250}\NormalTok{, }\DataTypeTok{lty =} \DecValTok{2}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{figure}[htbp]
-\centering
-\includegraphics{dom-optic_files/figure-latex/model-1.pdf}
-\caption{\label{fig:model}Predicted values of the exponential model.}
-\end{figure}
+\texttt{\{r\ model,\ fig.cap="Predicted\ values\ of\ the\ exponential\ model."\}\ p\ +\ geom\_line(aes(y\ =\ predict(mod)),\ col\ =\ "red")\ +\ \ \ geom\_hline(yintercept\ =\ coef(mod){[}1{]}\ +\ coef(mod){[}3{]},\ lty\ =\ 2)\ +\ \ \ geom\_vline(xintercept\ =\ 250,\ lty\ =\ 2)}
 
 \subsection{Potential drawbacks}\label{potential-drawbacks}
 
@@ -378,7 +412,7 @@ can have a significant influence on model results.
 \subsubsection{Choice of the reference
 wavelength}\label{choice-of-the-reference-wavelength}
 
-In equation \ref{eq:cdom2}, the reference wavelenght was set at 350 nm.
+In equation \eqref{eq:cdom2}, the reference wavelength was set at 350 nm.
 One question can potentially come to your mind. What is the effect of
 choosing a different reference wavelengths? What will append to \(S\) if
 we change the reference wavelength to let's say 250?
@@ -391,11 +425,28 @@ Fig. \ref{fig:refwl} shows that:
   Little effect (computational rounding)
 \end{itemize}
 
-\begin{figure}[htbp]
-\centering
-\includegraphics{dom-optic_files/figure-latex/refwl-1.pdf}
-\caption{\label{fig:refwl}Effect of varying the reference wavelength on S.}
-\end{figure}
+```\{r refwl, echo=FALSE, fig.cap=``Effect of varying the reference
+wavelength on S.''\}
+
+ref\_wl \textless{}- seq(250, 400, by = 5)
+
+mods \textless{}- lapply(ref\_wl, function(x) \{ f \textless{}-
+substitute(spc1 \textasciitilde{} a0 * exp(-s * (wavelength - x)) + k,
+list(x = x))
+
+nls(f, data = spectra, start = list(a0 = 5, s = 0.02, k = 0))
+
+\})
+
+coefs \textless{}- lapply(mods, coef) coefs \textless{}-
+as.data.frame(do.call(rbind, coefs)) \%\textgreater{}\%
+mutate(wavelength = ref\_wl)
+
+p \textless{}- coefs \%\textgreater{}\% ggplot(aes(x = wavelength, y =
+s)) + geom\_line() + geom\_point() + xlab(``Wavelength (nm)'') +
+ylab(bquote(S\textasciitilde{}(nm\^{}\{-1\})))
+
+p ```
 
 \begin{itemize}
 \tightlist
@@ -406,11 +457,74 @@ Fig. \ref{fig:refwl} shows that:
 \subsubsection{Choice of the spectral
 range}\label{choice-of-the-spectral-range}
 
+The choice of the spectral range used to model absorption spectra is
+known to have important consequences on estimated parameters
+\citep{Massicotte2016MC, Twardowski2004}. I will use the spectrum
+provided in Fig. \ref{fig:absorbance} where absorption has been measured
+between 190 and 900 nm. For this exercise, I will use four different
+spectral ranges to show how this is affecting the calculation of \(S\).
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  275-295 nm
+\item
+  350-450 nm
+\item
+  220-600 nm
+\item
+  250-500 nm
+\end{enumerate}
+
+```\{r effectwl, echo = FALSE, fig.cap = ``Effect of wavelength range on
+modeled absorption.''\}
+
+library(cdom)
+
+df \textless{}- spectra \%\textgreater{}\% select(wavelength, spc1)
+
+m1 \textless{}- cdom\_exponential( df\(wavelength, df\)spc1, wl0 = 350,
+startwl = 275, endwl = 295 )
+
+m2 \textless{}- cdom\_exponential( df\(wavelength, df\)spc1, wl0 = 350,
+startwl = 350, endwl = 450 )
+
+m3 \textless{}- cdom\_exponential( df\(wavelength, df\)spc1, wl0 = 350,
+startwl = 220, endwl = 600 )
+
+m4 \textless{}- cdom\_exponential( df\(wavelength, df\)spc1, wl0 = 350,
+startwl = 250, endwl = 500 )
+
+df \textless{}- df \%\textgreater{}\% mutate(predicted\_275\_295 =
+predict(m1\(model, newdata = list(x = .\)wavelength)))
+\%\textgreater{}\% mutate(predicted\_350\_450 =
+predict(m2\(model, newdata = list(x = .\)wavelength)))
+\%\textgreater{}\% mutate(predicted\_220\_600 =
+predict(m3\(model, newdata = list(x = .\)wavelength)))
+\%\textgreater{}\% mutate(predicted\_250\_500 =
+predict(m4\(model, newdata = list(x = .\)wavelength)))
+
+df \textless{}- df \%\textgreater{}\% gather(range, predicted,
+starts\_with(``predicted''))
+
+df \%\textgreater{}\% ggplot(aes(x = wavelength, y = spc1)) +
+geom\_line(aes(color = ``Original spectra'')) + geom\_line(aes(y =
+predicted, color = ``Modeled spectra'')) +
+facet\_wrap(\textasciitilde{}range) + xlab(``Wavelength (nm)'') +
+ylab(bquote(Absorption\textasciitilde{}(m\^{}\{-1\}))) +
+theme(legend.justification = c(1, 1), legend.position = c(1, 1)) +
+theme(legend.title = element\_blank())
+
+```
+
 \begin{itemize}
 \tightlist
 \item
-  \citet{Massicotte2016MC}
+  Can have important effect on the value of \(S\).
 \end{itemize}
+
+\texttt{\{r,\ echo\ =\ FALSE\}\ knitr::kable(rbind(coef(m1),\ coef(m2),\ coef(m3),\ coef(m4)))}
 
 \section{Metrics}\label{metrics}
 
@@ -422,7 +536,7 @@ range}\label{choice-of-the-spectral-range}
 
 \subsection{Slope ratio}\label{slope-ratio}
 
-Equation \ref{eq:sr} shows how the slope ratio (\(S_R\)) is calculated.
+Equation \eqref{eq:sr} shows how the slope ratio (\(S_R\)) is calculated.
 
 \begin{equation}
 S_R = \frac{S_{275-295}}{S_{350-400}}
@@ -442,24 +556,37 @@ CDOM \citep{Helms2008}.
 Figure \ref{fig:sr} shows in red the 275-295 and 350-400 nm spectral
 range.
 
-\begin{figure}[htbp]
-\centering
-\includegraphics{dom-optic_files/figure-latex/sr-1.pdf}
-\caption{\label{fig:sr}Spectral range used to calculate the slope ratio.}
-\end{figure}
+```\{r sr, echo=FALSE, fig.cap=``Spectral range used to calculate the
+slope ratio.''\} df1 \textless{}- spectra \%\textgreater{}\%
+filter(wavelength \%in\% 275:295)
+
+df2 \textless{}- spectra \%\textgreater{}\% filter(wavelength \%in\%
+350:400)
+
+ggplot(spectra, aes(x = wavelength, y = spc1)) + geom\_line() +
+xlab(``Wavelength (nm.)'') +
+ylab(bquote(Absorption\textasciitilde{}(nm\^{}\{-1\}))) +
+geom\_line(data = df1, aes(x = wavelength, y = spc1), col = ``red'') +
+geom\_line(data = df2, aes(x = wavelength, y = spc1), col = ``red'') ```
 
 \chapter{Fluorescence}\label{fluorescence}
 
 \section{What is a EEM}\label{what-is-a-eem}
 
-\begin{figure}
+```\{r fig1, echo = FALSE, fig.align=`center', fig.cap = ``Example of an
+excitation-emission fluorescence matrix (EEM). The diagonal structure
+with high fluorescence corresponds to the first order of Rayleigh
+scattering.''\}
 
-{\centering \includegraphics{dom-optic_files/figure-latex/fig1-1} 
+file \textless{}- system.file(``extdata/cary/scans\_day\_1'',
+``sample3.csv'', package = ``eemR'')
 
-}
+eem \textless{}- eem\_read(file)
 
-\caption{Example of an excitation-emission fluorescence matrix (EEM). The diagonal structure with high fluorescence corresponds to the first order of Rayleigh scattering.}\label{fig:fig1}
-\end{figure}
+persp3D( x = eem{[}{[}1{]}{]}\(ex,  y = eem[[1]]\)em, z =
+t(eem{[}{[}1{]}{]}\$x), theta = -37.5, phi = 20, facets = TRUE, xlab =
+``Excitation (nm)'', ylab = ``Emisison (nm)'', zlab = ``Fluorescence
+(A.U.)'', ticktype = ``detailed'', box = TRUE, expand = 0.5 ) ```
 
 \section{PARAFAC}\label{parafac}
 
@@ -578,14 +705,39 @@ identifiable (Figs. 1 and 2). Given that both types of scattering are
 repeated across EEMs, it is important to remove such artifacts prior to
 analysis \citep{Bahram2006, Zepp2004}.
 
-\begin{figure}
+```\{r fig2, echo=FALSE, warning=FALSE, fig.align=`center', fig.cap =
+``Emission fluorescence emitted at excitation \(ex = 350\). First order
+of Rayleigh and Raman scattering regions are identified in blue and
+red.''\}
 
-{\centering \includegraphics{dom-optic_files/figure-latex/fig2-1} 
+file \textless{}- system.file(``extdata/cary/scans\_day\_1'',
+``sample3.csv'', package = ``eemR'')
 
-}
+x\_raw \textless{}- eem\_read(file, recursive = TRUE)
 
-\caption{Emission fluorescence emitted at excitation $ex = 350$. First order of Rayleigh and Raman scattering regions are identified in blue and red.}\label{fig:fig2}
-\end{figure}
+x\_cor \textless{}- eem\_remove\_scattering(x\_raw, ``rayleigh'', 1, 12)
+x\_cor \textless{}- eem\_remove\_scattering(x\_cor, ``raman'', 1, 5)
+
+ex \textless{}- 350 em \textless{}- x\_raw{[}{[}1{]}{]}\$em
+
+em\_raw \textless{}- x\_raw{[}{[}1{]}{]}\(x[, which(x_raw[[1]]\)ex ==
+350){]} em\_cor \textless{}-
+x\_cor{[}{[}1{]}{]}\(x[, which(x_cor[[1]]\)ex == 350){]}
+
+df \textless{}- data.frame(em, em\_raw, em\_cor)
+df\(em_raman <- df\)em\_raw df\(em_raman[df\)em \textless{}= 375{]}
+\textless{}- NA df\(em_rayleigh <- df\)em\_raw df\(em_rayleigh[df\)em
+\textgreater{} 375{]} \textless{}- NA
+
+ggplot(df, aes(x = em)) + geom\_line(aes(y = em\_rayleigh, color =
+``Rayleigh scattering''), size = 0.75, na.rm=TRUE) + geom\_line(aes(y =
+em\_raman, color = ``Raman scattering''), size = 0.75, na.rm=TRUE) +
+geom\_line(aes(y = em\_cor, color = ``Fluorescence signal''), size =
+0.75, na.rm=TRUE) + labs(color = ``'') + xlab(``Emission (nm)'') +
+ylab(``Fluorescence (A.U)'') + scale\_color\_manual(values =
+c(``black'', ``\#D55E00'', ``\#0072B2'')) + theme(legend.key =
+element\_blank()) + theme(legend.justification = c(1, 1),
+legend.position = c(0.9, 0.9)) ```
 
 First order of Rayleigh scattering is defined as the region where
 emission is equal to excitation (\(em = ex\)) causing a diagonal band in
@@ -627,7 +779,7 @@ positions toward lower wavelengths (Fig. 4) with increasing
 concentration \citep{Mobed1996, Kothawala2013}. However, it was shown
 that the loss of fluorescence due to IFE could be estimated from
 absorbance spectra measured on the same sample using Equation
-\ref{eq:ife} \citep{Ohno2002, Parker1957}:
+\eqref{eq:ife} \citep{Ohno2002, Parker1957}:
 
 \begin{equation}
 X_0 = \frac{X}{10^{-b(A_{ex} + A_{em})}}
@@ -640,10 +792,65 @@ measured fluorescence intensity, \(b\) is half the cuvette pathlength
 the absorbance at the excitation wavelength \(ex\) and \(A_{em}\) the
 absorbance at the emission wavelength \(em\) (Fig. 4B).
 
+```\{r fig3, echo = FALSE, message=FALSE, fig.cap = `Surface plot of an
+EEM with first order of Raman and Rayleigh scattering removed. Missing
+values have been placed in both diagonals using a bandwidth of 10 nm.',
+results=``hide'', eval=FALSE\}
+
+file \textless{}- system.file(``extdata/cary/scans\_day\_1/'',
+``sample3.csv'', package = ``eemR'')
+
+eem \textless{}- eem\_read(file, recursive = FALSE)
+
+eem \textless{}- eem\_remove\_scattering(eem, ``rayleigh'', 1, 10) eem
+\textless{}- eem\_remove\_scattering(eem, ``raman'', 1, 10)
+
+data(``absorbance'')
+
+eem\_scatter\_removed \textless{}- eem\_inner\_filter\_effect(eem,
+absorbance, 1)
+
+\chapter{\texorpdfstring{load(``ife.rda'')}{load(ife.rda)}}\label{loadife.rda}
+
+jet.colors \textless{}- colorRampPalette(c(``\#00007F'', ``blue'',
+``\#007FFF'', ``cyan'', ``\#7FFF7F'', ``yellow'', ``\#FF7F00'', ``red'',
+``\#7F0000''))
+
+par(mfrow = c(2,2), mar = c(4, 4, 1, 2) + 0.1, oma = c(0,0,0,2))
+
+plot3D::image2D(y = eem{[}{[}1{]}{]}\(em,  x = eem[[1]]\)ex, z =
+t(eem{[}{[}1{]}{]}\$x), xlab = ``Excitation (nm.)'', ylab = ``Emission
+(nm.)'', legend.lab = ``IFE correction factors'', col = jet.colors(255))
+
+legend(``topleft'', expression(bold(``A'')), text.font = 1, cex = 1.5,
+bty = ``n'', adj = c(1.5, 0.25))
+
+plot(absorbance\(wavelength,  absorbance\)sample3, type = ``l'', lwd =
+2, col = ``red'', xlab = ``Wavelength (nm)'', ylab = ``Absorbance'')
+
+legend(``topleft'', expression(bold(``B'')), text.font = 1, cex = 1.5,
+bty = ``n'', adj = c(1.5, 0.25))
+
+plot3D::image2D(y = eem{[}{[}1{]}{]}\(em,  x = eem[[1]]\)ex, z = t(ife),
+xlab = ``Excitation (nm.)'', ylab = ``Emission (nm.)'', legend.lab =
+``IFE correction factors'', col = rev(jet.colors(255)))
+
+legend(``topleft'', expression(bold(``C'')), text.font = 1, cex = 1.5,
+bty = ``n'', adj = c(1.5, 0.25))
+
+plot3D::image2D(y =
+eem\_scatter\_removed{[}{[}1{]}{]}\(em,  x = eem_scatter_removed[[1]]\)ex,
+z = t(eem\_scatter\_removed{[}{[}1{]}{]}\$x), xlab = ``Excitation
+(nm.)'', ylab = ``Emission (nm.)'', legend.lab = ``IFE correction
+factors'', col = jet.colors(255))
+
+legend(``topleft'', expression(bold(``D'')), text.font = 1, cex = 1.5,
+bty = ``n'', adj = c(1.5, 0.25)) ```
+
 It was recently shown that IFE corrected algebraically was not
 appropriate when total absorbance, defined as
 \(A_{\text{total}} = A_{\text{ex}} + A_{\text{em}}\) (see Equation
-\ref{eq:ife}), is greater than 1.5 \citep{Kothawala2013}. Under this
+\eqref{eq:ife}), is greater than 1.5 \citep{Kothawala2013}. Under this
 circumstance, a two-fold dilution of the sample has been recommended. If
 this happen, a warning message will be displayed by the package during
 the correction process.
@@ -663,8 +870,34 @@ to perform calibration. Moreover, the area of the Raman peak
 profile between 371 and 428 nm at a fixed excitation of 350 nm
 \citep{Lawaetz2009}.
 
+```\{r fig4, echo = FALSE, warning=FALSE, fig.align=``center'', fig.cap
+= ``IFE correction process. Panel (A) shows an uncorrected EEM (the
+color bar is the florescence intensity in A.U.). Panel (B) is the
+corresponding absorbance spectra measured on the same sample. Panel (C)
+shows the IFE correction factors corresponding to the values of the
+denominator in Equation xxx with values close to 1 indicating less
+pronounced correction. Panel (D) shows the corrected sample (the color
+bar is the fluorescence intensity in A.U.).'', eval=FALSE\}
+
+load(``blank.rda'')
+
+raman \textless{}- blank{[}{[}1{]}{]}\(x[, which(blank[[1]]\)ex ==
+350){]}
+
+df \textless{}- data.frame(em = blank{[}{[}1{]}{]}\$em, raman)
+
+shade \textless{}- rbind(c(371,0), subset(df, em \textgreater{}= 371 \&
+em \textless{}= 428), c(df{[}nrow(df), ``X''{]}, 0))
+
+ggplot(df, aes(x = em, y = raman)) + geom\_line(size = 0.2, na.rm =
+TRUE) + xlab(``Emission (nm)'') + ylab(``Fluorescence (A.U)'') +
+geom\_polygon(data = shade, aes(em, raman)) + xlim(300, 450) +
+annotate(``text'', x = 400, y = 1, label = ``A{[}rp{]}'', size = 3,
+parse = TRUE) + annotate(``text'', x = 390, y = 7.5, label = ``First
+order Rayleigh scattering'', size = 3) ```
+
 Mathematically, the value of \(A_{\text{rp}}\) is calculated using the
-following integral (Equation\ref{eq:arp}):
+following integral (Equation\eqref{eq:arp}):
 
 \begin{equation}
 A_{\text{rp}} = \int\limits_{\lambda_{\text{em}371}}^{\lambda_{\text{em}428}} W_{350, \lambda} d\lambda
@@ -725,7 +958,7 @@ the DOM pool in aquatic ecosystems. The fluorescence index (FI) was
 shown to be a good indicator of the general source and aromaticity of
 DOM in lakes, streams and rivers \citep{McKnight2001}. This index is
 calculated as the ratio of fluorescence at emission 450 nm and 500 nm,
-at fixed excitation of 370 nm (Equation \ref{eq:fi}).
+at fixed excitation of 370 nm (Equation \eqref{eq:fi}).
 
 \begin{equation}
 \text{FI} = \frac{X_{370, 450}}{X_{370, 500}}
@@ -735,7 +968,7 @@ at fixed excitation of 370 nm (Equation \ref{eq:fi}).
 The humification index (HIX) is a measure of the complexity and the
 aromatic nature of DOM \citep{Ohno2002}. HIX calculated as the ratio of
 the sum of the fluorescence between 435 and 480 nm and between 300 and
-345 nm at a fixed excitation of 254 nm (Equation \ref{eq:hix}).
+345 nm at a fixed excitation of 254 nm (Equation \eqref{eq:hix}).
 
 \begin{equation}
 \text{HIX} = \frac{\sum\limits_{em = 435}^{480} X_{254, em}}{\sum\limits_{em = 300}^{345} X_{254, em}}
@@ -745,7 +978,7 @@ the sum of the fluorescence between 435 and 480 nm and between 300 and
 The biological index (BIX) is a measure to characterize biological
 production of DOM \citep{Huguet2009}. BIX is calculated at excitation
 310 nm, by dividing the fluorescence intensity emitted at emission 380
-nm and at 430 nm (Equation (\ref{eq:bix})).
+nm and at 430 nm (Equation (\eqref{eq:bix})).
 
 \begin{equation}
 \text{BIX} = \frac{X_{310, 380}}{X_{310, 430}}
@@ -765,23 +998,9 @@ emission wavelengths between 230 and 600 nm (2-nm increment). All
 functions from the package start with the prefix
 \texttt{\textquotesingle{}eem\_\textquotesingle{}}.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{library}\NormalTok{(eemR)}
-\KeywordTok{ls}\NormalTok{(}\StringTok{"package:eemR"}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{verbatim}
-##  [1] "absorbance"              "eem_bind"               
-##  [3] "eem_biological_index"    "eem_coble_peaks"        
-##  [5] "eem_cut"                 "eem_export_matlab"      
-##  [7] "eem_extract"             "eem_fluorescence_index" 
-##  [9] "eem_humification_index"  "eem_inner_filter_effect"
-## [11] "eem_names"               "eem_names<-"            
-## [13] "eem_raman_normalisation" "eem_read"               
-## [15] "eem_read_parafac"        "eem_remove_blank"       
-## [17] "eem_remove_scattering"   "eem_set_wavelengths"
+library(eemR)
+ls("package:eemR")
 \end{verbatim}
 
 \subsection{Data importation and
@@ -792,55 +1011,30 @@ function. Given that fluorescence files are dependent on the
 spectrofluorometer used, \texttt{eemR} will determine automatically from
 which manufacturer the files are from and load them accordingly.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{file <-}\StringTok{ }\KeywordTok{system.file}\NormalTok{(}\StringTok{"extdata/cary/scans_day_1"}\NormalTok{, }\DataTypeTok{package =} \StringTok{"eemR"}\NormalTok{)}
-\NormalTok{eems <-}\StringTok{ }\KeywordTok{eem_read}\NormalTok{(file)}
-\end{Highlighting}
-\end{Shaded}
+\begin{verbatim}
+file <- system.file("extdata/cary/scans_day_1", package = "eemR")
+eems <- eem_read(file)
+\end{verbatim}
 
 The generic \texttt{summary()} function displays useful information such
 as: (1) the wavelength ranges used in both emission and excitation
 modes, (2) the manufacturer from which the file was read and (3) the
 state of the EEM which indicate which corrections have been applied.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{summary}\NormalTok{(eems)}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{verbatim}
-##    sample ex_min ex_max em_min em_max is_blank_corrected
-## 1    nano    220    450    230    600              FALSE
-## 2 sample1    220    450    230    600              FALSE
-## 3 sample2    220    450    230    600              FALSE
-## 4 sample3    220    450    230    600              FALSE
-##   is_scatter_corrected is_ife_corrected is_raman_normalized manufacturer
-## 1                FALSE            FALSE               FALSE Cary Eclipse
-## 2                FALSE            FALSE               FALSE Cary Eclipse
-## 3                FALSE            FALSE               FALSE Cary Eclipse
-## 4                FALSE            FALSE               FALSE Cary Eclipse
+summary(eems)
 \end{verbatim}
 
 A surface plot of EEMs is made using the \texttt{plot(x,\ which\ =\ 1)}
 function where \texttt{which} is the index of the EEM to be plotted (see
 Fig. 3).
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{plot}\NormalTok{(eems, }\DataTypeTok{which =} \DecValTok{3}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
+\texttt{\{r,\ eval\ =\ FALSE\}\ plot(eems,\ which\ =\ 3)}
 
 Interactive plots using a simple shiny app can be lunched to
 interactively browse EEMs.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{plot}\NormalTok{(eems, }\DataTypeTok{interactive =} \OtherTok{TRUE}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
+\texttt{\{r,\ eval\ =\ FALSE\}\ plot(eems,\ interactive\ =\ TRUE)}
 
 \subsection{Blank subtraction}\label{blank-subtraction}
 
@@ -850,20 +1044,18 @@ this is done using the \texttt{eem\_remove\_blank(eem,\ blank)} function
 where \texttt{eem} is a list of EEMs and \texttt{blank} is a water
 blank.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{file <-}\StringTok{ }\KeywordTok{system.file}\NormalTok{(}\StringTok{"extdata/cary/scans_day_1"}\NormalTok{, }\StringTok{"nano.csv"}\NormalTok{, }\DataTypeTok{package =} \StringTok{"eemR"}\NormalTok{)}
-\NormalTok{blank <-}\StringTok{ }\KeywordTok{eem_read}\NormalTok{(file)}
+\begin{verbatim}
+file <- system.file("extdata/cary/scans_day_1", "nano.csv", package = "eemR")
+blank <- eem_read(file)
 
-\NormalTok{eems <-}\StringTok{ }\KeywordTok{eem_remove_blank}\NormalTok{(eems, blank)}
-\end{Highlighting}
-\end{Shaded}
+eems <- eem_remove_blank(eems, blank)
+\end{verbatim}
 
 \subsection{Raman and Rayleigh scattering
 removal}\label{raman-and-rayleigh-scattering-removal}
 
-Scattering removal (Equation \ref{eq:raman1} and Equation
-\ref{eq:raman2}) is performed using the
+Scattering removal (Equation \eqref{eq:raman1} and Equation
+\eqref{eq:raman2}) is performed using the
 \texttt{eem\_remove\_scattering(eem,\ type,\ order,\ width)} function
 where \texttt{eem} is a list of EEMs, \texttt{type} is the scattering
 type (\texttt{raman} or \texttt{rayleigh}), \texttt{order} is the order
@@ -872,63 +1064,38 @@ the slit windows to be removed. In the following example, only first
 order and Raman and Rayleigh scattering are removed using a bandwidth of
 10 nm (Fig. 3).
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{eems <-}\StringTok{ }\KeywordTok{eem_remove_scattering}\NormalTok{(eems, }\StringTok{"rayleigh"}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{10}\NormalTok{) %>%}
-\StringTok{  }\KeywordTok{eem_remove_scattering}\NormalTok{(}\StringTok{"raman"}\NormalTok{, }\DecValTok{1}\NormalTok{, }\DecValTok{10}\NormalTok{)}
+```\{r fig5, tidy=FALSE, warning=FALSE, fig.align=`center', fig.cap =
+`Fluorescence profile of a pure water sample at excitation 350 nm
+between 300 and 450 nm emission. The area of the Raman peak is
+identified by the shaded polygon and is calculated using Equation
+xxx.'\}
 
-\KeywordTok{plot}\NormalTok{(eems, }\DataTypeTok{which =} \DecValTok{3}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
+eems \textless{}- eem\_remove\_scattering(eems, ``rayleigh'', 1, 10)
+\%\textgreater{}\% eem\_remove\_scattering(``raman'', 1, 10)
 
-\begin{figure}
-
-{\centering \includegraphics{dom-optic_files/figure-latex/fig5-1} 
-
-}
-
-\caption{Fluorescence profile of a pure water sample at excitation 350 nm between 300 and 450 nm emission. The area of the Raman peak is identified by the shaded polygon and is calculated using Equation xxx.}\label{fig:fig5}
-\end{figure}
+plot(eems, which = 3) ```
 
 \subsection{Inner-filter effect
 correction}\label{inner-filter-effect-correction-1}
 
 IFE correction requires the use of absorbance data (Equation
-\ref{eq:ife}). For each EEM, an absorbance spectra must be supplied. The
+\eqref{eq:ife}). For each EEM, an absorbance spectra must be supplied. The
 easiest way to provide absorbance is to use a data frame with column
 names matching EEMs names. In the following data frame, the first column
 represents the wavelengths at which absorbance have been measured
 whereas the remaining columns are absorbance spectra for
 \texttt{sample1}, \texttt{sample2} and \texttt{sample3}.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{data}\NormalTok{(}\StringTok{"absorbance"}\NormalTok{)}
-\KeywordTok{head}\NormalTok{(absorbance)}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{verbatim}
-##   wavelength sample1 sample2 sample3
-## 1        190 0.89674 1.02927 1.19405
-## 2        191 0.84894 0.96381 1.13721
-## 3        192 0.77267 0.85339 1.04520
-## 4        193 0.70967 0.75627 0.96782
-## 5        194 0.65459 0.67145 0.90092
-## 6        195 0.61371 0.60745 0.85054
+data("absorbance")
+head(absorbance)
 \end{verbatim}
 
 Note that EEM names can be obtained using the
 \texttt{eem\_sample\_names()} function.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{eem_names}\NormalTok{(eems)}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{verbatim}
-## [1] "nano"    "sample1" "sample2" "sample3"
+eem_names(eems)
 \end{verbatim}
 
 IFE correction is performed using the
@@ -938,37 +1105,15 @@ data frame containing absorbance spectra and \texttt{pathlength} is the
 absorbance cuvette pathlength expressed in \(cm\) (Fig. 4B). For each
 EEM contained in \texttt{eem}, the ranges spanned by the IFE correction
 factors and total absorbance \(A_{\text{total}}\) (Equation
-\ref{eq:ife}) are displayed to the user. This can serve as diagnostic
+\eqref{eq:ife}) are displayed to the user. This can serve as diagnostic
 tool to determine if the mathematical correction was the appropriate
 method to use to handle IFE.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{eems <-}\StringTok{ }\KeywordTok{eem_inner_filter_effect}\NormalTok{(}\DataTypeTok{eem =} \NormalTok{eems,}
-                                \DataTypeTok{absorbance =} \NormalTok{absorbance,}
-                                \DataTypeTok{pathlength =} \DecValTok{1}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
+```\{r, fig.keep=``none''\} eems \textless{}-
+eem\_inner\_filter\_effect(eem = eems, absorbance = absorbance,
+pathlength = 1)
 
-\begin{verbatim}
-## Warning: Absorbance spectrum for nano was not found. Returning uncorrected
-## EEM.
-\end{verbatim}
-
-\begin{verbatim}
-## Range of IFE correction factors: 0.6433 0.989 
-## Range of total absorbance (Atotal) : 0.0096 0.3832 
-## Range of IFE correction factors: 0.7619 0.994 
-## Range of total absorbance (Atotal) : 0.0053 0.2362 
-## Range of IFE correction factors: 0.4217 0.9843 
-## Range of total absorbance (Atotal) : 0.0138 0.75
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{plot}\NormalTok{(eems, }\DataTypeTok{which =} \DecValTok{3}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
+plot(eems, which = 3) ```
 
 Fig. 4 presents intermediate results obtained for the correction of
 \texttt{sample3}. Note the nonlinearity of the correction with higher
@@ -985,47 +1130,19 @@ fluorescence intensities using the Raman scatter peak of water
 \texttt{eem} is a list of EEMs and \texttt{blank} is a water blank
 measured the same day. Here, the same water-blank is used for the three
 EEMs. Note that the value of the Raman area (\(A_{\text{rp}}\),
-Equation\ref{eq:arp}) is printed.
+Equation\eqref{eq:arp}) is printed.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{eems <-}\StringTok{ }\KeywordTok{eem_raman_normalisation}\NormalTok{(eems, blank)}
-\end{Highlighting}
-\end{Shaded}
+```\{r, fig.keep=``none''\} eems \textless{}-
+eem\_raman\_normalisation(eems, blank)
 
-\begin{verbatim}
-## Raman area: 9.540904 
-## Raman area: 9.540904 
-## Raman area: 9.540904
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{plot}\NormalTok{(eems, }\DataTypeTok{which =} \DecValTok{3}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
+plot(eems, which = 3) ```
 
 At this stage, all corrections have been performed and EEMs are ready to
 be exported into MATLAB for PARAFAC analysis. The state of the EEMs can
 be verified using the \texttt{summary()} function.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{summary}\NormalTok{(eems)}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{verbatim}
-##    sample ex_min ex_max em_min em_max is_blank_corrected
-## 1    nano    220    450    230    600              FALSE
-## 2 sample1    220    450    230    600               TRUE
-## 3 sample2    220    450    230    600               TRUE
-## 4 sample3    220    450    230    600               TRUE
-##   is_scatter_corrected is_ife_corrected is_raman_normalized manufacturer
-## 1                 TRUE            FALSE               FALSE Cary Eclipse
-## 2                 TRUE             TRUE                TRUE Cary Eclipse
-## 3                 TRUE             TRUE                TRUE Cary Eclipse
-## 4                 TRUE             TRUE                TRUE Cary Eclipse
+summary(eems)
 \end{verbatim}
 
 \subsection{Exporting to MATLAB}\label{exporting-to-matlab}
@@ -1037,11 +1154,7 @@ corrected EEMs into a PARAFAC ready format. The first \texttt{file}
 argument is the mat file where to export the structure and the second
 argument \texttt{...} is one or more \texttt{eem} object.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{eem_export_matlab}\NormalTok{(}\StringTok{"myfile.mat"}\NormalTok{, eems)}
-\end{Highlighting}
-\end{Shaded}
+\texttt{\{r,\ eval=FALSE\}\ eem\_export\_matlab("myfile.mat",\ eems)}
 
 Once exported, one can simply import the generated mat file in MATLAB
 using \texttt{load(\textquotesingle{}myfile.mat\textquotesingle{});}.
@@ -1052,66 +1165,22 @@ Coble's peaks can be extracted using the \texttt{eem\_coble\_peaks(eem)}
 function. Note that for peaks \textbf{A, M, C}, the maximum fluorescence
 intensity in the range of emission region is returned.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{file <-}\StringTok{ }\KeywordTok{system.file}\NormalTok{(}\StringTok{"extdata/cary/scans_day_1"}\NormalTok{, }\DataTypeTok{package =} \StringTok{"eemR"}\NormalTok{)}
-\NormalTok{eems <-}\StringTok{ }\KeywordTok{eem_read}\NormalTok{(file)}
-
-\KeywordTok{eem_coble_peaks}\NormalTok{(eems, }\DataTypeTok{verbose =} \OtherTok{FALSE}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{verbatim}
-##    sample         b         t        a          m         c
-## 1    nano 0.8745673 0.1401188 0.140175 0.09653326 0.1255788
-## 2 sample1 1.5452981 1.0603312 3.731836 2.42409567 1.8149415
-## 3 sample2 1.2629968 0.6647042 1.583489 1.02359302 0.7709074
-## 4 sample3 1.4740862 1.3162812 8.416034 6.06335506 6.3179129
+file <- system.file("extdata/cary/scans_day_1", package = "eemR")
+eems <- eem_read(file)
+
+eem_coble_peaks(eems, verbose = FALSE)
 \end{verbatim}
 
 Fluorescence (FI), humification (HIX) and biological (BIX) indices can
 be extracted as follow.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{eem_fluorescence_index}\NormalTok{(eems, }\DataTypeTok{verbose =} \OtherTok{FALSE}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{verbatim}
-##    sample         fi
-## 1    nano -0.5932057
-## 2 sample1  1.2647823
-## 3 sample2  1.4553330
-## 4 sample3  1.3294132
-\end{verbatim}
+eem_fluorescence_index(eems, verbose = FALSE)
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{eem_humification_index}\NormalTok{(eems, }\DataTypeTok{verbose =} \OtherTok{FALSE}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
+eem_humification_index(eems, verbose = FALSE)
 
-\begin{verbatim}
-##    sample        hix
-## 1    nano  0.5568136
-## 2 sample1  6.3795618
-## 3 sample2  4.2548483
-## 4 sample3 13.0246234
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{eem_biological_index}\NormalTok{(eems, }\DataTypeTok{verbose =} \OtherTok{FALSE}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{verbatim}
-##    sample       bix
-## 1    nano 2.6812045
-## 2 sample1 0.7062640
-## 3 sample2 0.8535423
-## 4 sample3 0.4867927
+eem_biological_index(eems, verbose = FALSE)
 \end{verbatim}
 
 It should be noted that different excitation and emission wavelengths
@@ -1128,19 +1197,14 @@ Note that it is also possible to use the
 \href{https://cran.r-project.org/web/packages/magrittr/vignettes/magrittr.html}{magrittr}
 pipe line with most functions from \texttt{eemR}.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\KeywordTok{library}\NormalTok{(magrittr)}
+```\{r, eval=FALSE\} library(magrittr)
 
-\NormalTok{file <-}\StringTok{ }\KeywordTok{system.file}\NormalTok{(}\StringTok{"extdata/cary/scans_day_1/"}\NormalTok{, }\DataTypeTok{package =} \StringTok{"eemR"}\NormalTok{)}
-\NormalTok{file %>%}
-\StringTok{  }\KeywordTok{eem_read}\NormalTok{(}\DataTypeTok{recursive =} \OtherTok{TRUE}\NormalTok{) %>%}
-\StringTok{  }\KeywordTok{eem_raman_normalisation}\NormalTok{() %>%}
-\StringTok{  }\KeywordTok{eem_remove_scattering}\NormalTok{(}\DataTypeTok{type =} \StringTok{"raman"}\NormalTok{, }\DataTypeTok{order =} \DecValTok{1}\NormalTok{, }\DataTypeTok{width =} \DecValTok{10}\NormalTok{) %>%}
-\StringTok{  }\KeywordTok{eem_remove_scattering}\NormalTok{(}\DataTypeTok{type =} \StringTok{"rayleigh"}\NormalTok{, }\DataTypeTok{order =} \DecValTok{1}\NormalTok{, }\DataTypeTok{width =} \DecValTok{10}\NormalTok{) %>%}
-\StringTok{  }\KeywordTok{plot}\NormalTok{(}\DecValTok{2}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
+file \textless{}- system.file(``extdata/cary/scans\_day\_1/'', package =
+``eemR'') file \%\textgreater{}\% eem\_read(recursive = TRUE)
+\%\textgreater{}\% eem\_raman\_normalisation() \%\textgreater{}\%
+eem\_remove\_scattering(type = ``raman'', order = 1, width = 10)
+\%\textgreater{}\% eem\_remove\_scattering(type = ``rayleigh'', order =
+1, width = 10) \%\textgreater{}\% plot(2) ```
 
 \chapter{Definitions}\label{definitions}
 
@@ -1168,7 +1232,7 @@ S & Spectral slope (nm\(^{-1}\)) &\tabularnewline
 \bottomrule
 \end{longtable}
 
-\bibliography{/home/persican/Documents/library.bib}
+\bibliography{/home/pmassicotte/Documents/library.bib}
 
 
 \end{document}

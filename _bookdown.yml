@@ -1,2 +1,11 @@
-book_filename: "dom-optic"
-chapter_name: "Chapter "
+book_filename: dom_optic
+repo: https://github.com/PMassicotte/dom-optic
+output_dir: _book
+clean: [packages.bib, bookdown.bbl]
+language:
+  label:
+    fig: "FIGURE "
+    tab: "TABLE "
+  ui:
+    edit: "Edit"
+    chapter_name: "Chapter "

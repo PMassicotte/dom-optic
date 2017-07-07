@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Practical guide on dissolved organic matter (DOM) optic</title>
+  <meta name="description" content="A practical guide on dissolved organic matter optic.">
+  <meta name="generator" content="bookdown 0.4 and GitBook 2.6.7">
+
+  <meta property="og:title" content="Practical guide on dissolved organic matter (DOM) optic" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="A practical guide on dissolved organic matter optic." />
+  <meta name="github-repo" content="PMassicotte/dom-optic" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Practical guide on dissolved organic matter (DOM) optic" />
+  
+  <meta name="twitter:description" content="A practical guide on dissolved organic matter optic." />
+  
+
+<meta name="author" content="Philippe Massicotte">
+
+
+<meta name="date" content="2017-07-07">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  
+  
+<link rel="prev" href="what-is-cdom.html">
+<link rel="next" href="absorption-vs-absorbance.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Practical guide on dissolved organic matter (DOM) optic</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction and motivations</a></li>
+<li class="chapter" data-level="2" data-path="measurements.html"><a href="measurements.html"><i class="fa fa-check"></i><b>2</b> Measurements</a><ul>
+<li class="chapter" data-level="2.1" data-path="dom-measurements.html"><a href="dom-measurements.html"><i class="fa fa-check"></i><b>2.1</b> DOM measurements</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="absorbance.html"><a href="absorbance.html"><i class="fa fa-check"></i><b>3</b> Absorbance</a><ul>
+<li class="chapter" data-level="3.1" data-path="what-is-cdom.html"><a href="what-is-cdom.html"><i class="fa fa-check"></i><b>3.1</b> What is CDOM?</a></li>
+<li class="chapter" data-level="3.2" data-path="writing-and-notation.html"><a href="writing-and-notation.html"><i class="fa fa-check"></i><b>3.2</b> Writing and notation</a></li>
+<li class="chapter" data-level="3.3" data-path="absorption-vs-absorbance.html"><a href="absorption-vs-absorbance.html"><i class="fa fa-check"></i><b>3.3</b> Absorption vs absorbance</a></li>
+<li class="chapter" data-level="3.4" data-path="mathematical-formulation-of-absorption-spectra.html"><a href="mathematical-formulation-of-absorption-spectra.html"><i class="fa fa-check"></i><b>3.4</b> Mathematical formulation of absorption spectra</a></li>
+<li class="chapter" data-level="3.5" data-path="sl.html"><a href="sl.html"><i class="fa fa-check"></i><b>3.5</b> Modeling CDOM absorption spectra in R</a><ul>
+<li class="chapter" data-level="3.5.1" data-path="sl.html"><a href="sl.html#potential-drawbacks"><i class="fa fa-check"></i><b>3.5.1</b> Potential drawbacks</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="metrics.html"><a href="metrics.html"><i class="fa fa-check"></i><b>3.6</b> Metrics</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="metrics.html"><a href="metrics.html#slope-ratio"><i class="fa fa-check"></i><b>3.6.1</b> Slope ratio</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="fluorescence.html"><a href="fluorescence.html"><i class="fa fa-check"></i><b>4</b> Fluorescence</a><ul>
+<li class="chapter" data-level="4.1" data-path="what-is-a-eem.html"><a href="what-is-a-eem.html"><i class="fa fa-check"></i><b>4.1</b> What is a EEM</a></li>
+<li class="chapter" data-level="4.2" data-path="parafac.html"><a href="parafac.html"><i class="fa fa-check"></i><b>4.2</b> PARAFAC</a></li>
+<li class="chapter" data-level="4.3" data-path="fluorescence-of-dom-theoretical-and-mathematical-background.html"><a href="fluorescence-of-dom-theoretical-and-mathematical-background.html"><i class="fa fa-check"></i><b>4.3</b> Fluorescence of DOM: theoretical and mathematical background</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="fluorescence-of-dom-theoretical-and-mathematical-background.html"><a href="fluorescence-of-dom-theoretical-and-mathematical-background.html#scattering-correction"><i class="fa fa-check"></i><b>4.3.1</b> Scattering correction</a></li>
+<li class="chapter" data-level="4.3.2" data-path="fluorescence-of-dom-theoretical-and-mathematical-background.html"><a href="fluorescence-of-dom-theoretical-and-mathematical-background.html#inner-filter-effect-correction"><i class="fa fa-check"></i><b>4.3.2</b> Inner-filter effect correction</a></li>
+<li class="chapter" data-level="4.3.3" data-path="fluorescence-of-dom-theoretical-and-mathematical-background.html"><a href="fluorescence-of-dom-theoretical-and-mathematical-background.html#raman-calibration"><i class="fa fa-check"></i><b>4.3.3</b> Raman calibration</a></li>
+<li class="chapter" data-level="4.3.4" data-path="fluorescence-of-dom-theoretical-and-mathematical-background.html"><a href="fluorescence-of-dom-theoretical-and-mathematical-background.html#metrics-1"><i class="fa fa-check"></i><b>4.3.4</b> Metrics</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="r-code-and-study-case.html"><a href="r-code-and-study-case.html"><i class="fa fa-check"></i><b>4.4</b> R code and study case</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="r-code-and-study-case.html"><a href="r-code-and-study-case.html#data-importation-and-plotting"><i class="fa fa-check"></i><b>4.4.1</b> Data importation and plotting</a></li>
+<li class="chapter" data-level="4.4.2" data-path="r-code-and-study-case.html"><a href="r-code-and-study-case.html#blank-subtraction"><i class="fa fa-check"></i><b>4.4.2</b> Blank subtraction</a></li>
+<li class="chapter" data-level="4.4.3" data-path="r-code-and-study-case.html"><a href="r-code-and-study-case.html#raman-and-rayleigh-scattering-removal"><i class="fa fa-check"></i><b>4.4.3</b> Raman and Rayleigh scattering removal</a></li>
+<li class="chapter" data-level="4.4.4" data-path="r-code-and-study-case.html"><a href="r-code-and-study-case.html#inner-filter-effect-correction-1"><i class="fa fa-check"></i><b>4.4.4</b> Inner-filter effect correction</a></li>
+<li class="chapter" data-level="4.4.5" data-path="r-code-and-study-case.html"><a href="r-code-and-study-case.html#raman-normalization"><i class="fa fa-check"></i><b>4.4.5</b> Raman normalization</a></li>
+<li class="chapter" data-level="4.4.6" data-path="r-code-and-study-case.html"><a href="r-code-and-study-case.html#exporting-to-matlab"><i class="fa fa-check"></i><b>4.4.6</b> Exporting to MATLAB</a></li>
+<li class="chapter" data-level="4.4.7" data-path="r-code-and-study-case.html"><a href="r-code-and-study-case.html#metric-extraction"><i class="fa fa-check"></i><b>4.4.7</b> Metric extraction</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="using-r-pipeline.html"><a href="using-r-pipeline.html"><i class="fa fa-check"></i><b>4.5</b> Using R pipeline</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="definitions.html"><a href="definitions.html"><i class="fa fa-check"></i><b>5</b> Definitions</a></li>
+<li class="chapter" data-level="6" data-path="test.html"><a href="test.html"><i class="fa fa-check"></i><b>6</b> Absorbance</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/PMassicotte/dom-optic" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Practical guide on dissolved organic matter (DOM) optic</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="writing-and-notation" class="section level2">
+<h2><span class="header-section-number">3.2</span> Writing and notation</h2>
+<p>In reference to this fraction of the DOM pool, people have been using interchangeably different terminology. For example, a_g(<span class="math inline">\(\lambda\)</span>), a(<span class="math inline">\(\lambda\)</span>), CDOM(<span class="math inline">\(\lambda\)</span>), aCDOM(<span class="math inline">\(\lambda\)</span>) and <span class="math inline">\(a_{CDOM}(\lambda)\)</span> are all referring to the absorption coefficient measured at wavelength <span class="math inline">\(\lambda\)</span> (nm).</p>
+<p>To unify the terminology, we propose that absorption of CDOM should be written as <span class="math inline">\(\mathbf{a_{\text{CDOM}}(\lambda)}\)</span> using the followings <em>rules</em>:</p>
+<ol style="list-style-type: decimal">
+<li><em>a</em> in <em>italic</em> to reference to absorption (vs absorbance).</li>
+<li>CDOM subscript and in capital letters.</li>
+<li><span class="math inline">\(\lambda\)</span> sign to refer to the wavelength where the measurement is done.</li>
+</ol>
+<p>For example, <span class="math inline">\(a_{\text{CDOM}}(350)\)</span> refers to absorption coefficient measured at 350 nm.</p>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="what-is-cdom.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="absorption-vs-absorbance.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": true,
+"google": false,
+"weibo": false,
+"instapper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/PMassicotte/dom-optic/edit/master/02-absorbance.Rmd",
+"text": "Edit"
+},
+"download": ["dom_optic.pdf", "dom_optic.epub", "dom_optic.mobi"],
+"toc": {
+"collapse": "none"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(script.src))
+      script.src  = script.src.replace(/^https?:/, '');
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

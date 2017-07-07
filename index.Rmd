@@ -4,7 +4,7 @@ author: "Philippe Massicotte"
 date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 documentclass: book
-bibliography: /home/persican/Documents/library.bib
+bibliography: /home/pmassicotte/Documents/library.bib
 biblio-style: apalike
 link-citations: yes
 github-repo: PMassicotte/dom-optic
