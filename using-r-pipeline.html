@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="dom-measurements.html">
-<link rel="next" href="what-is-cdom.html">
+<link rel="prev" href="r-code-and-study-case.html">
+<link rel="next" href="definitions.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -161,16 +161,28 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="absorbance" class="section level1">
-<h1><span class="header-section-number">Chapter 3</span> Absorbance</h1> 
+<div id="using-r-pipeline" class="section level2">
+<h2><span class="header-section-number">4.5</span> Using R pipeline</h2>
+<p>Note that it is also possible to use the <a href="https://cran.r-project.org/web/packages/magrittr/vignettes/magrittr.html">magrittr</a> pipe line with most functions from <code>eemR</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(magrittr)
+
+file &lt;-<span class="st"> </span><span class="kw">system.file</span>(<span class="st">&quot;extdata/cary/scans_day_1/&quot;</span>, <span class="dt">package =</span> <span class="st">&quot;eemR&quot;</span>)
+file <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">eem_read</span>(<span class="dt">recursive =</span> <span class="ot">TRUE</span>) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">eem_raman_normalisation</span>() <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">eem_remove_scattering</span>(<span class="dt">type =</span> <span class="st">&quot;raman&quot;</span>, <span class="dt">order =</span> <span class="dv">1</span>, <span class="dt">width =</span> <span class="dv">10</span>) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">eem_remove_scattering</span>(<span class="dt">type =</span> <span class="st">&quot;rayleigh&quot;</span>, <span class="dt">order =</span> <span class="dv">1</span>, <span class="dt">width =</span> <span class="dv">10</span>) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">plot</span>(<span class="dv">2</span>)</code></pre></div>
+
 </div>
+<!-- </div> -->
             </section>
 
           </div>
         </div>
       </div>
-<a href="dom-measurements.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="what-is-cdom.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="r-code-and-study-case.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="definitions.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -199,7 +211,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/PMassicotte/dom-optic/edit/master/02-absorbance.Rmd",
+"link": "https://github.com/PMassicotte/dom-optic/edit/master/03-fluorescence.Rmd",
 "text": "Edit"
 },
 "download": ["dom_optic.pdf", "dom_optic.epub", "dom_optic.mobi"],

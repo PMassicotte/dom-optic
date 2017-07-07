@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="dom-measurements.html">
-<link rel="next" href="what-is-cdom.html">
+<link rel="prev" href="absorption-vs-absorbance.html">
+<link rel="next" href="sl.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -161,16 +161,71 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="absorbance" class="section level1">
-<h1><span class="header-section-number">Chapter 3</span> Absorbance</h1> 
+<div id="mathematical-formulation-of-absorption-spectra" class="section level2">
+<h2><span class="header-section-number">3.4</span> Mathematical formulation of absorption spectra</h2>
+<p>As observed in figure <a href="mathematical-formulation-of-absorption-spectra.html#fig:absorbance">3.1</a>, absorption decrease exponentially with increasing wavelengths. As wavelengths increase, light absorbed by CDOM decrease exponentially <a href="mathematical-formulation-of-absorption-spectra.html#fig:absorbance">3.1</a>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(cdom)
+<span class="kw">data</span>(spectra)
+
+spectra &lt;-<span class="st"> </span>spectra <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">filter</span>(wavelength <span class="op">&lt;=</span><span class="st"> </span><span class="dv">500</span>)
+
+p &lt;-<span class="st"> </span><span class="kw">ggplot</span>(spectra, <span class="kw">aes</span>(<span class="dt">x =</span> wavelength, <span class="dt">y =</span> spc1)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">xlab</span>(<span class="st">&quot;Wavelength (nm.)&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">ylab</span>(<span class="kw">bquote</span>(Absorption<span class="op">~</span>(nm<span class="op">^</span>{<span class="op">-</span><span class="dv">1</span>})))
+
+p</code></pre></div>
+<div class="figure"><span id="fig:absorbance"></span>
+<img src="dom_optic_files/figure-html/absorbance-1.svg" alt="Example of an absorption spectrum of CDOM." width="672" />
+<p class="caption">
+FIGURE 3.1: Example of an absorption spectrum of CDOM.
+</p>
+</div>
+<p><span class="citation">Jerlov (<a href="#ref-Jerlov1968">1968</a>)</span> and <span class="citation">Bricaud, Morel, and Prieur (<a href="#ref-Bricaud1981">1981</a>)</span> first proposed to use a simple exponential formulation to model absorption (equation <a href="#eq:cdom1">(<strong>??</strong>)</a>).</p>
+<span class="math display">\[\begin{equation}
+a_{\text{CDOM}}(\lambda) = a_{\text{CDOM}}(\lambda0)e^{-S(\lambda - \lambda0)}
+\label{eq:cdom1}
+\end{equation}\]</span>
+<p>Where <span class="math inline">\(a_{\text{CDOM}}(\lambda)\)</span> is the absorption coefficient (m<span class="math inline">\(^{-1}\)</span>), <span class="math inline">\(\lambda\)</span> is the wavelength (nm), <span class="math inline">\(\lambda0\)</span> is a reference wavelength (nm) and <span class="math inline">\(S\)</span> is the spectral slope (nm<span class="math inline">\(^{-1}\)</span>) that describes the approximate exponential rate of decrease of absorption with increasing wavelength. Higher slopes indicate a more rapid decrease in absorption with increasing wavelength. The <span class="math inline">\(S\)</span> parameter is frequently used as a proxy for tracing photochemical and microbial-induced changes of CDOM <span class="citation">(Moran, Sheldon, and Zepp <a href="#ref-Moran2000">2000</a>; Twardowski et al. <a href="#ref-Twardowski2004">2004</a>; Helms et al. <a href="#ref-Helms2013">2013</a>)</span> or to determine its origin <span class="citation">(C A Stedmon and Markager <a href="#ref-Stedmon2001">2001</a>)</span>.</p>
+<p>In 2001, equation <a href="#eq:cdom1">(<strong>??</strong>)</a> was modified by <span class="citation">C A Stedmon and Markager (<a href="#ref-Stedmon2001">2001</a>)</span> which introduced <span class="math inline">\(k\)</span>, a background constant (m<span class="math inline">\(^{-1}\)</span>) accounting for scatter in the cuvette and drift of the instrument (equation <a href="#eq:cdom2">(<strong>??</strong>)</a>).</p>
+<span class="math display">\[\begin{equation}
+a_{\text{CDOM}}(\lambda) = a_{\text{CDOM}}(\lambda0)e^{-S(\lambda - \lambda0)} + \mathbf{k}
+\label{eq:cdom2}
+\end{equation}\]</span>
+<ul>
+<li>The <span class="math inline">\(K\)</span> parameter…</li>
+<li>Graph showing <span class="math inline">\(K\)</span></li>
+</ul>
+<p>There are other mathematical formulations that can be used to model CDOM spectra. These are reviewed in <span class="citation">Twardowski et al. (<a href="#ref-Twardowski2004">2004</a>)</span>.</p>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-Jerlov1968">
+<p>Jerlov, N.G. 1968. <em>Optical oceanography</em>. New York: Elsevier Publishing Company.</p>
+</div>
+<div id="ref-Bricaud1981">
+<p>Bricaud, Annick, André Morel, and Louis Prieur. 1981. “Absorption by dissolved organic matter of the sea (yellow substance) in the UV and visible domains.” <em>Limnology and Oceanography</em> 26 (1): 43–53. doi:<a href="https://doi.org/10.4319/lo.1981.26.1.0043">10.4319/lo.1981.26.1.0043</a>.</p>
+</div>
+<div id="ref-Moran2000">
+<p>Moran, Mary Ann, Wade M. Sheldon, and Richard G. Zepp. 2000. “Carbon loss and optical property changes during long-term photochemical and biological degradation of estuarine dissolved organic matter.” <em>Limnology and Oceanography</em> 45 (6): 1254–64. doi:<a href="https://doi.org/10.4319/lo.2000.45.6.1254">10.4319/lo.2000.45.6.1254</a>.</p>
+</div>
+<div id="ref-Twardowski2004">
+<p>Twardowski, Michael S., Emmanuel Boss, James M. Sullivan, and Percy L. Donaghay. 2004. “Modeling the spectral shape of absorption by chromophoric dissolved organic matter.” <em>Marine Chemistry</em> 89 (1-4): 69–88. doi:<a href="https://doi.org/10.1016/j.marchem.2004.02.008">10.1016/j.marchem.2004.02.008</a>.</p>
+</div>
+<div id="ref-Helms2013">
+<p>Helms, John R., Aron Stubbins, E. Michael Perdue, Nelson W. Green, Hongmei Chen, and Kenneth Mopper. 2013. “Photochemical bleaching of oceanic dissolved organic matter and its effect on absorption spectral slope and fluorescence.” <em>Marine Chemistry</em> 155. Elsevier B.V.: 81–91. doi:<a href="https://doi.org/10.1016/j.marchem.2013.05.015">10.1016/j.marchem.2013.05.015</a>.</p>
+</div>
+<div id="ref-Stedmon2001">
+<p>Stedmon, C A, and S Markager. 2001. “The optics of chromophoric dissolved organic matter (CDOM) in the Greenland Sea: An algorithm for differentiation between marine and terrestrially derived organic matter.” <em>Limnology and Oceanography</em> 46 (8): 2087–93. doi:<a href="https://doi.org/10.4319/lo.2001.46.8.2087">10.4319/lo.2001.46.8.2087</a>.</p>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="dom-measurements.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="what-is-cdom.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="absorption-vs-absorbance.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="sl.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

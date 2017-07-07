@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="dom-measurements.html">
-<link rel="next" href="what-is-cdom.html">
+<link rel="prev" href="writing-and-notation.html">
+<link rel="next" href="mathematical-formulation-of-absorption-spectra.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -161,16 +161,61 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="absorbance" class="section level1">
-<h1><span class="header-section-number">Chapter 3</span> Absorbance</h1> 
+<div id="absorption-vs-absorbance" class="section level2">
+<h2><span class="header-section-number">3.3</span> Absorption vs absorbance</h2>
+<p>It is of interest to review the <a href="http://www.chemguide.co.uk/analysis/uvvisible/beerlambert.html">Beer-Lambert law</a> to understand the difference between absrobance and absorption.</p>
+<span class="math display">\[\begin{alignat}{2}
+\label{eq:abs1}
+    I_n &amp;= I_0 \times e^{(\epsilon \times c \times L)}\\
+\end{alignat}\]</span>
+<p>where:</p>
+<ul>
+<li><span class="math inline">\(I_0\)</span> the intensity of <em>emitted</em> light (before it passes through the sample).</li>
+<li><span class="math inline">\(I_n\)</span> the intensity of <em>received</em> light (after it passes through the sample).</li>
+<li><span class="math inline">\(\epsilon\)</span>: the molar absorption coefficient (<span class="math inline">\(m^2 \times \text{mole}^{-1}\)</span>).</li>
+<li><span class="math inline">\(c\)</span>: the concentration of the colored material in the solution (<span class="math inline">\(\text{mole} \times m^{-3}\)</span>).</li>
+<li><span class="math inline">\(L\)</span>: the pathlenght traveled by the light throught the solution. It is of a common usage to express it per meter (<span class="math inline">\(m^{-1}\)</span>).</li>
+</ul>
+<span class="math display">\[\begin{alignat}{2}
+\label{eq:abs2}
+    I_n &amp;= I_0 \times e^{-(a \times L)}\\
+\end{alignat}\]</span>
+<p>where <span class="math inline">\(a = \epsilon \times c\)</span> is the absorption coefficient (<span class="math inline">\(m^{-1}\)</span>).</p>
+<span class="math display">\[\begin{alignat}{2}
+\label{eq:abs3}
+    \frac{I_n}{I_0}       &amp;= e^{-(a \times L)}\\[10pt]
+    \frac{I_0}{I_n}       &amp;= e^{(a \times L)}\\[10pt]
+    log(\frac{I_0}{I_n})  &amp;= a \times L\\[10pt]
+    a                     &amp;= \frac{log(\frac{I_0}{I_n})}{L}\\
+\end{alignat}\]</span>
+<p>We notice here that the Beer-Lambert law is written in log base <span class="math inline">\(e\)</span>. However, for historical reasons (basically because it was esier to calculate in the <em>old</em> days), spectrophotometer use log base 10 than rather than <span class="math inline">\(e\)</span>. To convert from base 10 logarithm to a natural logarithm (i.e. base <span class="math inline">\(e\)</span>), one need to use the conversion factor calculated as <span class="math inline">\(log(10)\)</span> which is equato to 2.3025851. Then, the equation becomes:</p>
+<span class="math display">\[\begin{alignat}{2}
+\label{eq:abs4}
+    a &amp;= \frac{log(\frac{I_0}{I_n}) \times 2.303}{L}\\
+\end{alignat}\]</span>
+<p>Note that <em>absorbance</em> measured by spectrophotometers is noted <span class="math inline">\(A\)</span>. Finally,</p>
+<span class="math display">\[\begin{equation}
+
+a = \frac{A \times 2.303}{L}
+\label{eq:absorption1}
+
+\end{equation}\]</span>
+<p>Because we are specifically measuring absorption of CDOM, often at a specific wavelength <span class="math inline">\(\lambda\)</span>, the recommended writing is as follow:</p>
+<span class="math display">\[\begin{equation}
+
+a_{\text{CDOM}}(\lambda) = \frac{A(\lambda) \times 2.303}{L}
+\label{eq:absorption2}
+
+\end{equation}\]</span>
+<p>Where <span class="math inline">\(A(\lambda)\)</span> is the measured <strong>absorbance</strong> and <span class="math inline">\(L\)</span> the measurement cuvette thickness (or pathlenght) expressed per meter (<span class="math inline">\(m^{-1}\)</span>).</p>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="dom-measurements.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="what-is-cdom.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="writing-and-notation.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="mathematical-formulation-of-absorption-spectra.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

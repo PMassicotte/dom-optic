@@ -32,8 +32,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
   
   
-<link rel="prev" href="dom-measurements.html">
-<link rel="next" href="what-is-cdom.html">
+<link rel="prev" href="mathematical-formulation-of-absorption-spectra.html">
+<link rel="next" href="metrics.html">
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
@@ -161,16 +161,135 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="absorbance" class="section level1">
-<h1><span class="header-section-number">Chapter 3</span> Absorbance</h1> 
+<div id="sl" class="section level2">
+<h2><span class="header-section-number">3.5</span> Modeling CDOM absorption spectra in R</h2>
+<p>Because of it inverse exponential shape, absorption spectra are best modeled using non-linear fittings. In R this is done easy using the <code>nls()</code> function. As we can see from equation <a href="#eq:cdom2">(<strong>??</strong>)</a>, the most commonly equation used to model CDOM spectra contains three parameters: <code>a0, s, k</code>.</p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">mod &lt;-<span class="st"> </span><span class="kw">nls</span>(spc1 <span class="op">~</span><span class="st"> </span>a0 <span class="op">*</span><span class="st"> </span><span class="kw">exp</span>(<span class="op">-</span>s <span class="op">*</span><span class="st"> </span>(wavelength <span class="op">-</span><span class="st"> </span><span class="dv">250</span>)) <span class="op">+</span><span class="st"> </span>k, <span class="co"># define the formula</span>
+           <span class="dt">data =</span> spectra, <span class="co"># where the data comes from</span>
+           <span class="dt">start =</span> <span class="kw">list</span>(<span class="dt">a0 =</span> <span class="dv">5</span>, <span class="dt">s =</span> <span class="fl">0.02</span>, <span class="dt">k =</span> <span class="dv">0</span>)) <span class="co"># initial guesses.</span>
+
+<span class="co"># show the summary information</span>
+<span class="kw">summary</span>(mod)</code></pre></div>
+<pre><code>## 
+## Formula: spc1 ~ a0 * exp(-s * (wavelength - 250)) + k
+## 
+## Parameters:
+##     Estimate Std. Error t value Pr(&gt;|t|)    
+## a0 1.536e+01  4.778e-01   32.15   &lt;2e-16 ***
+## s  4.070e-02  5.989e-04   67.96   &lt;2e-16 ***
+## k  4.154e+00  2.871e-01   14.47   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 4.187 on 308 degrees of freedom
+## 
+## Number of iterations to convergence: 7 
+## Achieved convergence tolerance: 3.221e-06</code></pre>
+<p>The value of <span class="math inline">\(a0\)</span> is 15.36 represent the absorption coefficient at the reference wavelength of 250 nm (Fig. <a href="sl.html#fig:model">3.2</a>). The value of <span class="math inline">\(S\)</span> is 0.04 means that absorption is decreasing at a rate of 0.04 <span class="math inline">\(m^{-1}\)</span> for each increase of 1 nm.</p>
+<ul>
+<li><p>cdom package example</p></li>
+<li><p>k parameter (scattering, introduced by <span class="citation">C A Stedmon and Markager (<a href="#ref-Stedmon2001">2001</a>)</span>)</p></li>
+</ul>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">p <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">y =</span> <span class="kw">predict</span>(mod)), <span class="dt">col =</span> <span class="st">&quot;red&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_hline</span>(<span class="dt">yintercept =</span> <span class="kw">coef</span>(mod)[<span class="dv">1</span>] <span class="op">+</span><span class="st"> </span><span class="kw">coef</span>(mod)[<span class="dv">3</span>], <span class="dt">lty =</span> <span class="dv">2</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="dv">250</span>, <span class="dt">lty =</span> <span class="dv">2</span>)</code></pre></div>
+<div class="figure"><span id="fig:model"></span>
+<img src="dom_optic_files/figure-html/model-1.svg" alt="Predicted values of the exponential model." width="672" />
+<p class="caption">
+FIGURE 3.2: Predicted values of the exponential model.
+</p>
+</div>
+<div id="potential-drawbacks" class="section level3">
+<h3><span class="header-section-number">3.5.1</span> Potential drawbacks</h3>
+<p>When modeling CDOM spectra, there are few things to keep in minds that can have a significant influence on model results.</p>
+<div id="choice-of-the-reference-wavelength" class="section level4">
+<h4><span class="header-section-number">3.5.1.1</span> Choice of the reference wavelength</h4>
+<p>In equation <a href="#eq:cdom2">(<strong>??</strong>)</a>, the reference wavelength was set at 350 nm. One question can potentially come to your mind. What is the effect of choosing a different reference wavelengths? What will append to <span class="math inline">\(S\)</span> if we change the reference wavelength to let’s say 250?</p>
+<p>Fig. <a href="sl.html#fig:refwl">3.3</a> shows that:</p>
+<ul>
+<li>Little effect (computational rounding)</li>
+</ul>
+<div class="figure"><span id="fig:refwl"></span>
+<img src="dom_optic_files/figure-html/refwl-1.svg" alt="Effect of varying the reference wavelength on S." width="672" />
+<p class="caption">
+FIGURE 3.3: Effect of varying the reference wavelength on S.
+</p>
+</div>
+<ul>
+<li>Plot the calculated curves on a graph</li>
+</ul>
+</div>
+<div id="choice-of-the-spectral-range" class="section level4">
+<h4><span class="header-section-number">3.5.1.2</span> Choice of the spectral range</h4>
+<p>The choice of the spectral range used to model absorption spectra is known to have important consequences on estimated parameters <span class="citation">(Massicotte and Markager <a href="#ref-Massicotte2016MC">2016</a>; Twardowski et al. <a href="#ref-Twardowski2004">2004</a>)</span>. I will use the spectrum provided in Fig. <a href="mathematical-formulation-of-absorption-spectra.html#fig:absorbance">3.1</a> where absorption has been measured between 190 and 900 nm. For this exercise, I will use four different spectral ranges to show how this is affecting the calculation of <span class="math inline">\(S\)</span>.</p>
+<ol style="list-style-type: decimal">
+<li>275-295 nm</li>
+<li>350-450 nm</li>
+<li>220-600 nm</li>
+<li>250-500 nm</li>
+</ol>
+<div class="figure"><span id="fig:effectwl"></span>
+<img src="dom_optic_files/figure-html/effectwl-1.svg" alt="Effect of wavelength range on modeled absorption." width="672" />
+<p class="caption">
+FIGURE 3.4: Effect of wavelength range on modeled absorption.
+</p>
+</div>
+<ul>
+<li><p>Can have important effect on the value of <span class="math inline">\(S\)</span>.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center">S</th>
+<th align="center">K</th>
+<th align="center">a0</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">0.0088350</td>
+<td align="center">-16.0281500</td>
+<td align="center">17.168865</td>
+</tr>
+<tr class="even">
+<td align="center">0.0197242</td>
+<td align="center">0.8640024</td>
+<td align="center">3.688161</td>
+</tr>
+<tr class="odd">
+<td align="center">0.0197387</td>
+<td align="center">1.1424607</td>
+<td align="center">3.264979</td>
+</tr>
+<tr class="even">
+<td align="center">0.0170917</td>
+<td align="center">0.4973948</td>
+<td align="center">4.313748</td>
+</tr>
+</tbody>
+</table></li>
+</ul>
+</div>
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-Stedmon2001">
+<p>Stedmon, C A, and S Markager. 2001. “The optics of chromophoric dissolved organic matter (CDOM) in the Greenland Sea: An algorithm for differentiation between marine and terrestrially derived organic matter.” <em>Limnology and Oceanography</em> 46 (8): 2087–93. doi:<a href="https://doi.org/10.4319/lo.2001.46.8.2087">10.4319/lo.2001.46.8.2087</a>.</p>
+</div>
+<div id="ref-Massicotte2016MC">
+<p>Massicotte, Philippe, and Stiig Markager. 2016. “Using a Gaussian decomposition approach to model absorption spectra of chromophoric dissolved organic matter.” <em>Marine Chemistry</em> 180 (March): 24–32. doi:<a href="https://doi.org/10.1016/j.marchem.2016.01.008">10.1016/j.marchem.2016.01.008</a>.</p>
+</div>
+<div id="ref-Twardowski2004">
+<p>Twardowski, Michael S., Emmanuel Boss, James M. Sullivan, and Percy L. Donaghay. 2004. “Modeling the spectral shape of absorption by chromophoric dissolved organic matter.” <em>Marine Chemistry</em> 89 (1-4): 69–88. doi:<a href="https://doi.org/10.1016/j.marchem.2004.02.008">10.1016/j.marchem.2004.02.008</a>.</p>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="dom-measurements.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="what-is-cdom.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="mathematical-formulation-of-absorption-spectra.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="metrics.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
